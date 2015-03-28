@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Campaña</h1>
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="overlordName">Señor supremo:</label>
+      <input type="text" class="form-control" id="overlordName" placeholder="Nombre del señor supremo" ng-model="main.model.overlord.name">
+    </div>
+    <div class="form-group">
+      <label for="plot">Trama:</label>
+      <input type="text" class="form-control" id="plot" placeholder="Trama" ng-model="main.model.overlord.plot">
+    </div>
+
+    <!-- Avances -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Avances</div>
+      <div class="panel-body">
+
+        <label for="plotAdvance">Avances de trama:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="plotAdvance" placeholder="Avance de trama" ng-model="main.addInputs.plotAdvance.name" >
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-click="main.api.addPlotAdvance()" aria-label="Agregar avance de trama">Agregar</button>
+          </span>
+        </div>
+        <div ui-sortable>      
+            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px; cursor: move;">
+                <input type="text" ng-model="advance.name" class="form-control" />
+                <span class="input-group-btn">  
+                  <button class="btn btn-danger" ng-click="main.api.removePlotAdvance($index)" aria-label="Eliminar avance de trama">X</button>
+                </span>
+            </p>
+         </div>
+        
+
+        <label for="commonAdvance">Avances comunes:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="commonAdvance" placeholder="Avance común" ng-model="main.addInputs.commonAdvance.name" >
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-click="main.api.addCommonAdvance()" aria-label="Agregar avance común">Agregar</button>
+          </span>
+        </div>
+        <div ui-sortable>      
+            <p class="input-group" ng-repeat="advance in main.model.overlord.commonAdvances track by $index" style="padding:5px 10px; cursor: move;">
+                <input type="text" ng-model="advance.name" class="form-control" />
+                <span class="input-group-btn">  
+                  <button class="btn btn-danger" ng-click="main.api.removeCommonAdvance($index)" aria-label="Eliminar avance común">X</button>
+                </span>
+            </p>
+        </div>
+
+
+      </div>  
+    </div>
+    <!-- Fin  Avances -------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Lugartenientes</div>
+      <div class="panel-body">
+
+        <label for="plotAdvance">Avances de trama:</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="plotAdvance" placeholder="Avance de trama" ng-model="main.addInputs.plotAdvance.name" >
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-click="main.api.addPlotAdvance()" aria-label="Agregar avance de trama">Agregar</button>
+          </span>
+        </div>
+        <div ui-sortable>      
+            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px; cursor: move;">
+                <input type="text" ng-model="advance.name" class="form-control" />
+                <span class="input-group-btn">  
+                  <button class="btn btn-danger" ng-click="main.api.removePlotAdvance($index)" aria-label="Eliminar avance de trama">X</button>
+                </span>
+            </p>
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+    <!-- Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
