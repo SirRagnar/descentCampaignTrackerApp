@@ -124,7 +124,7 @@
         </div>
         <div class="form-group">
           <div class="form-inline">
-            <label for="rumorName">Rumor/localización:</label>
+            <label for="rumorName">Rumor / localización:</label>
           </div>
           <div class="form-inline">
               <input type="text" class="form-control" id="rumorName" placeholder="Rumor activo" ng-model="main.model.heroParty.rumor.name">
@@ -136,7 +136,50 @@
     </div>
     <!-- Fin Grupo de héroes -------------------------------------------------------------------------------------------------------------------------->
 
-    
+    <!-- Puntos de conquista -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Puntos de conquista</div>
+      <div class="panel-body"> 
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Héroes:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">{{main.model.heroParty.conquestTockens}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Señor supremo:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">{{main.model.overlord.unspentTockens}} / {{main.model.overlord.conquestTockens}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Total campaña:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">{{main.model.heroParty.conquestTockens + main.model.overlord.conquestTockens}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Favor divino:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">Pdte implementar</p>
+          </div>
+        </div>
+        <!--
+        Héroes  122
+        Señor Supremo 11  / 216
+        Total Campaña 338; próximo nivel: 400
+        Favor divino: -2
+
+        -->
+
+      </div>
+    </div>
+    <!-- Puntos de conquista -------------------------------------------------------------------------------------------------------------------------->
+
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
