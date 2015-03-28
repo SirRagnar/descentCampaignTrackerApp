@@ -58,31 +58,32 @@
     <!-- Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
       <div class="panel-heading">Lugartenientes</div>
-      <div class="panel-body">
-
-        <label for="plotAdvance">Avances de trama:</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="plotAdvance" placeholder="Avance de trama" ng-model="main.addInputs.plotAdvance.name" >
-          <span class="input-group-btn">
-            <button class="btn btn-primary" ng-click="main.api.addPlotAdvance()" aria-label="Agregar avance de trama">Agregar</button>
-          </span>
-        </div>
-        <div ui-sortable>      
-            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px; cursor: move;">
-                <input type="text" ng-model="advance.name" class="form-control" />
-                <span class="input-group-btn">  
-                  <button class="btn btn-danger" ng-click="main.api.removePlotAdvance($index)" aria-label="Eliminar avance de trama">X</button>
-                </span>
-            </p>
-        </div>
-
-
-
-
-
+      <div class="panel-body">        
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Localización</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" class="form-control" id="lieutenantName" placeholder="Nombre de lugarteniente" ng-model="main.addInputs.lieutenant.name">
+              </td>
+              <td><input type="text" class="form-control" id="lieutenantLocation" placeholder="Localización" ng-model="main.addInputs.lieutenant.location"></td>
+              <td><button class="btn btn-primary" ng-click="main.api.addLieutenant()" aria-label="Agregar lugarteniente">Agregar</button></td>
+            </tr>
+            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px; cursor: move;" ui-sortable>
+              <td><input type="text" ng-model="lieutenant.name" class="form-control" /></td>
+              <td><input type="text" ng-model="lieutenant.location" class="form-control" /></td>
+              <td><button class="btn btn-danger" ng-click="main.api.removeLieutenant($index)" aria-label="Eliminar lugarteniente">X</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <!-- Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
+    <!-- Fin Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>

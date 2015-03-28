@@ -21,15 +21,19 @@ angular.module('descentCampaignTrackerApp')
     };
 
 
-    // Public API here
+    // Public API 
     return {      
       getModel: getModel,
+      
       newAdvance: newAdvance,
-      newLieutenant: newLieutenant,
       addPlotAdvance: addPlotAdvance,
       removePlotAdvance:removePlotAdvance,
       addCommonAdvance: addCommonAdvance,
-      removeCommonAdvance:removeCommonAdvance
+      removeCommonAdvance:removeCommonAdvance,
+
+      newLieutenant: newLieutenant,
+      addLieutenant: addLieutenant,
+      removeLieutenant: removeLieutenant
     };    
 
     function getModel() {
@@ -38,6 +42,10 @@ angular.module('descentCampaignTrackerApp')
 
     function newAdvance(){
       return {name:''};
+    }
+
+    function  newLieutenant(){
+      return {name: '', location: '', alive:true};
     }
 
     function addPlotAdvance(advance){
@@ -56,8 +64,13 @@ angular.module('descentCampaignTrackerApp')
       model.overlord.commonAdvances.splice(index, 1);
     }
 
-    function  newLieutenant(){
-      return {name: '', location: ''};
+    function addLieutenant(lieutenant){
+      model.lieutenants.push(lieutenant);
     }
+
+    function removeLieutenant(index){
+      model.lieutenants.splice(index, 1);
+    }
+
 
   });

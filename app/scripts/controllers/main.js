@@ -19,29 +19,49 @@ angular.module('descentCampaignTrackerApp')
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
     	plotAdvance: desModel.newAdvance(),
-    	commonAdvance: desModel.newAdvance()
+    	commonAdvance: desModel.newAdvance(),
+    	lieutenant: desModel.newLieutenant()
+               
     };
 
     main.api = {
     	addPlotAdvance: addPlotAdvance,    	
     	removePlotAdvance: desModel.removePlotAdvance,
-    	addCommonAdvance: addCommonAdvance
+    	addCommonAdvance: addCommonAdvance,
+    	addLieutenant: addLieutenant,
+    	removeLieutenant: desModel.removeLieutenant
     };
 
     function addPlotAdvance(){ 
-    	main.addInputs.plotAdvance = _addAdvance(main.addInputs.plotAdvance,desModel.addPlotAdvance);
+    	main.addInputs.plotAdvance = _addItem( main.addInputs.plotAdvance,
+    		                                   desModel.addPlotAdvance,
+    		                                   desModel.newAdvance);
     }
 
     function addCommonAdvance(){ 
-    	main.addInputs.commonAdvance = _addAdvance(main.addInputs.commonAdvance,desModel.addCommonAdvance);
+    	main.addInputs.commonAdvance = _addItem( main.addInputs.commonAdvance,
+    		                                     desModel.addCommonAdvance,
+    		                                     desModel.newAdvance);
     }
 
-    function _addAdvance(advance,addModelFunction){
-    	if(advance && angular.isDefined(advance.name) && angular.isString(advance.name) && advance.name.length>0){
-    		addModelFunction(advance);
-    		return desModel.newAdvance();
+    function addLieutenant(){
+    	main.addInputs.lieutenant = _addItem( main.addInputs.lieutenant,
+    		                                  desModel.addLieutenant,
+    		                                  desModel.newLieutenant);
+    }
+
+    /**
+     * Add entity item with attribute name not null using an addItemToModelFunction 
+     * if the name is not null. After that returns
+     * a new instance of the entity.
+     * If the name is null then returns de entity without adding the item to the model
+     */
+    function _addItem(item,addItemToModelFunction,newItemFunction){
+    	if(item && angular.isDefined(item.name) && angular.isString(item.name) && item.name.length>0){
+    		addItemToModelFunction(item);
+    		return newItemFunction();
     	}else{
-    		return advance;
+    		return item;
     	}
 
     }
