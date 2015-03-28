@@ -22,7 +22,7 @@ angular.module('descentCampaignTrackerApp')
       lieutenants:[/*{name: '', location:'' }*/],
       heroParty:{
         location: '',
-        homePort:'',
+        homePort: '',
         rumor:{name:'',location:''},
         heroes:[/*{name: '', xp: 0}*/],
         conquestTockens:0

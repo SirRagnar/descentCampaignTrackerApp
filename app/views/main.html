@@ -115,16 +115,20 @@
         </table>
 
         <div class="form-group">
+          <label for="homePort">Puerto seguro:</label>
+          <input type="text" class="form-control" id="homePort" placeholder="Puerto seguro" ng-model="main.model.heroParty.homePort">
+        </div>
+        <div class="form-group">
           <label for="heroPartyLocation">Localización actual del grupo:</label>
           <input type="text" class="form-control" id="heroPartyLocation" placeholder="Localización actual del grupo" ng-model="main.model.heroParty.location">
         </div>
         <div class="form-group">
-          <label for="heroPartyLocation">Rumor:</label>
           <div class="form-inline">
-            <div class="form-group">
+            <label for="rumorName">Rumor/localización:</label>
+          </div>
+          <div class="form-inline">
               <input type="text" class="form-control" id="rumorName" placeholder="Rumor activo" ng-model="main.model.heroParty.rumor.name">
               <input type="text" class="form-control" id="rumorLocation" placeholder="Localización del rumor" ng-model="main.model.heroParty.rumor.location">
-            </div>
           </div>
         </div>
 
