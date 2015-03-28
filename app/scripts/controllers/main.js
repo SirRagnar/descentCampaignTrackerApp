@@ -18,18 +18,24 @@ angular.module('descentCampaignTrackerApp')
     var main=this;
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
-    	plotAdvance: desModel.newAdvance(),
+    	plotAdvance:   desModel.newAdvance(),
     	commonAdvance: desModel.newAdvance(),
-    	lieutenant: desModel.newLieutenant()
-               
+    	lieutenant:    desModel.newLieutenant(),
+    	hero:          desModel.newHero()               
     };
 
     main.api = {
-    	addPlotAdvance: addPlotAdvance,    	
+    	addPlotAdvance:    addPlotAdvance,    	
     	removePlotAdvance: desModel.removePlotAdvance,
+    	
     	addCommonAdvance: addCommonAdvance,
+    	removeCommonAdvance: desModel.removeCommonAdvance,
+
     	addLieutenant: addLieutenant,
-    	removeLieutenant: desModel.removeLieutenant
+    	removeLieutenant: desModel.removeLieutenant,
+
+    	addHero: addHero,
+    	removeHero: desModel.removeHero
     };
 
     function addPlotAdvance(){ 
@@ -48,6 +54,12 @@ angular.module('descentCampaignTrackerApp')
     	main.addInputs.lieutenant = _addItem( main.addInputs.lieutenant,
     		                                  desModel.addLieutenant,
     		                                  desModel.newLieutenant);
+    }
+
+    function addHero(){
+    	main.addInputs.hero = _addItem( main.addInputs.hero,
+    		                            desModel.addHero,
+    		                            desModel.newHero);
     }
 
     /**

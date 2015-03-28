@@ -69,7 +69,8 @@
           </thead>
           <tbody>
             <tr>
-              <td><input type="text" class="form-control" id="lieutenantName" placeholder="Nombre de lugarteniente" ng-model="main.addInputs.lieutenant.name">
+              <td>
+                <input type="text" class="form-control" id="lieutenantName" placeholder="Nombre de lugarteniente" ng-model="main.addInputs.lieutenant.name">
               </td>
               <td><input type="text" class="form-control" id="lieutenantLocation" placeholder="Localización" ng-model="main.addInputs.lieutenant.location"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addLieutenant()" aria-label="Agregar lugarteniente">Agregar</button></td>
@@ -84,6 +85,54 @@
       </div>
     </div>
     <!-- Fin Lugartenientes -------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Grupo de héroes -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Héroes</div>
+      <div class="panel-body"> 
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>XP</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-show="main.model.heroParty.heroes.length<4">
+              <td>
+                <input type="text" class="form-control" id="heroName" placeholder="Nombre del héroe" ng-model="main.addInputs.hero.name">
+              </td>
+              <td><input type="number" class="form-control" id="heroXP" placeholder="XP del héroe" ng-model="main.addInputs.hero.xp"></td>
+              <td><button class="btn btn-primary" ng-click="main.api.addHero()" aria-label="Agregar héroe">Agregar</button></td>
+            </tr>
+            <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px; cursor: move;" ui-sortable>
+              <td><input type="text" ng-model="hero.name" class="form-control" /></td>
+              <td><input type="number" ng-model="hero.xp" class="form-control" /></td>
+              <td><button class="btn btn-danger" ng-click="main.api.removeHero($index)" aria-label="Eliminar héroe">X</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="form-group">
+          <label for="heroPartyLocation">Localización actual del grupo:</label>
+          <input type="text" class="form-control" id="heroPartyLocation" placeholder="Localización actual del grupo" ng-model="main.model.heroParty.location">
+        </div>
+        <div class="form-group">
+          <label for="heroPartyLocation">Rumor:</label>
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" id="rumorName" placeholder="Rumor activo" ng-model="main.model.heroParty.rumor.name">
+              <input type="text" class="form-control" id="rumorLocation" placeholder="Localización del rumor" ng-model="main.model.heroParty.rumor.location">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Fin Grupo de héroes -------------------------------------------------------------------------------------------------------------------------->
+
+    
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>

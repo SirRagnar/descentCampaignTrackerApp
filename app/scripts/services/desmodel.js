@@ -16,8 +16,17 @@ angular.module('descentCampaignTrackerApp')
         plot: '',
         plotAdvances: [/*{ name: }*/],
         commonAdvances: [/*{name: }*/],
+        conquestTockens:0,
+        unspentTockens:0
       },
-      lieutenants:[/*{name: '', location:'' }*/]
+      lieutenants:[/*{name: '', location:'' }*/],
+      heroParty:{
+        location: '',
+        homePort:'',
+        rumor:{name:'',location:''},
+        heroes:[/*{name: '', xp: 0}*/],
+        conquestTockens:0
+      }
     };
 
 
@@ -25,15 +34,19 @@ angular.module('descentCampaignTrackerApp')
     return {      
       getModel: getModel,
       
-      newAdvance: newAdvance,
-      addPlotAdvance: addPlotAdvance,
-      removePlotAdvance:removePlotAdvance,
-      addCommonAdvance: addCommonAdvance,
-      removeCommonAdvance:removeCommonAdvance,
+      newAdvance:          newAdvance,
+      addPlotAdvance:      addPlotAdvance,
+      removePlotAdvance:   removePlotAdvance,
+      addCommonAdvance:    addCommonAdvance,
+      removeCommonAdvance: removeCommonAdvance,
 
-      newLieutenant: newLieutenant,
-      addLieutenant: addLieutenant,
-      removeLieutenant: removeLieutenant
+      newLieutenant:    newLieutenant,
+      addLieutenant:    addLieutenant,
+      removeLieutenant: removeLieutenant,
+
+      newHero:    newHero,
+      addHero:    addHero,
+      removeHero: removeHero
     };    
 
     function getModel() {
@@ -46,6 +59,10 @@ angular.module('descentCampaignTrackerApp')
 
     function  newLieutenant(){
       return {name: '', location: '', alive:true};
+    }
+
+    function newHero(){
+      return {name: '', xp:0};
     }
 
     function addPlotAdvance(advance){
@@ -72,5 +89,11 @@ angular.module('descentCampaignTrackerApp')
       model.lieutenants.splice(index, 1);
     }
 
+    function addHero(hero){
+      model.heroParty.heroes.push(hero);
+    }
 
+    function removeHero(index){
+      model.heroParty.heroes.splice(index, 1);      
+    }
   });
