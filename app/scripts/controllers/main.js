@@ -52,6 +52,7 @@ angular.module('descentCampaignTrackerApp')
       	addCity: 			addCity,
       	removeCity: 		desModel.removeCity,
       	addCitySiegeTocken: desModel.addCitySiegeTocken,
+      	togleCityRazed:     desModel.togleCityRazed,
 
     	divineFavor: 			desModel.divineFavor,
     	totalCampaignTockens: 	desModel.totalCampaignTockens,

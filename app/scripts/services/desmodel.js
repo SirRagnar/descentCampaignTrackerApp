@@ -71,6 +71,7 @@ angular.module('descentCampaignTrackerApp')
       addCity:            addCity,
       removeCity:         removeCity,
       addCitySiegeTocken: addCitySiegeTocken,
+      togleCityRazed:     togleCityRazed,
 
       newDungeon:   newDungeon,
       newIsland:    newIsland,
@@ -110,6 +111,7 @@ angular.module('descentCampaignTrackerApp')
       var city = angular.extend({}, _newLocation('C'));
       city.siege=0;
       city.vault='';
+      city.razed=false;
       return city;
     }
 
@@ -228,6 +230,12 @@ angular.module('descentCampaignTrackerApp')
       if(finalCitySiegetockens>=0){
         city.siege = finalCitySiegetockens;
       }
+    }
+
+    function togleCityRazed(city){
+      console.log('Invirtiendo city. Antes: ' + city.razed);
+      city.razed=(!city.razed);
+      console.log('Invirtiendo city. Después: ' + city.razed);
     }
 
 

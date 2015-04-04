@@ -239,16 +239,34 @@
               <td><button class="btn btn-primary" ng-click="main.api.addCity()" aria-label="Agregar ciudad">Agregar</button></td>
             </tr>
             <tr ng-repeat="city in main.model.locations.cities track by $index" style="padding:5px 10px;" ui-sortable>
-              <td><input type="text" ng-model="city.name" class="form-control" /></td>
+              <td>               
+                <input type="text" ng-model="city.name" class="form-control" />
+              </td>
               <td>
                 <p class="form-control-static">
                   <span ng-bind="city.siege"></span>
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,+1)"></span>
                   <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,-1)"></span>
+
+                  <span class="label label-success" ng-show="city.siege===0&amp;&amp;!city.razed">Libre</span>                  
+                  <span class="label label-warning" ng-show="city.siege>0&amp;&amp;!city.razed">Bajo asedio</span>
+                  <span class="label label-danger"  ng-show="city.razed">Arrasada</span>
                 </p>
-              </td>
+              </td>              
               <td><input type="text" ng-model="city.vault" class="form-control" /></td>
-              <td><button class="btn btn-danger" ng-click="main.api.removeCity($index)" aria-label="Eliminar ciudad">X</button></td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Acciones sobre la ciudad">                  
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Acciones <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li ng-class="city.razed? 'disabled':''        " ><a ng-click="main.api.togleCityRazed(city)">Arrasar ciudad</a></li>
+                    <li ng-class="city.razed? ''        :'disabled'" ><a ng-click="main.api.togleCityRazed(city)">Restaurar ciudad</a></li>
+                    <li class="divider"></li>
+                    <li><a ng-click="main.api.removeCity($index)">Eliminar ciudad</a></li>
+                  </ul>                  
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>
