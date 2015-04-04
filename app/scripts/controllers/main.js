@@ -21,7 +21,10 @@ angular.module('descentCampaignTrackerApp')
     	plotAdvance:   desModel.newAdvance(),
     	commonAdvance: desModel.newAdvance(),
     	lieutenant:    desModel.newLieutenant(),
-    	hero:          desModel.newHero()               
+    	hero:          desModel.newHero(),
+    	city:          desModel.newCity(),
+    	island:        desModel.newIsland(),
+    	dungeon:       desModel.newDungeon()     
     };
 
     main.api = {
@@ -45,6 +48,10 @@ angular.module('descentCampaignTrackerApp')
     	addHeroesConquestTockens: 	desModel.addHeroesConquestTockens,
     	addSpentHeroXP: 			desModel.addSpentHeroXP,
     	xpAviableHero: 				desModel.xpAviableHero,
+      	
+      	addCity: 			addCity,
+      	removeCity: 		desModel.removeCity,
+      	addCitySiegeTocken: desModel.addCitySiegeTocken,
 
     	divineFavor: 			desModel.divineFavor,
     	totalCampaignTockens: 	desModel.totalCampaignTockens,
@@ -72,6 +79,12 @@ angular.module('descentCampaignTrackerApp')
     function addHero(){
     	main.addInputs.hero = _addItem( main.addInputs.hero,
     		                            desModel.addHero,
+    		                            desModel.newHero);
+    }
+
+    function addCity(){
+    	main.addInputs.city = _addItem( main.addInputs.city,
+    		                            desModel.addCity,
     		                            desModel.newHero);
     }
 

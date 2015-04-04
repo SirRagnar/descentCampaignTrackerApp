@@ -31,6 +31,11 @@ angular.module('descentCampaignTrackerApp')
         rumor:{name:'',location:''},
         heroes:[/*{name: '', xpSpent: 0}*/],
         conquestTockens:0
+      },
+      locations:{
+        cities:[],
+        dungeons:[],
+        islands:[]
       }
     };
 
@@ -62,6 +67,14 @@ angular.module('descentCampaignTrackerApp')
       addSpentHeroXP:             addSpentHeroXP,
       xpAviableHero:              xpAviableHero,
 
+      newCity:            newCity,
+      addCity:            addCity,
+      removeCity:         removeCity,
+      addCitySiegeTocken: addCitySiegeTocken,
+
+      newDungeon:   newDungeon,
+      newIsland:    newIsland,
+
       divineFavor:          divineFavor,
       totalCampaignTockens: totalCampaignTockens,
       campaignLevel:        campaignLevel
@@ -80,9 +93,42 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function newHero(){
-      return { name: '', 
-               xpSpent:null
-             };
+      return { 
+        name: '', 
+        xpSpent:null
+      };
+    }
+
+    function _newLocation(locationType){
+      return {
+        name: '',
+        type: locationType
+      };
+    }
+
+    function newCity(){
+      var city = angular.extend({}, _newLocation('C'));
+      city.siege=0;
+      city.vault='';
+      return city;
+    }
+
+    function _newAdventureLocation(){
+      var location = angular.extend({}, _newLocation('A'));
+      location.visited=false;
+      location.conquered=false;
+      location.levels=['','',''];
+      return location;
+    }
+
+    function newIsland(){
+      var island = _newAdventureLocation();
+      island.levels[0]='Superficie';
+      return island;
+    }
+
+    function newDungeon(){
+      return _newAdventureLocation();
     }
 
     function addPlotAdvance(advance){
@@ -139,6 +185,7 @@ angular.module('descentCampaignTrackerApp')
 
 
     function addHero(hero){
+      hero.xpSpent = Math.max(0, (hero.xpSpent || 0));
       model.heroParty.heroes.push(hero);
     }
 
@@ -163,6 +210,24 @@ angular.module('descentCampaignTrackerApp')
 
     function xpAviableHero(hero){
       return (model.heroParty.conquestTockens || 0) - (hero.xpSpent||0); 
+    }
+
+    function addCity(city){
+      city.siege = Math.max(0, (city.siege || 0));
+
+      model.locations.cities.push(city);
+    }
+
+    function removeCity(index){
+      model.locations.cities.splice(index, 1);
+    }
+
+    function addCitySiegeTocken(city, amount){
+      var finalCitySiegetockens = (city.siege || 0) + (amount || 0);
+
+      if(finalCitySiegetockens>=0){
+        city.siege = finalCitySiegetockens;
+      }
     }
 
 
