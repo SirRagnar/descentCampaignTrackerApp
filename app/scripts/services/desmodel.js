@@ -20,6 +20,11 @@ angular.module('descentCampaignTrackerApp')
         spentTockens:0
       },
       lieutenants:[/*{name: '', location:'' }*/],
+      monsterLevels:[
+        {name: 'Humanoides', level: 1},
+        {name: 'Bestias', level:1},
+        {name: 'Arcanos', level:1}
+      ],
       heroParty:{
         location: '',
         homePort: '',
@@ -43,6 +48,8 @@ angular.module('descentCampaignTrackerApp')
       newLieutenant:    newLieutenant,
       addLieutenant:    addLieutenant,
       removeLieutenant: removeLieutenant,
+
+      modifyMonsterLevel: modifyMonsterLevel,
 
       addOverlordConquestTockens:       addOverlordConquestTockens, 
       addOverlordSpentTockens:          addOverlordSpentTockens,
@@ -102,6 +109,14 @@ angular.module('descentCampaignTrackerApp')
       model.lieutenants.splice(index, 1);
     }
 
+    function modifyMonsterLevel(monsterLevel, amount){
+      var currentLevel=(monsterLevel.level || 1);
+      var amountNS = (amount || 0);
+      var finalLevel = currentLevel + amount;
+      if(finalLevel>=1 && finalLevel<=4){
+        monsterLevel.level=finalLevel;
+      }
+    }
 
     function addOverlordConquestTockens(amount){
       var finalConquestTockens = (model.overlord.conquestTockens || 0) + (amount ||0);

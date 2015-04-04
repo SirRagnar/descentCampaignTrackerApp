@@ -192,17 +192,30 @@
             <p class="form-control-static">{{main.api.divineFavor()}}</p>
           </div>
         </div>
-        <!--
-        Héroes  122
-        Señor Supremo 11  / 216
-        Total Campaña 338; próximo nivel: 400
-        Favor divino: -2
-
-        -->
-
       </div>
     </div>
     <!-- Puntos de conquista -------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Nivel monstruos -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Nivel de monstruos</div>
+      <div class="panel-body"> 
+
+      <div class="form-group" ng-repeat="monsterLevel in main.model.monsterLevels">
+          <label class="col-sm-5 control-label" ng-bind="monsterLevel.name"></label>
+          <div class="col-sm-7">
+            <p class="form-control-static">{{monsterLevel | rgtDesMonsterLevel}}
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.modifyMonsterLevel(monsterLevel, +1)" ></span>
+              <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.modifyMonsterLevel(monsterLevel, -1)" ></span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Nivel monstruos -------------------------------------------------------------------------------------------------------------------------->
+
 
     <button type="submit" class="btn btn-default">Submit</button>
 </form>

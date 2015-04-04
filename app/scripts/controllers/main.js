@@ -34,6 +34,8 @@ angular.module('descentCampaignTrackerApp')
     	addLieutenant: 		addLieutenant,
     	removeLieutenant: 	desModel.removeLieutenant,
 
+    	modifyMonsterLevel: desModel.modifyMonsterLevel,
+
       	addOverlordConquestTockens:       desModel.addOverlordConquestTockens, 
       	addOverlordSpentTockens:          desModel.addOverlordSpentTockens,
       	overlordAviableConquestTockens:   desModel.overlordAviableConquestTockens,
