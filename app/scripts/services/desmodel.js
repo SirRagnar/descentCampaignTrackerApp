@@ -71,10 +71,19 @@ angular.module('descentCampaignTrackerApp')
       addCity:            addCity,
       removeCity:         removeCity,
       addCitySiegeTocken: addCitySiegeTocken,
-      togleCityRazed:     togleCityRazed,
+      toggleCityRazed:     toggleCityRazed,
 
-      newDungeon:   newDungeon,
+      toggleAdvLocVisited:   toggleAdvLocVisited,
+      toggleAdvLocConquered: toggleAdvLocConquered,
+      toggleAdvLocFailed:    toggleAdvLocFailed,
+
+      newDungeon:     newDungeon,
+      addDungeon:     addDungeon,
+      removeDungeon:  removeDungeon, 
+
       newIsland:    newIsland,
+      addIsland:    addIsland,
+      removeIsland: removeIsland,
 
       divineFavor:          divineFavor,
       totalCampaignTockens: totalCampaignTockens,
@@ -119,18 +128,20 @@ angular.module('descentCampaignTrackerApp')
       var location = angular.extend({}, _newLocation('A'));
       location.visited=false;
       location.conquered=false;
-      location.levels=['','',''];
+      location.failed=false;
       return location;
     }
 
     function newIsland(){
       var island = _newAdventureLocation();
-      island.levels[0]='Superficie';
+      island.levels=['',''];
       return island;
     }
 
     function newDungeon(){
-      return _newAdventureLocation();
+      var dungeon = _newAdventureLocation();
+      dungeon.levels=['','',''];
+      return dungeon;
     }
 
     function addPlotAdvance(advance){
@@ -232,12 +243,44 @@ angular.module('descentCampaignTrackerApp')
       }
     }
 
-    function togleCityRazed(city){
-      console.log('Invirtiendo city. Antes: ' + city.razed);
+    function toggleCityRazed(city){
       city.razed=(!city.razed);
-      console.log('Invirtiendo city. Después: ' + city.razed);
     }
 
+
+    function toggleAdvLocVisited(location,flag){
+        if(!location.conquered && !location.failed){
+          location.visited=flag;
+        }
+    }
+
+    function toggleAdvLocConquered(location,flag){
+      if(location.visited && !location.failed){
+        location.conquered=flag;
+      }
+    }
+    
+    function toggleAdvLocFailed(location,flag){
+      if(location.visited && !location.conquered){
+        location.failed=flag;
+      }
+    }
+
+    function addDungeon(dungeon){
+      model.locations.dungeons.push(dungeon);
+    }
+
+    function removeDungeon(index){
+      model.locations.dungeons.splice(index, 1);
+    }
+
+    function addIsland(island){
+      model.locations.islands.push(island);
+    }
+
+    function removeIsland(index){
+      model.locations.islands.splice(index, 1);
+    }
 
     function divineFavor(){      
       /*

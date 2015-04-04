@@ -260,8 +260,8 @@
                     Acciones <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li ng-class="city.razed? 'disabled':''        " ><a ng-click="main.api.togleCityRazed(city)">Arrasar ciudad</a></li>
-                    <li ng-class="city.razed? ''        :'disabled'" ><a ng-click="main.api.togleCityRazed(city)">Restaurar ciudad</a></li>
+                    <li ng-class="city.razed? 'disabled':''        " ><a ng-click="main.api.toggleCityRazed(city)">Arrasar ciudad</a></li>
+                    <li ng-class="city.razed? ''        :'disabled'" ><a ng-click="main.api.toggleCityRazed(city)">Restaurar ciudad</a></li>
                     <li class="divider"></li>
                     <li><a ng-click="main.api.removeCity($index)">Eliminar ciudad</a></li>
                   </ul>                  
@@ -274,6 +274,175 @@
       </div>
     </div>
     <!-- Fin Ciudades -------------------------------------------------------------------------------------------------------------------------->
+
+    <!-- Dungeons -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Dungeons</div>
+      <div class="panel-body"> 
+
+         <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th ng-repeat="level in main.addInputs.dungeon.levels track by $index">Nivel <span ng-bind="{{::$index + 1}}"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>
+                <input type="text" class="form-control" id="dungeonName" placeholder="Nombre del dungeon" ng-model="main.addInputs.dungeon.name">
+              </td>
+              <td></td>
+              <td ng-repeat="level in main.addInputs.dungeon.levels track by $index">
+                <input type="text" class="form-control" 
+                       ng-id="dungeonLevel{{::$index + 1}}" 
+                       placeholder="Nivel {{::$index + 1}}" 
+                       ng-model="main.addInputs.dungeon.levels[$index]">
+              </td>
+              <td><button class="btn btn-primary" ng-click="main.api.addDungeon()" aria-label="Agregar dungeon">Agregar</button></td>
+            </tr>
+            <tr ng-repeat="location in main.model.locations.dungeons track by $index" style="padding:5px 10px;" ui-sortable>
+              <td>               
+                <input type="text" ng-model="location.name" class="form-control" />
+              </td>
+              <td>
+                <p class="form-control-static">                
+                  <span class="label label-default" ng-show="!location.visited">Desconocido</span>                  
+                  <span class="label label-primary" ng-show="location.visited &amp;&amp; !location.conquered &amp;&amp; !location.failed">Visitado</span>
+                  <span class="label label-success" ng-show="location.conquered">Conquistado</span>
+                  <span class="label label-danger"  ng-show="location.failed">Derrota</span>
+                </p>
+              </td>
+              <td ng-repeat="level in location.levels track by $index">
+                <input type="text" class="form-control"                        
+                       placeholder="Nivel {{::$index +1}}" 
+                       ng-model="location.levels[$index]">
+              </td>   
+              <td>
+                <div class="btn-group" role="group" aria-label="Acciones sobre el dungeon">                  
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Acciones <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li ng-class="location.visited? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocVisited(location,true)">Visitado</a>
+                    </li>
+                    <li ng-class="location.visited  &amp;&amp; !location.conquered &amp;&amp; !location.failed? '':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocVisited(location,false)">Restaurar no visitado</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocConquered(location,true)">Conquistado</a>
+                    </li>
+                    <li ng-class="location.conquered?'':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocConquered(location,false)">Restaurar no conquistado</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocFailed(location,true)">Derrota</a>
+                    </li>
+                    <li ng-class="location.failed?'':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocFailed(location,false)">Restaurar no derrota</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a ng-click="main.api.removeDungeon($index)">Eliminar dungeon</a></li>
+                  </ul>                  
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+    <!-- Fin Dungeons -------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Islas -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Islas</div>
+      <div class="panel-body"> 
+
+         <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th ng-repeat="level in main.addInputs.island.levels track by $index">Nivel <span ng-bind="{{::$index + 1}}"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr >
+              <td>
+                <input type="text" class="form-control" id="dungeonName" placeholder="Nombre de la isla" ng-model="main.addInputs.island.name">
+              </td>
+              <td></td>
+              <td ng-repeat="level in main.addInputs.island.levels track by $index">
+                <input type="text" class="form-control" 
+                       ng-id="islandLevel{{::$index + 1}}" 
+                       placeholder="Nivel {{::$index + 1}}" 
+                       ng-model="main.addInputs.island.levels[$index]">
+              </td>
+              <td><button class="btn btn-primary" ng-click="main.api.addIsland()" aria-label="Agregar isla">Agregar</button></td>
+            </tr>
+            <tr ng-repeat="location in main.model.locations.islands track by $index" style="padding:5px 10px;" ui-sortable>
+              <td>               
+                <input type="text" ng-model="location.name" class="form-control" />
+              </td>
+              <td>
+                <p class="form-control-static">                
+                  <span class="label label-default" ng-show="!location.visited">Desconocida</span>                  
+                  <span class="label label-primary" ng-show="location.visited &amp;&amp; !location.conquered &amp;&amp; !location.failed">Visitada</span>
+                  <span class="label label-success" ng-show="location.conquered">Conquistada</span>
+                  <span class="label label-danger"  ng-show="location.failed">Derrota</span>
+                </p>
+              </td>
+              <td ng-repeat="level in location.levels track by $index">
+                <input type="text" class="form-control"                        
+                       placeholder="Nivel {{::$index}}" 
+                       ng-model="location.levels[$index]">
+              </td>   
+              <td>
+                <div class="btn-group" role="group" aria-label="Acciones sobre la isla">                  
+                  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    Acciones <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li ng-class="location.visited? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocVisited(location,true)">Visitada</a>
+                    </li>
+                    <li ng-class="location.visited  &amp;&amp; !location.conquered &amp;&amp; !location.failed? '':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocVisited(location,false)">Restaurar no visitada</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocConquered(location,true)">Conquistada</a>
+                    </li>
+                    <li ng-class="location.conquered?'':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocConquered(location,false)">Restaurar no conquistada</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
+                      <a ng-click="main.api.toggleAdvLocFailed(location,true)">Derrota</a>
+                    </li>
+                    <li ng-class="location.failed?'':'disabled'" >
+                      <a ng-click="main.api.toggleAdvLocFailed(location,false)">Restaurar no derrota</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a ng-click="main.api.removeIsland($index)">Eliminar isla</a></li>
+                  </ul>                  
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+    <!-- Fin Islas -------------------------------------------------------------------------------------------------------------------------->
     
     <button type="submit" class="btn btn-default">Submit</button>
 </form>

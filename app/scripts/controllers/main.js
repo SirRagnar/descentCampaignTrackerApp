@@ -52,7 +52,17 @@ angular.module('descentCampaignTrackerApp')
       	addCity: 			addCity,
       	removeCity: 		desModel.removeCity,
       	addCitySiegeTocken: desModel.addCitySiegeTocken,
-      	togleCityRazed:     desModel.togleCityRazed,
+      	toggleCityRazed:     desModel.toggleCityRazed,
+
+      	toggleAdvLocVisited:   desModel.toggleAdvLocVisited,
+      	toggleAdvLocConquered: desModel.toggleAdvLocConquered,
+      	toggleAdvLocFailed:    desModel.toggleAdvLocFailed,
+
+      	addDungeon: 	addDungeon,
+      	removeDungeon: 	desModel.removeDungeon,
+
+      	addIsland:    addIsland,
+      	removeIsland: desModel.removeIsland,
 
     	divineFavor: 			desModel.divineFavor,
     	totalCampaignTockens: 	desModel.totalCampaignTockens,
@@ -86,7 +96,19 @@ angular.module('descentCampaignTrackerApp')
     function addCity(){
     	main.addInputs.city = _addItem( main.addInputs.city,
     		                            desModel.addCity,
-    		                            desModel.newHero);
+    		                            desModel.newCity);
+    }
+
+    function addDungeon(){
+    	main.addInputs.dungeon = _addItem( main.addInputs.dungeon,
+    									   desModel.addDungeon,
+    									   desModel.newDungeon);
+    }
+
+    function addIsland(){
+    	main.addInputs.island = _addItem( main.addInputs.island,
+    									  desModel.addIsland,
+    									  desModel.newIsland);
     }
 
     /**
