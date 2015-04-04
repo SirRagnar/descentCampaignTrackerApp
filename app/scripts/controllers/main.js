@@ -28,14 +28,25 @@ angular.module('descentCampaignTrackerApp')
     	addPlotAdvance:    addPlotAdvance,    	
     	removePlotAdvance: desModel.removePlotAdvance,
     	
-    	addCommonAdvance: addCommonAdvance,
+    	addCommonAdvance: 	 addCommonAdvance,
     	removeCommonAdvance: desModel.removeCommonAdvance,
 
-    	addLieutenant: addLieutenant,
-    	removeLieutenant: desModel.removeLieutenant,
+    	addLieutenant: 		addLieutenant,
+    	removeLieutenant: 	desModel.removeLieutenant,
 
-    	addHero: addHero,
-    	removeHero: desModel.removeHero
+      	addOverlordConquestTockens:       desModel.addOverlordConquestTockens, 
+      	addOverlordSpentTockens:          desModel.addOverlordSpentTockens,
+      	overlordAviableConquestTockens:   desModel.overlordAviableConquestTockens,
+
+    	addHero: 					addHero,
+    	removeHero: 				desModel.removeHero,
+    	addHeroesConquestTockens: 	desModel.addHeroesConquestTockens,
+    	addSpentHeroXP: 			desModel.addSpentHeroXP,
+    	xpAviableHero: 				desModel.xpAviableHero,
+
+    	divineFavor: 			desModel.divineFavor,
+    	totalCampaignTockens: 	desModel.totalCampaignTockens,
+    	campaignLevel: 			desModel.campaignLevel
     };
 
     function addPlotAdvance(){ 

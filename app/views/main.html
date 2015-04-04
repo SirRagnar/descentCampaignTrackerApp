@@ -25,7 +25,7 @@
           </span>
         </div>
         <div ui-sortable>      
-            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px; cursor: move;">
+            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px;">
                 <input type="text" ng-model="advance.name" class="form-control" />
                 <span class="input-group-btn">  
                   <button class="btn btn-danger" ng-click="main.api.removePlotAdvance($index)" aria-label="Eliminar avance de trama">X</button>
@@ -42,7 +42,7 @@
           </span>
         </div>
         <div ui-sortable>      
-            <p class="input-group" ng-repeat="advance in main.model.overlord.commonAdvances track by $index" style="padding:5px 10px; cursor: move;">
+            <p class="input-group" ng-repeat="advance in main.model.overlord.commonAdvances track by $index" style="padding:5px 10px;">
                 <input type="text" ng-model="advance.name" class="form-control" />
                 <span class="input-group-btn">  
                   <button class="btn btn-danger" ng-click="main.api.removeCommonAdvance($index)" aria-label="Eliminar avance común">X</button>
@@ -75,7 +75,7 @@
               <td><input type="text" class="form-control" id="lieutenantLocation" placeholder="Localización" ng-model="main.addInputs.lieutenant.location"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addLieutenant()" aria-label="Agregar lugarteniente">Agregar</button></td>
             </tr>
-            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px; cursor: move;" ui-sortable>
+            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px;" ui-sortable>
               <td><input type="text" ng-model="lieutenant.name" class="form-control" /></td>
               <td><input type="text" ng-model="lieutenant.location" class="form-control" /></td>
               <td><button class="btn btn-danger" ng-click="main.api.removeLieutenant($index)" aria-label="Eliminar lugarteniente">X</button></td>
@@ -103,12 +103,18 @@
               <td>
                 <input type="text" class="form-control" id="heroName" placeholder="Nombre del héroe" ng-model="main.addInputs.hero.name">
               </td>
-              <td><input type="number" class="form-control" id="heroXP" placeholder="XP del héroe" ng-model="main.addInputs.hero.xp"></td>
+              <td><input type="number" class="form-control" id="heroXPSpent" placeholder="XP gastados" ng-model="main.addInputs.hero.xpSpent"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addHero()" aria-label="Agregar héroe">Agregar</button></td>
             </tr>
-            <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px; cursor: move;" ui-sortable>
+            <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px;" ui-sortable>
               <td><input type="text" ng-model="hero.name" class="form-control" /></td>
-              <td><input type="number" ng-model="hero.xp" class="form-control" /></td>
+              <td>
+                <p class="form-control-static">
+                  {{main.api.xpAviableHero(hero)}}                    
+                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addSpentHeroXP(hero,-1)"></span>
+                  <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addSpentHeroXP(hero,+1)"></span>
+                </p>
+              </td>
               <td><button class="btn btn-danger" ng-click="main.api.removeHero($index)" aria-label="Eliminar héroe">X</button></td>
             </tr>
           </tbody>
@@ -144,28 +150,46 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Héroes:</label>
           <div class="col-sm-7">
-            <p class="form-control-static">{{main.model.heroParty.conquestTockens}}</p>
+            <p class="form-control-static">{{main.model.heroParty.conquestTockens}}
+              <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addHeroesConquestTockens(+1)" ></span>
+              <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addHeroesConquestTockens(-1)" ></span>
+            </p>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-5 control-label">Señor supremo:</label>
           <div class="col-sm-7">
-            <p class="form-control-static">{{main.model.overlord.unspentTockens}} / {{main.model.overlord.conquestTockens}}</p>
+            <p class="form-control-static">
+              {{main.api.overlordAviableConquestTockens()}} 
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addOverlordSpentTockens(-1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addOverlordSpentTockens(+1)"></span>
+              / 
+              {{main.model.overlord.conquestTockens}}
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addOverlordConquestTockens(+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addOverlordConquestTockens(-1)"></span>
+            </p>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-5 control-label">Total campaña:</label>
-          <div class="col-sm-7">
-            <p class="form-control-static">{{main.model.heroParty.conquestTockens + main.model.overlord.conquestTockens}}</p>
+          <div class="col-sm-5">
+            <p class="form-control-static">{{main.api.totalCampaignTockens()}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Nivel de campaña:</label>
+          <div class="col-sm-5">
+            <p class="form-control-static">{{main.api.campaignLevel()}}</p>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-5 control-label">Favor divino:</label>
-          <div class="col-sm-7">
-            <p class="form-control-static">Pdte implementar</p>
+          <div class="col-sm-5">
+            <p class="form-control-static">{{main.api.divineFavor()}}</p>
           </div>
         </div>
         <!--
