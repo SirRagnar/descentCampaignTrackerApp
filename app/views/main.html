@@ -238,7 +238,7 @@
               <td><input type="text" class="form-control" id="cityVault" placeholder="Bóveda" ng-model="main.addInputs.city.vault"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addCity()" aria-label="Agregar ciudad">Agregar</button></td>
             </tr>
-            <tr ng-repeat="city in main.model.locations.cities track by $index" style="padding:5px 10px;" ui-sortable>
+            <tr ng-repeat="city in main.model.locations.cities track by $index" style="padding:5px 10px;">
               <td>               
                 <input type="text" ng-model="city.name" class="form-control" />
               </td>
@@ -522,8 +522,14 @@
     </div>
     <!-- Fin Perfidia -------------------------------------------------------------------------------------------------------------------------->
 
-
-    
-    <button type="submit" class="btn btn-default">Submit</button>
+    <div class="panel panel-default">
+      <div class="panel-heading">Perfidia</div>
+      <div class="panel-body"> 
+        <p>Modelo:</p>
+        <code>
+          {{main.model.locations}}
+        </code>
+      </div>
+    </div>
 </form>
 </div>
