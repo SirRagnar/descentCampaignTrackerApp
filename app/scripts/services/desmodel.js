@@ -8,7 +8,7 @@
  * Factory with the model services.
  */
 angular.module('descentCampaignTrackerApp')
-  .factory('desModel', function () {
+  .factory('desModel', ['desTreachery',function (desTreachery) {
     
     var model = {      
       overlord: { 
@@ -17,7 +17,12 @@ angular.module('descentCampaignTrackerApp')
         plotAdvances: [/*{ name: }*/],
         commonAdvances: [/*{name: }*/],
         conquestTockens:0,
-        spentTockens:0
+        spentTockens:0,
+        treachery:{
+          traps:    desTreachery.newTreacheryCounter(),/*{current:0, max:0}*/
+          events:   desTreachery.newTreacheryCounter(),
+          monsters: desTreachery.newTreacheryCounter()
+        }
       },
       lieutenants:[/*{name: '', location:'' }*/],
       monsterLevels:[
@@ -321,4 +326,4 @@ angular.module('descentCampaignTrackerApp')
       }
       return level;
     }
-  });
+  }]);

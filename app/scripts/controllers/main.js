@@ -8,13 +8,9 @@
  * Controller of the descentCampaignTrackerApp
  */
 angular.module('descentCampaignTrackerApp')
-  .controller('MainCtrl', ['$scope','desModel',function ($scope,desModel) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
+  .controller('MainCtrl', 
+  ['desModel', 'desTreachery',
+  function (desModel, desTreachery) {
     var main=this;
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
@@ -42,6 +38,9 @@ angular.module('descentCampaignTrackerApp')
       	addOverlordConquestTockens:       desModel.addOverlordConquestTockens, 
       	addOverlordSpentTockens:          desModel.addOverlordSpentTockens,
       	overlordAviableConquestTockens:   desModel.overlordAviableConquestTockens,
+
+      	increaseCurrentTreachery: 	desTreachery.increaseCurrentTreachery,
+      	increaseMaxTreachery: 		desTreachery.increaseMaxTreachery,
 
     	addHero: 					addHero,
     	removeHero: 				desModel.removeHero,

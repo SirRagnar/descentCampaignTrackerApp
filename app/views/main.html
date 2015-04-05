@@ -438,11 +438,91 @@
             </tr>
           </tbody>
         </table>
-
-
       </div>
     </div>
     <!-- Fin Islas -------------------------------------------------------------------------------------------------------------------------->
+
+
+    <!-- Perfidia -------------------------------------------------------------------------------------------------------------------------->
+    <div class="panel panel-default">
+      <div class="panel-heading">Perfidia</div>
+      <div class="panel-body"> 
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Perfidia de trampas:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">
+              <span ng-bind="main.model.overlord.treachery.traps.current"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.traps,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.traps,-1)"></span>
+              / 
+              <span ng-bind="main.model.overlord.treachery.traps.max"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.traps,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.traps,-1)"></span>
+            </p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Perfidia de eventos:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">
+              <span ng-bind="main.model.overlord.treachery.events.current"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.events,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.events,-1)"></span>
+              / 
+              <span ng-bind="main.model.overlord.treachery.events.max"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.events,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.events,-1)"></span>
+            </p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Perfidia de monstruos:</label>
+          <div class="col-sm-7">
+            <p class="form-control-static">
+              <span ng-bind="main.model.overlord.treachery.monsters.current"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.monsters,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseCurrentTreachery(main.model.overlord.treachery.monsters,-1)"></span>
+              / 
+              <span ng-bind="main.model.overlord.treachery.monsters.max"></span>
+                <span class="glyphicon glyphicon-plus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.monsters,+1)"></span>
+                <span class="glyphicon glyphicon-minus-sign" 
+                      aria-hidden="true" 
+                      ng-click="main.api.increaseMaxTreachery(main.model.overlord.treachery.monsters,-1)"></span>
+            </p>
+          </div>
+        </div>
+
+       
+      </div>
+    </div>
+    <!-- Fin Perfidia -------------------------------------------------------------------------------------------------------------------------->
+
+
     
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
