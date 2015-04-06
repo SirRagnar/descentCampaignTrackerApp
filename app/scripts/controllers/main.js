@@ -9,9 +9,13 @@
  */
 angular.module('descentCampaignTrackerApp')
   .controller('MainCtrl', 
-  ['desModel', 'desTreachery',
-  function (desModel, desTreachery) {
+  ['desCamaignCons','desModel', 'desTreachery',
+  function (desCamaignCons, desModel, desTreachery) {
     var main=this;
+    main.cons={
+    	campaign: desCamaignCons
+    };
+
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
     	plotAdvance:   desModel.newAdvance(),

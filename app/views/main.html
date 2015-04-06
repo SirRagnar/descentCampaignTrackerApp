@@ -99,7 +99,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-show="main.model.heroParty.heroes.length<4">
+            <tr ng-show="main.model.heroParty.heroes.length<main.cons.campaign.MAX_HERO_PARTY_SIZE">
               <td>
                 <input type="text" class="form-control" id="heroName" placeholder="Nombre del héroe" ng-model="main.addInputs.hero.name">
               </td>
