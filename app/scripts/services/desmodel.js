@@ -8,7 +8,7 @@
  * Factory with the model services.
  */
 angular.module('descentCampaignTrackerApp')
-  .factory('desModel', ['desTreachery',function (desTreachery) {
+  .factory('desModel', ['desCore', 'desTreachery',function (desCore, desTreachery) {
     
     var model = {      
       overlord: { 
@@ -204,7 +204,7 @@ angular.module('descentCampaignTrackerApp')
 
     function addHero(hero){
       hero.xpSpent = Math.max(0, (hero.xpSpent || 0));
-      model.heroParty.heroes.push(hero);
+      model.heroParty.heroes=desCore.orderAndAddNamedItemToArray(hero,model.heroParty.heroes);
     }
 
     function removeHero(index){
