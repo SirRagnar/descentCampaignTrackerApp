@@ -9,24 +9,25 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desModel', 
-    ['desCore','desHero', 'desTreachery',
-    function (desCore, desHero, desTreachery) {
+    ['desCore','desOverlord', 'desLieutenant', 'desHero', 'desLocation', 
+    function (desCore, desOverlord, desLieutenant, desHero, desLocation) {
     
     var model = {      
-      overlord: { 
-        name: '',
-        plot: '',
-        plotAdvances: [/*{ name: }*/],
-        commonAdvances: [/*{name: }*/],
-        conquestTockens:0,
-        spentTockens:0,
-        treachery:{
-          traps:    desTreachery.newTreacheryCounter(),/*{current:0, max:0}*/
-          events:   desTreachery.newTreacheryCounter(),
-          monsters: desTreachery.newTreacheryCounter()
-        }
-      },
-      lieutenants:[/*{name: '', location:'' }*/],
+      overlord: desOverlord.newOverlord(),
+                  /*{ 
+                    name: '',
+                    plot: '',
+                    plotAdvances: [{ name: '' }],
+                    commonAdvances: [{name: '' }],
+                    conquestTockens:0,
+                    spentTockens:0,
+                    treachery:{
+                      traps:    {current:0, max:0},
+                      events:   {current:0, max:0},
+                      monsters: {current:0, max:0}
+                    }
+                  }*/
+      lieutenants: desLieutenant.newLieutenants(), //[{name: '', location:'' }]
       monsterLevels:[
         {name: 'Humanoides', level: 1},
         {name: 'Bestias', level:1},
@@ -40,11 +41,14 @@ angular.module('descentCampaignTrackerApp')
                     heroes:[{name: '', xpSpent: 0}],
                     conquestTockens:0
                   }*/
-      locations:{
-        cities:[],
-        dungeons:[],
-        islands:[]
-      }
+      locations: desLocation.newLocations(),
+                  /*
+                  {
+                    cities:[],
+                    dungeons:[],
+                    islands:[]
+                  }
+                  */
     };
 
 
@@ -58,33 +62,7 @@ angular.module('descentCampaignTrackerApp')
       addCommonAdvance:    addCommonAdvance,
       removeCommonAdvance: removeCommonAdvance,
 
-      newLieutenant:    newLieutenant,
-      addLieutenant:    addLieutenant,
-      removeLieutenant: removeLieutenant,
-
       modifyMonsterLevel: modifyMonsterLevel,
-
-      addOverlordConquestTockens:       addOverlordConquestTockens, 
-      addOverlordSpentTockens:          addOverlordSpentTockens,
-      overlordAviableConquestTockens:   overlordAviableConquestTockens,
-      
-      newCity:            newCity,
-      addCity:            addCity,
-      removeCity:         removeCity,
-      addCitySiegeTocken: addCitySiegeTocken,
-      toggleCityRazed:     toggleCityRazed,
-
-      toggleAdvLocVisited:   toggleAdvLocVisited,
-      toggleAdvLocConquered: toggleAdvLocConquered,
-      toggleAdvLocFailed:    toggleAdvLocFailed,
-
-      newDungeon:     newDungeon,
-      addDungeon:     addDungeon,
-      removeDungeon:  removeDungeon, 
-
-      newIsland:    newIsland,
-      addIsland:    addIsland,
-      removeIsland: removeIsland,
 
       divineFavor:          divineFavor,
       totalCampaignTockens: totalCampaignTockens,
@@ -98,46 +76,6 @@ angular.module('descentCampaignTrackerApp')
     function newAdvance(){
       return {name:''};
     }
-
-    function  newLieutenant(){
-      return {name: '', location: '', alive:true};
-    }
-
-    function _newLocation(locationType){
-      return {
-        name: '',
-        type: locationType
-      };
-    }
-
-    function newCity(){
-      var city = angular.extend({}, _newLocation('C'));
-      city.siege=0;
-      city.vault='';
-      city.razed=false;
-      return city;
-    }
-
-    function _newAdventureLocation(){
-      var location = angular.extend({}, _newLocation('A'));
-      location.visited=false;
-      location.conquered=false;
-      location.failed=false;
-      return location;
-    }
-
-    function newIsland(){
-      var island = _newAdventureLocation();
-      island.levels=['',''];
-      return island;
-    }
-
-    function newDungeon(){
-      var dungeon = _newAdventureLocation();
-      dungeon.levels=['','',''];
-      return dungeon;
-    }
-
     function addPlotAdvance(advance){
       model.overlord.plotAdvances.push(advance);
     }
@@ -154,14 +92,6 @@ angular.module('descentCampaignTrackerApp')
       model.overlord.commonAdvances.splice(index, 1);
     }
 
-    function addLieutenant(lieutenant){
-      model.lieutenants.push(lieutenant);
-    }
-
-    function removeLieutenant(index){
-      model.lieutenants.splice(index, 1);
-    }
-
     function modifyMonsterLevel(monsterLevel, amount){
       var currentLevel=(monsterLevel.level || 1);
       var amountNS = (amount || 0);
@@ -169,82 +99,6 @@ angular.module('descentCampaignTrackerApp')
       if(finalLevel>=1 && finalLevel<=4){
         monsterLevel.level=finalLevel;
       }
-    }
-
-    function addOverlordConquestTockens(amount){
-      var finalConquestTockens = (model.overlord.conquestTockens || 0) + (amount ||0);
-      if(finalConquestTockens>=0){
-        model.overlord.conquestTockens = finalConquestTockens;
-      }
-    }
-
-    function addOverlordSpentTockens(amount){
-      var finalSpentTockens = (model.overlord.spentTockens || 0) + (amount ||0);
-      var overLordTockens=(model.overlord.conquestTockens || 0);
-      if(finalSpentTockens>=0 && finalSpentTockens<=overLordTockens){
-        model.overlord.spentTockens = finalSpentTockens;
-      }
-    }
-
-    function overlordAviableConquestTockens(){
-      return (model.overlord.conquestTockens || 0) - (model.overlord.spentTockens || 0);
-    }   
-
-    function addCity(city){
-      city.siege = Math.max(0, (city.siege || 0));
-
-      model.locations.cities.push(city);
-    }
-
-    function removeCity(index){
-      model.locations.cities.splice(index, 1);
-    }
-
-    function addCitySiegeTocken(city, amount){
-      var finalCitySiegetockens = (city.siege || 0) + (amount || 0);
-
-      if(finalCitySiegetockens>=0){
-        city.siege = finalCitySiegetockens;
-      }
-    }
-
-    function toggleCityRazed(city){
-      city.razed=(!city.razed);
-    }
-
-
-    function toggleAdvLocVisited(location,flag){
-        if(!location.conquered && !location.failed){
-          location.visited=flag;
-        }
-    }
-
-    function toggleAdvLocConquered(location,flag){
-      if(location.visited && !location.failed){
-        location.conquered=flag;
-      }
-    }
-    
-    function toggleAdvLocFailed(location,flag){
-      if(location.visited && !location.conquered){
-        location.failed=flag;
-      }
-    }
-
-    function addDungeon(dungeon){
-      model.locations.dungeons.push(dungeon);
-    }
-
-    function removeDungeon(index){
-      model.locations.dungeons.splice(index, 1);
-    }
-
-    function addIsland(island){
-      model.locations.islands.push(island);
-    }
-
-    function removeIsland(index){
-      model.locations.islands.splice(index, 1);
     }
 
     function divineFavor(){      

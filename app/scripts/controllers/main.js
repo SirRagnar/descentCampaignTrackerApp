@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .controller('MainCtrl', 
-  ['desCamaignCons','desModel', 'desHero', 'desTreachery',
-  function (desCamaignCons, desModel, desHero, desTreachery) {
+  ['desCamaignCons','desModel', 'desOverlord', 'desLieutenant', 'desHero', 'desLocation',
+  function (desCamaignCons, desModel, desOverlord, desLieutenant, desHero, desLocation) {
     var main=this;
     main.cons={
     	campaign: desCamaignCons
@@ -20,11 +20,11 @@ angular.module('descentCampaignTrackerApp')
     main.addInputs={
     	plotAdvance:   desModel.newAdvance(),
     	commonAdvance: desModel.newAdvance(),
-    	lieutenant:    desModel.newLieutenant(),
+    	lieutenant:    desLieutenant.newLieutenant(),
     	hero:          desHero.newHero(),
-    	city:          desModel.newCity(),
-    	island:        desModel.newIsland(),
-    	dungeon:       desModel.newDungeon()     
+    	city:          desLocation.newCity(),
+    	island:        desLocation.newIsland(),
+    	dungeon:       desLocation.newDungeon()     
     };
 
     main.api = {
@@ -35,16 +35,17 @@ angular.module('descentCampaignTrackerApp')
     	removeCommonAdvance: desModel.removeCommonAdvance,
 
     	addLieutenant: 		addLieutenant,
-    	removeLieutenant: 	desModel.removeLieutenant,
+    	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
 
     	modifyMonsterLevel: desModel.modifyMonsterLevel,
 
-      	addOverlordConquestTockens:       desModel.addOverlordConquestTockens, 
-      	addOverlordSpentTockens:          desModel.addOverlordSpentTockens,
-      	overlordAviableConquestTockens:   desModel.overlordAviableConquestTockens,
+      	addOverlordConquestTockens:     desOverlord.addOverlordConquestTockens.bind(undefined,main.model.overlord), 
+      	addOverlordSpentTockens:        desOverlord.addOverlordSpentTockens.bind(undefined,main.model.overlord),
+      	overlordAviableConquestTockens: desOverlord.overlordAviableConquestTockens
+      											   .bind(undefined,main.model.overlord),
 
-      	increaseCurrentTreachery: 	desTreachery.increaseCurrentTreachery,
-      	increaseMaxTreachery: 		desTreachery.increaseMaxTreachery,
+      	increaseCurrentTreachery: 	desOverlord.increaseCurrentTreachery,
+      	increaseMaxTreachery: 		desOverlord.increaseMaxTreachery,
 
     	addHero: 					addHero,
     	removeHero:                 desHero.removeHero.bind(undefined,main.model.heroParty),
@@ -53,19 +54,19 @@ angular.module('descentCampaignTrackerApp')
       	xpAviableHero:              desHero.xpAviableHero.bind(undefined,main.model.heroParty),
       	
       	addCity: 			addCity,
-      	removeCity: 		desModel.removeCity,
-      	addCitySiegeTocken: desModel.addCitySiegeTocken,
-      	toggleCityRazed:     desModel.toggleCityRazed,
-
-      	toggleAdvLocVisited:   desModel.toggleAdvLocVisited,
-      	toggleAdvLocConquered: desModel.toggleAdvLocConquered,
-      	toggleAdvLocFailed:    desModel.toggleAdvLocFailed,
+      	removeCity: 		desLocation.removeCity.bind(undefined,main.model.locations.cities),
+      	addCitySiegeTocken: desLocation.addCitySiegeTocken,
+      	toggleCityRazed:    desLocation.toggleCityRazed,
 
       	addDungeon: 	addDungeon,
-      	removeDungeon: 	desModel.removeDungeon,
+      	removeDungeon: 	desLocation.removeDungeon.bind(undefined,main.model.locations.dungeons),
 
       	addIsland:    addIsland,
-      	removeIsland: desModel.removeIsland,
+      	removeIsland: desLocation.removeIsland.bind(undefined,main.model.locations.islands),
+
+      	toggleAdvLocVisited:   desLocation.toggleAdvLocVisited,
+      	toggleAdvLocConquered: desLocation.toggleAdvLocConquered,
+      	toggleAdvLocFailed:    desLocation.toggleAdvLocFailed,
 
     	divineFavor: 			desModel.divineFavor,
     	totalCampaignTockens: 	desModel.totalCampaignTockens,
@@ -86,8 +87,8 @@ angular.module('descentCampaignTrackerApp')
 
     function addLieutenant(){
     	main.addInputs.lieutenant = _addItem( main.addInputs.lieutenant,
-    		                                  desModel.addLieutenant,
-    		                                  desModel.newLieutenant);
+    		                                  desLieutenant.addLieutenant.bind(undefined,main.model.lieutenants),
+    		                                  desLieutenant.newLieutenant);
     }
 
     function addHero(){
@@ -98,20 +99,20 @@ angular.module('descentCampaignTrackerApp')
 
     function addCity(){
     	main.addInputs.city = _addItem( main.addInputs.city,
-    		                            desModel.addCity,
-    		                            desModel.newCity);
+    		                            desLocation.addCity.bind(undefined,main.model.locations.cities),
+    		                            desLocation.newCity);
     }
 
     function addDungeon(){
     	main.addInputs.dungeon = _addItem( main.addInputs.dungeon,
-    									   desModel.addDungeon,
-    									   desModel.newDungeon);
+    									   desLocation.addDungeon.bind(undefined,main.model.locations.dungeons),
+    									   desLocation.newDungeon);
     }
 
     function addIsland(){
     	main.addInputs.island = _addItem( main.addInputs.island,
-    									  desModel.addIsland,
-    									  desModel.newIsland);
+    									  desLocation.addIsland.bind(undefined,main.model.locations.islands),
+    									  desLocation.newIsland);
     }
 
     /**
