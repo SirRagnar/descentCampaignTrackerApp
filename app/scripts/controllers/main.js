@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .controller('MainCtrl', 
-  ['desCamaignCons','desModel', 'desOverlord', 'desLieutenant', 'desHero', 'desLocation',
-  function (desCamaignCons, desModel, desOverlord, desLieutenant, desHero, desLocation) {
+  ['desCamaignCons','desModel', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation',
+  function (desCamaignCons, desModel, desOverlord, desLieutenant, desMonster, desHero, desLocation) {
     var main=this;
     main.cons={
     	campaign: desCamaignCons
@@ -37,7 +37,7 @@ angular.module('descentCampaignTrackerApp')
     	addLieutenant: 		addLieutenant,
     	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
 
-    	modifyMonsterLevel: desModel.modifyMonsterLevel,
+    	modifyMonsterLevel: desMonster.modifyMonsterLevel,
 
       	addOverlordConquestTockens:     desOverlord.addOverlordConquestTockens.bind(undefined,main.model.overlord), 
       	addOverlordSpentTockens:        desOverlord.addOverlordSpentTockens.bind(undefined,main.model.overlord),

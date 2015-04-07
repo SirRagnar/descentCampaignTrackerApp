@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desModel', 
-    ['desCore','desOverlord', 'desLieutenant', 'desHero', 'desLocation', 
-    function (desCore, desOverlord, desLieutenant, desHero, desLocation) {
+    [          'desCore', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation', 
+    function ( desCore,    desOverlord,   desLieutenant,   desMonster,   desHero,   desLocation) {
     
     var model = {      
       overlord: desOverlord.newOverlord(),
@@ -28,11 +28,12 @@ angular.module('descentCampaignTrackerApp')
                     }
                   }*/
       lieutenants: desLieutenant.newLieutenants(), //[{name: '', location:'' }]
-      monsterLevels:[
-        {name: 'Humanoides', level: 1},
-        {name: 'Bestias', level:1},
-        {name: 'Arcanos', level:1}
-      ],
+      monsterLevels: desMonster.newMonsterLevels(),
+                      /*[
+                        {name: 'Humanoides', level: 1},
+                        {name: 'Bestias', level:1},
+                        {name: 'Arcanos', level:1}
+                      ]*/
       heroParty: desHero.newHeroParty(),
                   /*{
                     location: '',
@@ -62,8 +63,6 @@ angular.module('descentCampaignTrackerApp')
       addCommonAdvance:    addCommonAdvance,
       removeCommonAdvance: removeCommonAdvance,
 
-      modifyMonsterLevel: modifyMonsterLevel,
-
       divineFavor:          divineFavor,
       totalCampaignTockens: totalCampaignTockens,
       campaignLevel:        campaignLevel
@@ -90,15 +89,6 @@ angular.module('descentCampaignTrackerApp')
 
     function removeCommonAdvance(index){
       model.overlord.commonAdvances.splice(index, 1);
-    }
-
-    function modifyMonsterLevel(monsterLevel, amount){
-      var currentLevel=(monsterLevel.level || 1);
-      var amountNS = (amount || 0);
-      var finalLevel = currentLevel + amount;
-      if(finalLevel>=1 && finalLevel<=4){
-        monsterLevel.level=finalLevel;
-      }
     }
 
     function divineFavor(){      
