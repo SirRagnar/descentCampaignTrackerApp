@@ -11,8 +11,8 @@ This is a simple campaign tracker for Descent
 
 * Implement tests.
 * Store changes in local storage
-* Add 'save as JSON' and 'load from JSON' in a new tab.
 * Add 'Obsidian Portal output' in order to generate campaign output to be inserted in a wiki page in [Obsidian Portal](https://www.obsidianportal.com/).
+* i18n.
 
 ## Build & development
 

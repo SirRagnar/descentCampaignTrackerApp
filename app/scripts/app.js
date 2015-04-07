@@ -30,6 +30,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/saveAndLoad', {
+        templateUrl: 'views/saveandload.html',
+        controller: 'SaveandloadCtrl',
+        controllerAs: 'saveAndLoad'
+      })
       .otherwise({
         redirectTo: '/'
       });

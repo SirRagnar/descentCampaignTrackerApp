@@ -26,9 +26,7 @@ angular.module('descentCampaignTrackerApp')
       overlordAviableConquestTockens:   overlordAviableConquestTockens,
 
       increaseCurrentTreachery: desTreachery.increaseCurrentTreachery,
-      increaseMaxTreachery:     desTreachery.increaseMaxTreachery, 
-
-
+      increaseMaxTreachery:     desTreachery.increaseMaxTreachery      
     };
 
     function newOverlord(){
@@ -66,7 +64,5 @@ angular.module('descentCampaignTrackerApp')
     function overlordAviableConquestTockens(overlord){
       return (overlord.conquestTockens || 0) - (overlord.spentTockens || 0);
     }
-
-
 
   }]);
