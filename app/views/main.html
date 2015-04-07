@@ -75,7 +75,7 @@
               <td><input type="text" class="form-control" id="lieutenantLocation" placeholder="Localización" ng-model="main.addInputs.lieutenant.location"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addLieutenant()" aria-label="Agregar lugarteniente">Agregar</button></td>
             </tr>
-            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px;" >
+            <tr ng-repeat="lieutenant in main.model.lieutenants.list track by $index" style="padding:5px 10px;" >
               <td><input type="text" ng-model="lieutenant.name" class="form-control" /></td>
               <td><input type="text" ng-model="lieutenant.location" class="form-control" /></td>
               <td><button class="btn btn-danger" ng-click="main.api.removeLieutenant($index)" aria-label="Eliminar lugarteniente">X</button></td>

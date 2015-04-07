@@ -27,7 +27,7 @@ angular.module('descentCampaignTrackerApp')
                       monsters: {current:0, max:0}
                     }
                   }*/
-      lieutenants: desLieutenant.newLieutenants(), //[{name: '', location:'' }]
+      lieutenants: desLieutenant.newLieutenants(), //{list:[{name: '', location:'' }]}
       monsterLevels: desMonster.newMonsterLevels(),
                       /*[
                         {name: 'Humanoides', level: 1},

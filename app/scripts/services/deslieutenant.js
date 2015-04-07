@@ -21,18 +21,18 @@ angular.module('descentCampaignTrackerApp')
     };
 
     function newLieutenants(){
-      return [];
+      return {list: []};
     }
 
     function  newLieutenant(){
       return {name: '', location: '', alive:true};
     }
 
-    function addLieutenant(lieutenants, lieutenant){
-      lieutenants.push(lieutenant);
+    function addLieutenant(lieutenants, lieutenant){            
+      lieutenants.list=desCore.orderAndAddNamedItemToArray(lieutenants.list,lieutenant);
     }
 
     function removeLieutenant(lieutenants, index){
-      lieutenants.splice(index, 1);
+      lieutenants.list.splice(index, 1);
     }
   }]);
