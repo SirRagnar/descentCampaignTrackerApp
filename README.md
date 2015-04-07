@@ -9,7 +9,6 @@ This is a simple campaign tracker for Descent
 
 ## TODOs
 
-* Refactor desModel factory into smaller and business specific factories.
 * Implement tests.
 * Store changes in local storage
 * Add 'save as JSON' and 'load from JSON' in a new tab.
