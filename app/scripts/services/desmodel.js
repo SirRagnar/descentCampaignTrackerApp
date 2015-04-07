@@ -8,7 +8,9 @@
  * Factory with the model services.
  */
 angular.module('descentCampaignTrackerApp')
-  .factory('desModel', ['desCore', 'desTreachery',function (desCore, desTreachery) {
+  .factory('desModel', 
+    ['desCore','desHero', 'desTreachery',
+    function (desCore, desHero, desTreachery) {
     
     var model = {      
       overlord: { 
@@ -30,13 +32,14 @@ angular.module('descentCampaignTrackerApp')
         {name: 'Bestias', level:1},
         {name: 'Arcanos', level:1}
       ],
-      heroParty:{
-        location: '',
-        homePort: '',
-        rumor:{name:'',location:''},
-        heroes:[/*{name: '', xpSpent: 0}*/],
-        conquestTockens:0
-      },
+      heroParty: desHero.newHeroParty(),
+                  /*{
+                    location: '',
+                    homePort: '',
+                    rumor:{name:'',location:''},
+                    heroes:[{name: '', xpSpent: 0}],
+                    conquestTockens:0
+                  }*/
       locations:{
         cities:[],
         dungeons:[],
@@ -64,14 +67,7 @@ angular.module('descentCampaignTrackerApp')
       addOverlordConquestTockens:       addOverlordConquestTockens, 
       addOverlordSpentTockens:          addOverlordSpentTockens,
       overlordAviableConquestTockens:   overlordAviableConquestTockens,
-
-      newHero:                    newHero,
-      addHero:                    addHero,
-      removeHero:                 removeHero,
-      addHeroesConquestTockens:   addHeroesConquestTockens,
-      addSpentHeroXP:             addSpentHeroXP,
-      xpAviableHero:              xpAviableHero,
-
+      
       newCity:            newCity,
       addCity:            addCity,
       removeCity:         removeCity,
@@ -105,13 +101,6 @@ angular.module('descentCampaignTrackerApp')
 
     function  newLieutenant(){
       return {name: '', location: '', alive:true};
-    }
-
-    function newHero(){
-      return { 
-        name: '', 
-        xpSpent:null
-      };
     }
 
     function _newLocation(locationType){
@@ -199,36 +188,7 @@ angular.module('descentCampaignTrackerApp')
 
     function overlordAviableConquestTockens(){
       return (model.overlord.conquestTockens || 0) - (model.overlord.spentTockens || 0);
-    }
-
-
-    function addHero(hero){
-      hero.xpSpent = Math.max(0, (hero.xpSpent || 0));
-      model.heroParty.heroes=desCore.orderAndAddNamedItemToArray(hero,model.heroParty.heroes);
-    }
-
-    function removeHero(index){
-      model.heroParty.heroes.splice(index, 1);      
-    }
-
-    function addHeroesConquestTockens(amount){
-      var finalConquestTockens = (model.heroParty.conquestTockens || 0) + (amount || 0);
-      if(finalConquestTockens>=0){
-        model.heroParty.conquestTockens = finalConquestTockens;
-      }
-    }
-
-    function addSpentHeroXP(hero, amount){
-      var finalXpSpent = (hero.xpSpent || 0 ) + (amount || 0);
-      var heroPartyConquestTockens = (model.heroParty.conquestTockens || 0 );      
-      if(finalXpSpent>=0 && finalXpSpent<=heroPartyConquestTockens ){
-        hero.xpSpent = finalXpSpent;
-      }
-    }
-
-    function xpAviableHero(hero){
-      return (model.heroParty.conquestTockens || 0) - (hero.xpSpent||0); 
-    }
+    }   
 
     function addCity(city){
       city.siege = Math.max(0, (city.siege || 0));

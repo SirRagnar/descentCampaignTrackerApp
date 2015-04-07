@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .controller('MainCtrl', 
-  ['desCamaignCons','desModel', 'desTreachery',
-  function (desCamaignCons, desModel, desTreachery) {
+  ['desCamaignCons','desModel', 'desHero', 'desTreachery',
+  function (desCamaignCons, desModel, desHero, desTreachery) {
     var main=this;
     main.cons={
     	campaign: desCamaignCons
@@ -21,7 +21,7 @@ angular.module('descentCampaignTrackerApp')
     	plotAdvance:   desModel.newAdvance(),
     	commonAdvance: desModel.newAdvance(),
     	lieutenant:    desModel.newLieutenant(),
-    	hero:          desModel.newHero(),
+    	hero:          desHero.newHero(),
     	city:          desModel.newCity(),
     	island:        desModel.newIsland(),
     	dungeon:       desModel.newDungeon()     
@@ -47,10 +47,10 @@ angular.module('descentCampaignTrackerApp')
       	increaseMaxTreachery: 		desTreachery.increaseMaxTreachery,
 
     	addHero: 					addHero,
-    	removeHero: 				desModel.removeHero,
-    	addHeroesConquestTockens: 	desModel.addHeroesConquestTockens,
-    	addSpentHeroXP: 			desModel.addSpentHeroXP,
-    	xpAviableHero: 				desModel.xpAviableHero,
+    	removeHero:                 desHero.removeHero.bind(undefined,main.model.heroParty),
+      	addHeroesConquestTockens:   desHero.addHeroesConquestTockens.bind(undefined,main.model.heroParty),
+      	addSpentHeroXP:             desHero.addSpentHeroXP.bind(undefined,main.model.heroParty),
+      	xpAviableHero:              desHero.xpAviableHero.bind(undefined,main.model.heroParty),
       	
       	addCity: 			addCity,
       	removeCity: 		desModel.removeCity,
@@ -92,8 +92,8 @@ angular.module('descentCampaignTrackerApp')
 
     function addHero(){
     	main.addInputs.hero = _addItem( main.addInputs.hero,
-    		                            desModel.addHero,
-    		                            desModel.newHero);
+    		                            desHero.addHero.bind(undefined,main.model.heroParty),
+    		                            desHero.newHero);
     }
 
     function addCity(){

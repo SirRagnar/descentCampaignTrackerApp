@@ -24,7 +24,7 @@
             <button class="btn btn-primary" ng-click="main.api.addPlotAdvance()" aria-label="Agregar avance de trama">Agregar</button>
           </span>
         </div>
-        <div ui-sortable>      
+        <div >      
             <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px;">
                 <input type="text" ng-model="advance.name" class="form-control" />
                 <span class="input-group-btn">  
@@ -41,7 +41,7 @@
             <button class="btn btn-primary" ng-click="main.api.addCommonAdvance()" aria-label="Agregar avance común">Agregar</button>
           </span>
         </div>
-        <div ui-sortable>      
+        <div >      
             <p class="input-group" ng-repeat="advance in main.model.overlord.commonAdvances track by $index" style="padding:5px 10px;">
                 <input type="text" ng-model="advance.name" class="form-control" />
                 <span class="input-group-btn">  
@@ -75,7 +75,7 @@
               <td><input type="text" class="form-control" id="lieutenantLocation" placeholder="Localización" ng-model="main.addInputs.lieutenant.location"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addLieutenant()" aria-label="Agregar lugarteniente">Agregar</button></td>
             </tr>
-            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px;" ui-sortable>
+            <tr ng-repeat="lieutenant in main.model.lieutenants track by $index" style="padding:5px 10px;" >
               <td><input type="text" ng-model="lieutenant.name" class="form-control" /></td>
               <td><input type="text" ng-model="lieutenant.location" class="form-control" /></td>
               <td><button class="btn btn-danger" ng-click="main.api.removeLieutenant($index)" aria-label="Eliminar lugarteniente">X</button></td>
@@ -106,8 +106,8 @@
               <td><input type="number" class="form-control" id="heroXPSpent" placeholder="XP gastados" ng-model="main.addInputs.hero.xpSpent"></td>
               <td><button class="btn btn-primary" ng-click="main.api.addHero()" aria-label="Agregar héroe">Agregar</button></td>
             </tr>
-            <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px;" ui-sortable>
-              <td><input type="text" ng-model="hero.name" class="form-control" /></td>
+            <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px;" >
+              <td><input type="text" ng-model="hero.name" class="form-control" required/></td>
               <td>
                 <p class="form-control-static">
                   {{main.api.xpAviableHero(hero)}}                    
@@ -302,7 +302,7 @@
               </td>
               <td><button class="btn btn-primary" ng-click="main.api.addDungeon()" aria-label="Agregar dungeon">Agregar</button></td>
             </tr>
-            <tr ng-repeat="location in main.model.locations.dungeons track by $index" style="padding:5px 10px;" ui-sortable>
+            <tr ng-repeat="location in main.model.locations.dungeons track by $index" style="padding:5px 10px;" >
               <td>               
                 <input type="text" ng-model="location.name" class="form-control" />
               </td>
@@ -387,7 +387,7 @@
               </td>
               <td><button class="btn btn-primary" ng-click="main.api.addIsland()" aria-label="Agregar isla">Agregar</button></td>
             </tr>
-            <tr ng-repeat="location in main.model.locations.islands track by $index" style="padding:5px 10px;" ui-sortable>
+            <tr ng-repeat="location in main.model.locations.islands track by $index" style="padding:5px 10px;" >
               <td>               
                 <input type="text" ng-model="location.name" class="form-control" />
               </td>
