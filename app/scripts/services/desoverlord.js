@@ -9,11 +9,17 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desOverlord', 
-    ['desCore', 'desTreachery',
-    function (desCore, desTreachery) {
+    ['desCore', 'desOverlordUpgrade', 'desTreachery',
+    function (desCore, desOverlordUpgrade, desTreachery) {
     
     return {      
       newOverlord: newOverlord,
+
+      newAdvance:          desOverlordUpgrade.newUpgrade,
+      addPlotAdvance:      desOverlordUpgrade.addPlotUpgrade,
+      removePlotAdvance:   desOverlordUpgrade.removePlotUpgrade,
+      addCommonAdvance:    desOverlordUpgrade.addCommonUpgrade,
+      removeCommonAdvance: desOverlordUpgrade.removeCommonUpgrade,
 
       addOverlordConquestTockens:       addOverlordConquestTockens, 
       addOverlordSpentTockens:          addOverlordSpentTockens,

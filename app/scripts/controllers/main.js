@@ -18,8 +18,8 @@ angular.module('descentCampaignTrackerApp')
 
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
-    	plotAdvance:   desModel.newAdvance(),
-    	commonAdvance: desModel.newAdvance(),
+    	plotAdvance:   desOverlord.newAdvance(),
+    	commonAdvance: desOverlord.newAdvance(),
     	lieutenant:    desLieutenant.newLieutenant(),
     	hero:          desHero.newHero(),
     	city:          desLocation.newCity(),
@@ -29,10 +29,10 @@ angular.module('descentCampaignTrackerApp')
 
     main.api = {
     	addPlotAdvance:    addPlotAdvance,    	
-    	removePlotAdvance: desModel.removePlotAdvance,
+    	removePlotAdvance: desOverlord.removePlotAdvance.bind(undefined,main.model.overlord.plotAdvances),
     	
     	addCommonAdvance: 	 addCommonAdvance,
-    	removeCommonAdvance: desModel.removeCommonAdvance,
+    	removeCommonAdvance: desOverlord.removeCommonAdvance.bind(undefined,main.model.overlord.commonAdvances),
 
     	addLieutenant: 		addLieutenant,
     	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
@@ -75,14 +75,16 @@ angular.module('descentCampaignTrackerApp')
 
     function addPlotAdvance(){ 
     	main.addInputs.plotAdvance = _addItem( main.addInputs.plotAdvance,
-    		                                   desModel.addPlotAdvance,
-    		                                   desModel.newAdvance);
+    		                                   desOverlord.addPlotAdvance.bind(undefined,
+    		                                   	                               main.model.overlord.plotAdvances),
+    		                                   desOverlord.newAdvance);
     }
 
     function addCommonAdvance(){ 
     	main.addInputs.commonAdvance = _addItem( main.addInputs.commonAdvance,
-    		                                     desModel.addCommonAdvance,
-    		                                     desModel.newAdvance);
+    		                                     desOverlord.addCommonAdvance.bind(undefined,
+    		                                     	                               main.model.overlord.commonAdvances),
+    		                                     desOverlord.newAdvance);
     }
 
     function addLieutenant(){

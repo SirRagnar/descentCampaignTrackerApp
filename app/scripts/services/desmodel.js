@@ -56,12 +56,6 @@ angular.module('descentCampaignTrackerApp')
     // Public API 
     return {      
       getModel: getModel,
-      
-      newAdvance:          newAdvance,
-      addPlotAdvance:      addPlotAdvance,
-      removePlotAdvance:   removePlotAdvance,
-      addCommonAdvance:    addCommonAdvance,
-      removeCommonAdvance: removeCommonAdvance,
 
       divineFavor:          divineFavor,
       totalCampaignTockens: totalCampaignTockens,
@@ -70,25 +64,6 @@ angular.module('descentCampaignTrackerApp')
 
     function getModel() {
       return model;
-    }
-
-    function newAdvance(){
-      return {name:''};
-    }
-    function addPlotAdvance(advance){
-      model.overlord.plotAdvances.push(advance);
-    }
-
-    function removePlotAdvance(index){
-      model.overlord.plotAdvances.splice(index, 1);
-    }
-
-    function addCommonAdvance(advance){
-      model.overlord.commonAdvances.push(advance);
-    }
-
-    function removeCommonAdvance(index){
-      model.overlord.commonAdvances.splice(index, 1);
     }
 
     function divineFavor(){      
