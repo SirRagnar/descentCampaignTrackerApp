@@ -17,35 +17,35 @@
       <div class="panel-heading">Avances</div>
       <div class="panel-body">
 
-        <label for="plotAdvance">Avances de trama:</label>
+        <label for="plotUpgrade">Avances de trama:</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="plotAdvance" placeholder="Avance de trama" ng-model="main.addInputs.plotAdvance.name" >
+          <input type="text" class="form-control" id="plotUpgrade" placeholder="Avance de trama" ng-model="main.addInputs.plotUpgrade.name" >
           <span class="input-group-btn">
-            <button class="btn btn-primary" ng-click="main.api.addPlotAdvance()" aria-label="Agregar avance de trama">Agregar</button>
+            <button class="btn btn-primary" ng-click="main.api.addPlotUpgrade()" aria-label="Agregar avance de trama">Agregar</button>
           </span>
         </div>
         <div >      
-            <p class="input-group" ng-repeat="advance in main.model.overlord.plotAdvances track by $index" style="padding:5px 10px;">
-                <input type="text" ng-model="advance.name" class="form-control" />
+            <p class="input-group" ng-repeat="upgrade in main.model.overlord.plotUpgrades track by $index" style="padding:5px 10px;">
+                <input type="text" ng-model="upgrade.name" class="form-control" />
                 <span class="input-group-btn">  
-                  <button class="btn btn-danger" ng-click="main.api.removePlotAdvance($index)" aria-label="Eliminar avance de trama">X</button>
+                  <button class="btn btn-danger" ng-click="main.api.removePlotUpgrade($index)" aria-label="Eliminar avance de trama">X</button>
                 </span>
             </p>
          </div>
         
 
-        <label for="commonAdvance">Avances comunes:</label>
+        <label for="commonUpgrade">Avances comunes:</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="commonAdvance" placeholder="Avance común" ng-model="main.addInputs.commonAdvance.name" >
+          <input type="text" class="form-control" id="commonUpgrade" placeholder="Avance común" ng-model="main.addInputs.commonUpgrade.name" >
           <span class="input-group-btn">
-            <button class="btn btn-primary" ng-click="main.api.addCommonAdvance()" aria-label="Agregar avance común">Agregar</button>
+            <button class="btn btn-primary" ng-click="main.api.addCommonUpgrade()" aria-label="Agregar avance común">Agregar</button>
           </span>
         </div>
         <div >      
-            <p class="input-group" ng-repeat="advance in main.model.overlord.commonAdvances track by $index" style="padding:5px 10px;">
-                <input type="text" ng-model="advance.name" class="form-control" />
+            <p class="input-group" ng-repeat="upgrade in main.model.overlord.commonUpgrades track by $index" style="padding:5px 10px;">
+                <input type="text" ng-model="upgrade.name" class="form-control" />
                 <span class="input-group-btn">  
-                  <button class="btn btn-danger" ng-click="main.api.removeCommonAdvance($index)" aria-label="Eliminar avance común">X</button>
+                  <button class="btn btn-danger" ng-click="main.api.removeCommonUpgrade($index)" aria-label="Eliminar avance común">X</button>
                 </span>
             </p>
         </div>

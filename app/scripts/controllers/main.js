@@ -18,8 +18,8 @@ angular.module('descentCampaignTrackerApp')
 
     main.model = angular.extend({},desModel.getModel());
     main.addInputs={
-    	plotAdvance:   desOverlord.newAdvance(),
-    	commonAdvance: desOverlord.newAdvance(),
+    	plotUpgrade:   desOverlord.newUpgrade(),
+    	commonUpgrade: desOverlord.newUpgrade(),
     	lieutenant:    desLieutenant.newLieutenant(),
     	hero:          desHero.newHero(),
     	city:          desLocation.newCity(),
@@ -28,11 +28,11 @@ angular.module('descentCampaignTrackerApp')
     };
 
     main.api = {
-    	addPlotAdvance:    addPlotAdvance,    	
-    	removePlotAdvance: desOverlord.removePlotAdvance.bind(undefined,main.model.overlord.plotAdvances),
+    	addPlotUpgrade:    addPlotUpgrade,    	
+    	removePlotUpgrade: desOverlord.removePlotUpgrade.bind(undefined,main.model.overlord.plotUpgrades),
     	
-    	addCommonAdvance: 	 addCommonAdvance,
-    	removeCommonAdvance: desOverlord.removeCommonAdvance.bind(undefined,main.model.overlord.commonAdvances),
+    	addCommonUpgrade: 	 addCommonUpgrade,
+    	removeCommonUpgrade: desOverlord.removeCommonUpgrade.bind(undefined,main.model.overlord.commonUpgrades),
 
     	addLieutenant: 		addLieutenant,
     	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
@@ -73,18 +73,18 @@ angular.module('descentCampaignTrackerApp')
     	campaignLevel: 			desModel.campaignLevel
     };
 
-    function addPlotAdvance(){ 
-    	main.addInputs.plotAdvance = _addItem( main.addInputs.plotAdvance,
-    		                                   desOverlord.addPlotAdvance.bind(undefined,
-    		                                   	                               main.model.overlord.plotAdvances),
-    		                                   desOverlord.newAdvance);
+    function addPlotUpgrade(){ 
+    	main.addInputs.plotUpgrade = _addItem( main.addInputs.plotUpgrade,
+    		                                   desOverlord.addPlotUpgrade.bind(undefined,
+    		                                   	                               main.model.overlord.plotUpgrades),
+    		                                   desOverlord.newUpgrade);
     }
 
-    function addCommonAdvance(){ 
-    	main.addInputs.commonAdvance = _addItem( main.addInputs.commonAdvance,
-    		                                     desOverlord.addCommonAdvance.bind(undefined,
-    		                                     	                               main.model.overlord.commonAdvances),
-    		                                     desOverlord.newAdvance);
+    function addCommonUpgrade(){ 
+    	main.addInputs.commonUpgrade = _addItem( main.addInputs.commonUpgrade,
+    		                                     desOverlord.addCommonUpgrade.bind(undefined,
+    		                                     	                               main.model.overlord.commonUpgrades),
+    		                                     desOverlord.newUpgrade);
     }
 
     function addLieutenant(){

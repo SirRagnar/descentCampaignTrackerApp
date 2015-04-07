@@ -15,11 +15,11 @@ angular.module('descentCampaignTrackerApp')
     return {      
       newOverlord: newOverlord,
 
-      newAdvance:          desOverlordUpgrade.newUpgrade,
-      addPlotAdvance:      desOverlordUpgrade.addPlotUpgrade,
-      removePlotAdvance:   desOverlordUpgrade.removePlotUpgrade,
-      addCommonAdvance:    desOverlordUpgrade.addCommonUpgrade,
-      removeCommonAdvance: desOverlordUpgrade.removeCommonUpgrade,
+      newUpgrade:          desOverlordUpgrade.newUpgrade,
+      addPlotUpgrade:      desOverlordUpgrade.addPlotUpgrade,
+      removePlotUpgrade:   desOverlordUpgrade.removePlotUpgrade,
+      addCommonUpgrade:    desOverlordUpgrade.addCommonUpgrade,
+      removeCommonUpgrade: desOverlordUpgrade.removeCommonUpgrade,
 
       addOverlordConquestTockens:       addOverlordConquestTockens, 
       addOverlordSpentTockens:          addOverlordSpentTockens,
@@ -35,8 +35,8 @@ angular.module('descentCampaignTrackerApp')
       return { 
         name: '',
         plot: '',
-        plotAdvances: [/*{ name: }*/],
-        commonAdvances: [/*{name: }*/],
+        plotUpgrades: [/*{ name: }*/],
+        commonUpgrades: [/*{name: }*/],
         conquestTockens:0,
         spentTockens:0,
         treachery:{

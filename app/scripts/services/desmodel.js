@@ -17,8 +17,8 @@ angular.module('descentCampaignTrackerApp')
                   /*{ 
                     name: '',
                     plot: '',
-                    plotAdvances: [{ name: '' }],
-                    commonAdvances: [{name: '' }],
+                    plotUpgrades: [{ name: '' }],
+                    commonUpgrades: [{name: '' }],
                     conquestTockens:0,
                     spentTockens:0,
                     treachery:{
