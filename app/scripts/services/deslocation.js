@@ -22,12 +22,12 @@ angular.module('descentCampaignTrackerApp')
       toggleCityRazed:    toggleCityRazed,
 
       newDungeon:     newDungeon,
-      addDungeon:     addAdventureLocation,
-      removeDungeon:  removeAdventureLocation,
+      addDungeon:     addDungeon,
+      removeDungeon:  removeDungeon,
 
       newIsland:    newIsland,
-      addIsland:    addAdventureLocation,
-      removeIsland: removeAdventureLocation,
+      addIsland:    addIsland,
+      removeIsland: removeIsland,
 
       toggleAdvLocVisited:   toggleAdvLocVisited,
       toggleAdvLocConquered: toggleAdvLocConquered,
@@ -79,13 +79,13 @@ angular.module('descentCampaignTrackerApp')
     }
 
 
-    function addCity(cities, city){
+    function addCity(locations, city){
       city.siege = Math.max(0, (city.siege || 0));
-      cities.push(city);
+      locations.cities.push(city);
     }
 
-    function removeCity(cities, index){
-      cities.splice(index, 1);
+    function removeCity(locations, index){
+      locations.cities.splice(index, 1);
     }
 
     function addCitySiegeTocken(city, amount){
@@ -100,13 +100,21 @@ angular.module('descentCampaignTrackerApp')
       city.razed=(!city.razed);
     }
 
-    function addAdventureLocation(adventureLocationList, adventureLocation){
-      adventureLocationList.push(adventureLocation);
+    function addDungeon(locations,dungeon){
+      locations.dungeons.push(dungeon);
     }
 
-    function removeAdventureLocation(adventureLocationList, index){
-      adventureLocationList.splice(index,1);
+    function removeDungeon(locations,index){
+      locations.dungeons.splice(index,1);
     }
+
+    function addIsland(locations,island){
+      locations.islands.push(island);
+    }
+
+    function removeIsland(locations,index){
+      locations.islands.splice(index,1);
+    }    
 
     function toggleAdvLocVisited(location,flag){
       if(!location.conquered && !location.failed){

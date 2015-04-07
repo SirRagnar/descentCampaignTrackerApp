@@ -54,15 +54,15 @@ angular.module('descentCampaignTrackerApp')
       	xpAviableHero:              desHero.xpAviableHero.bind(undefined,main.model.heroParty),
       	
       	addCity: 			addCity,
-      	removeCity: 		desLocation.removeCity.bind(undefined,main.model.locations.cities),
+      	removeCity: 		desLocation.removeCity.bind(undefined,main.model.locations),
       	addCitySiegeTocken: desLocation.addCitySiegeTocken,
       	toggleCityRazed:    desLocation.toggleCityRazed,
 
       	addDungeon: 	addDungeon,
-      	removeDungeon: 	desLocation.removeDungeon.bind(undefined,main.model.locations.dungeons),
+      	removeDungeon: 	desLocation.removeDungeon.bind(undefined,main.model.locations),
 
       	addIsland:    addIsland,
-      	removeIsland: desLocation.removeIsland.bind(undefined,main.model.locations.islands),
+      	removeIsland: desLocation.removeIsland.bind(undefined,main.model.locations),
 
       	toggleAdvLocVisited:   desLocation.toggleAdvLocVisited,
       	toggleAdvLocConquered: desLocation.toggleAdvLocConquered,
@@ -107,19 +107,19 @@ angular.module('descentCampaignTrackerApp')
 
     function addCity(){
     	main.addInputs.city = _addItem( main.addInputs.city,
-    		                            desLocation.addCity.bind(undefined,main.model.locations.cities),
+    		                            desLocation.addCity.bind(undefined,main.model.locations),
     		                            desLocation.newCity);
     }
 
     function addDungeon(){
     	main.addInputs.dungeon = _addItem( main.addInputs.dungeon,
-    									   desLocation.addDungeon.bind(undefined,main.model.locations.dungeons),
+    									   desLocation.addDungeon.bind(undefined,main.model.locations),
     									   desLocation.newDungeon);
     }
 
     function addIsland(){
     	main.addInputs.island = _addItem( main.addInputs.island,
-    									  desLocation.addIsland.bind(undefined,main.model.locations.islands),
+    									  desLocation.addIsland.bind(undefined,main.model.locations),
     									  desLocation.newIsland);
     }
 
