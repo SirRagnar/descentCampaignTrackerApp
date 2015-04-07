@@ -6,6 +6,9 @@
   <div class="row">
   	<div class="col-md-12">
   		<h2>Exportar campaña</h2>
+  		<p>
+  			Con esta opción podrás exportar la campaña en formato JSON y más tarde podrás volver a cargarla.
+  		</p>
   		<div class="btn-group" role="group" aria-label="save to">
 		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.toJSON()">A JSON</button>
 		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.toObsidianPortalWiki()">A formato Obsidian Portal</button>
@@ -20,6 +23,10 @@
   <div class="row">
   	<div class="col-md-12">
   		<h2>Importar campaña</h2>
+  		<p>
+  			Aquí puedes introducir una campaña que hayas guardado previamente en formato JSON. Al pulsar el botón,
+  			si el JSON es correcto, se cargarán los datos en la pantalla pricipal. Esta acción no se puede deshacer, tenlo en cuenta.
+  		</p>
   		<div class="btn-group" role="group" aria-label="save to">
 		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.fromJSON()">Desde JSON</button>
 		</div>

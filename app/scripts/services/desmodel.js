@@ -9,20 +9,33 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desModel', 
-    [          '$log', 'desCore', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation', 
-    function ( $log, desCore,    desOverlord,   desLieutenant,   desMonster,   desHero,   desLocation) {
+    [ '$log', 'localStorageService', 
+      'desCamaignCons', 'desCore', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation', 
+    function ( $log, localStorageService,   
+               desCamaignCons, desCore, desOverlord, desLieutenant, desMonster, desHero, desLocation) {
     
-    var model = _newModel();
+    
+    var model = loadModel() || _newModel();    
 
     // Public API 
     return {      
-      getModel: getModel,
-      toJSON:   toJSON,
-      fromJSON: fromJSON
+      getModel:  getModel,
+      loadModel: loadModel,
+      saveModel: saveModel,
+      toJSON:    toJSON,
+      fromJSON:  fromJSON
     };    
 
     function getModel() {
       return model;
+    }
+
+    function loadModel(){
+      return localStorageService.get(desCamaignCons.LOCAL_STORAGE_NAME);
+    }
+
+    function saveModel(){
+      localStorageService.set(desCamaignCons.LOCAL_STORAGE_NAME, model);
     }
 
     function toJSON(){
