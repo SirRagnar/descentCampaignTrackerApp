@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .controller('MainCtrl', 
-  ['desCamaignCons','desModel', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation',
-  function (desCamaignCons, desModel, desOverlord, desLieutenant, desMonster, desHero, desLocation) {
+  ['desCamaignCons','desModel', 'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation', 'desCampaign',
+  function (desCamaignCons, desModel, desOverlord, desLieutenant, desMonster, desHero, desLocation, desCampaign) {
     var main=this;
     main.cons={
     	campaign: desCamaignCons
@@ -68,9 +68,15 @@ angular.module('descentCampaignTrackerApp')
       	toggleAdvLocConquered: desLocation.toggleAdvLocConquered,
       	toggleAdvLocFailed:    desLocation.toggleAdvLocFailed,
 
-    	divineFavor: 			desModel.divineFavor,
-    	totalCampaignTockens: 	desModel.totalCampaignTockens,
-    	campaignLevel: 			desModel.campaignLevel
+    	divineFavor: 			desCampaign.divineFavor.bind(undefined,
+    														 main.model.overlord,
+    														 main.model.heroParty),
+    	totalCampaignTockens: 	desCampaign.totalCampaignTockens.bind(undefined,
+    		                                                          main.model.overlord,
+    		                                                          main.model.heroParty),
+    	campaignLevel: 			desCampaign.campaignLevel.bind(undefined,
+    		                                                   main.model.overlord,
+    		                                                   main.model.heroParty)
     };
 
     function addPlotUpgrade(){ 

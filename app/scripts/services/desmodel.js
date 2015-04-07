@@ -55,54 +55,10 @@ angular.module('descentCampaignTrackerApp')
 
     // Public API 
     return {      
-      getModel: getModel,
-
-      divineFavor:          divineFavor,
-      totalCampaignTockens: totalCampaignTockens,
-      campaignLevel:        campaignLevel
+      getModel: getModel
     };    
 
     function getModel() {
       return model;
-    }
-
-    function divineFavor(){      
-      /*
-      For every full 25 conquest tokens the heroes’ conquest total
-      is below the overlord’s total, each hero’s conquest value is
-      reduced by 1, to a minimum of 0
-
-      On the other hand, for every full 25 conquest tokens the
-      heroes’ total is above the overlord’s total, the overlord’s
-      conquest value is increased by 1
-      */
-      var overLordTockens = (model.overlord.conquestTockens || 0);
-      var heroesTockens = (model.heroParty.conquestTockens || 0 ); 
-      var difference = Math.abs(overLordTockens - heroesTockens);
-      var sign=1;
-      if(overLordTockens>heroesTockens){
-        sign=-1;
-      }
-      var df = Math.floor(difference/25)*sign;
-      return df;
-    }
-
-    function totalCampaignTockens(){
-      var heroPartyConquestTockens = (model.heroParty.conquestTockens || 0 );
-      var overLordTockens=(model.overlord.conquestTockens || 0);
-      return heroPartyConquestTockens + overLordTockens;
-    }
-
-    function campaignLevel(){
-      var level='Cobre';
-      var totalTockens = totalCampaignTockens();
-      if(totalTockens>=200){
-        level='Plata';
-      }else if(totalTockens>=400){
-        level='Oro';
-      }else if(totalTockens>=600){
-        level='Oro - Batalla final';
-      }
-      return level;
     }
   }]);
