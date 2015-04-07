@@ -81,7 +81,7 @@ angular.module('descentCampaignTrackerApp')
 
     function addCity(locations, city){
       city.siege = Math.max(0, (city.siege || 0));
-      locations.cities.push(city);
+      locations.cities=desCore.orderAndAddNamedItemToArray(locations.cities,city);
     }
 
     function removeCity(locations, index){
@@ -101,7 +101,7 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function addDungeon(locations,dungeon){
-      locations.dungeons.push(dungeon);
+      locations.dungeons=desCore.orderAndAddNamedItemToArray(locations.dungeons,dungeon);
     }
 
     function removeDungeon(locations,index){
@@ -109,7 +109,7 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function addIsland(locations,island){
-      locations.islands.push(island);
+      locations.islands=desCore.orderAndAddNamedItemToArray(locations.islands,island);
     }
 
     function removeIsland(locations,index){
