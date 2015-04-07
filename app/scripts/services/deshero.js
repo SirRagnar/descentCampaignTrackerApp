@@ -40,7 +40,7 @@ angular.module('descentCampaignTrackerApp')
 
     function addHero(heroParty,hero){
       hero.xpSpent = Math.max(0, (hero.xpSpent || 0));
-      heroParty.heroes=desCore.orderAndAddNamedItemToArray(hero,heroParty.heroes);
+      heroParty.heroes=desCore.orderAndAddNamedItemToArray(heroParty.heroes,hero);
     }
 
     function removeHero(heroParty,index){

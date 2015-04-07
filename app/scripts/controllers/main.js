@@ -29,10 +29,10 @@ angular.module('descentCampaignTrackerApp')
 
     main.api = {
     	addPlotUpgrade:    addPlotUpgrade,    	
-    	removePlotUpgrade: desOverlord.removePlotUpgrade.bind(undefined,main.model.overlord.plotUpgrades),
+    	removePlotUpgrade: desOverlord.removePlotUpgrade.bind(undefined,main.model.overlord),
     	
     	addCommonUpgrade: 	 addCommonUpgrade,
-    	removeCommonUpgrade: desOverlord.removeCommonUpgrade.bind(undefined,main.model.overlord.commonUpgrades),
+    	removeCommonUpgrade: desOverlord.removeCommonUpgrade.bind(undefined,main.model.overlord),
 
     	addLieutenant: 		addLieutenant,
     	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
@@ -82,14 +82,14 @@ angular.module('descentCampaignTrackerApp')
     function addPlotUpgrade(){ 
     	main.addInputs.plotUpgrade = _addItem( main.addInputs.plotUpgrade,
     		                                   desOverlord.addPlotUpgrade.bind(undefined,
-    		                                   	                               main.model.overlord.plotUpgrades),
+    		                                   	                               main.model.overlord),
     		                                   desOverlord.newUpgrade);
     }
 
     function addCommonUpgrade(){ 
     	main.addInputs.commonUpgrade = _addItem( main.addInputs.commonUpgrade,
     		                                     desOverlord.addCommonUpgrade.bind(undefined,
-    		                                     	                               main.model.overlord.commonUpgrades),
+    		                                     	                               main.model.overlord),
     		                                     desOverlord.newUpgrade);
     }
 

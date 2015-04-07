@@ -16,7 +16,7 @@ angular.module('descentCampaignTrackerApp')
       orderAndAddNamedItemToArray: orderAndAddNamedItemToArray
     };
 
-    function orderAndAddNamedItemToArray(namedItem,listOfItems){
+    function orderAndAddNamedItemToArray(listOfItems,namedItem){
       listOfItems=(listOfItems || []);
       listOfItems.push(namedItem);
       return $filter('orderBy')(listOfItems,'name',false);

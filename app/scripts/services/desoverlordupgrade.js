@@ -9,26 +9,39 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desOverlordUpgrade', 
-    [function () {
+    [ 'desCore',
+    function (desCore) {
     
     return {
       newUpgrade:          newUpgrade,
-      addPlotUpgrade:      addUpgrade,
-      removePlotUpgrade:   removeUpgrade,
-      addCommonUpgrade:    addUpgrade,
-      removeCommonUpgrade: removeUpgrade
+      addPlotUpgrade:      addPlotUpgrade,
+      removePlotUpgrade:   removePlotUpgrade,
+      addCommonUpgrade:    addCommonUpgrade,
+      removeCommonUpgrade: removeCommonUpgrade
     };
 
     function newUpgrade(){
       return {name:''};
     }
 
-    function addUpgrade(upgradeList,upgrade){
-      upgradeList.push(upgrade);
+    function _removeUpgrade(upgradeList, index){
+      upgradeList.splice(index, 1);
     }
 
-    function removeUpgrade(upgradeList, index){
-      upgradeList.splice(index, 1);
+    function addPlotUpgrade(overlord,upgrade){
+      overlord.plotUpgrades=desCore.orderAndAddNamedItemToArray(overlord.plotUpgrades,upgrade);
+    }
+
+    function removePlotUpgrade(overlord,index){
+      _removeUpgrade(overlord.plotUpgrades,index);
+    }
+
+    function addCommonUpgrade(overlord,upgrade){
+      overlord.commonUpgrades=desCore.orderAndAddNamedItemToArray(overlord.commonUpgrades,upgrade);
+    }
+
+    function removeCommonUpgrade(overlord,index){
+      _removeUpgrade(overlord.commonUpgrades,index);
     }
 
 
