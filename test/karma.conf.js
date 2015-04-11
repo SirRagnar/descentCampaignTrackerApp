@@ -6,7 +6,7 @@
 module.exports = function(config) {
   'use strict';
 
-  config.set({
+  var configuration={
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
@@ -65,6 +65,14 @@ module.exports = function(config) {
       'karma-jasmine'
     ],
 
+    // From http://stackoverflow.com/a/25661593/840635
+    customLaunchers: {
+      Chrome_travis_ci: { 
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
+    },
+
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
     singleRun: false,
@@ -81,5 +89,11 @@ module.exports = function(config) {
     // },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
-  });
+  };
+
+  if(process.env.TRAVIS){
+    configuration.browsers = ['Chrome_travis_ci'];
+  }
+
+  config.set(configuration);
 };
