@@ -22,7 +22,10 @@ angular.module('descentCampaignTrackerApp')
       getModel:     getModel,
       loadModel:    loadModel,
       saveModel:    saveModel,
-      getOverlord:  getOverlord,
+
+      getOverlord:      getOverlord,
+      getLieutenants:   getLieutenants,
+      
       toJSON:       toJSON,
       fromJSON:     fromJSON
     };    
@@ -41,6 +44,10 @@ angular.module('descentCampaignTrackerApp')
 
     function getOverlord(){
       return model.overlord;
+    }
+
+    function getLieutenants(){
+      return model.lieutenants;
     }
 
     function toJSON(){

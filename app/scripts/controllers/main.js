@@ -41,7 +41,7 @@
         	removeCommonUpgrade: desOverlord.removeCommonUpgrade.bind(undefined,desModel.getOverlord()),
 
         	addLieutenant: 		addLieutenant,
-        	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,main.model.lieutenants),
+        	removeLieutenant: 	desLieutenant.removeLieutenant.bind(undefined,desModel.getLieutenants()),
 
         	modifyMonsterLevel: desMonster.modifyMonsterLevel,
 
@@ -115,7 +115,7 @@
 
         function addLieutenant(){
         	main.addInputs.lieutenant = _addItem( main.addInputs.lieutenant,
-        		                                  desLieutenant.addLieutenant.bind(undefined,main.model.lieutenants),
+        		                                  desLieutenant.addLieutenant.bind(undefined,desModel.getLieutenants()),
         		                                  desLieutenant.newLieutenant);
         }
 
