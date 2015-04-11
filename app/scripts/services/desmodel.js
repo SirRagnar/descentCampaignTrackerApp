@@ -19,11 +19,12 @@ angular.module('descentCampaignTrackerApp')
 
     // Public API 
     return {      
-      getModel:  getModel,
-      loadModel: loadModel,
-      saveModel: saveModel,
-      toJSON:    toJSON,
-      fromJSON:  fromJSON
+      getModel:     getModel,
+      loadModel:    loadModel,
+      saveModel:    saveModel,
+      getOverlord:  getOverlord,
+      toJSON:       toJSON,
+      fromJSON:     fromJSON
     };    
 
     function getModel() {
@@ -36,6 +37,10 @@ angular.module('descentCampaignTrackerApp')
 
     function saveModel(){
       localStorageService.set(desCamaignCons.LOCAL_STORAGE_NAME, model);
+    }
+
+    function getOverlord(){
+      return model.overlord;
     }
 
     function toJSON(){

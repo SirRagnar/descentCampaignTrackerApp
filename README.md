@@ -2,14 +2,10 @@
 
 [![Build Status](https://secure.travis-ci.org/SirRagnar/descentCampaignTrackerApp.png?branch=master)](http://travis-ci.org/SirRagnar/descentCampaignTrackerApp)
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+This is a simple campaign tracker for Descent.
 
-This is a simple campaign tracker for Descent
-
-[Rules](https://images-cdn.fantasyflightgames.com/ffg_content/descent/descent-sea-of-blood-rules-web.pdf)
-
-[Tracker](http://sirragnar.github.io/descentCampaignTrackerApp)
+* [Online version of the tracker](http://sirragnar.github.io/descentCampaignTrackerApp)
+* [Rules of the campaign](https://images-cdn.fantasyflightgames.com/ffg_content/descent/descent-sea-of-blood-rules-web.pdf)
 
 ## TODOs
 
@@ -22,6 +18,9 @@ This is a simple campaign tracker for Descent
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
+
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.11.1.
 
 ## Testing
 
