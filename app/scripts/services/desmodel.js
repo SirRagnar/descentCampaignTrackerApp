@@ -27,6 +27,7 @@ angular.module('descentCampaignTrackerApp')
       getLieutenants:   getLieutenants,
       getMonsterLevels: getMonsterLevels,
       getHeroParty:     getHeroParty,
+      getLocations:     getLocations,
 
       toJSON:       toJSON,
       fromJSON:     fromJSON
@@ -58,6 +59,10 @@ angular.module('descentCampaignTrackerApp')
 
     function getHeroParty(){
       return model.heroParty;
+    }
+
+    function getLocations(){
+      return model.locations;
     }
 
     function toJSON(){

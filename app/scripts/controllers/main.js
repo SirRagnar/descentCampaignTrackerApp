@@ -64,15 +64,15 @@
         	xpAviableHero:              desHero.xpAviableHero.bind(undefined,desModel.getHeroParty()),
         	
         	addCity: 			addCity,
-        	removeCity: 		desLocation.removeCity.bind(undefined,main.model.locations),
+        	removeCity: 		desLocation.removeCity.bind(undefined,desModel.getLocations()),
         	addCitySiegeTocken: desLocation.addCitySiegeTocken,
         	toggleCityRazed:    desLocation.toggleCityRazed,
 
         	addDungeon: 	addDungeon,
-        	removeDungeon: 	desLocation.removeDungeon.bind(undefined,main.model.locations),
+        	removeDungeon: 	desLocation.removeDungeon.bind(undefined,desModel.getLocations()),
 
         	addIsland:    addIsland,
-        	removeIsland: desLocation.removeIsland.bind(undefined,main.model.locations),
+        	removeIsland: desLocation.removeIsland.bind(undefined,desModel.getLocations()),
 
         	toggleAdvLocVisited:   desLocation.toggleAdvLocVisited,
         	toggleAdvLocConquered: desLocation.toggleAdvLocConquered,
@@ -127,19 +127,19 @@
 
         function addCity(){
         	main.addInputs.city = _addItem( main.addInputs.city,
-        		                            desLocation.addCity.bind(undefined,main.model.locations),
+        		                            desLocation.addCity.bind(undefined,desModel.getLocations()),
         		                            desLocation.newCity);
         }
 
         function addDungeon(){
         	main.addInputs.dungeon = _addItem( main.addInputs.dungeon,
-        									   desLocation.addDungeon.bind(undefined,main.model.locations),
+        									   desLocation.addDungeon.bind(undefined,desModel.getLocations()),
         									   desLocation.newDungeon);
         }
 
         function addIsland(){
         	main.addInputs.island = _addItem( main.addInputs.island,
-        									  desLocation.addIsland.bind(undefined,main.model.locations),
+        									  desLocation.addIsland.bind(undefined,desModel.getLocations()),
         									  desLocation.newIsland);
         }
 
