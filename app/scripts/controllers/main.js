@@ -58,10 +58,10 @@
         	increaseMaxTreachery: 		desOverlord.increaseMaxTreachery,
 
         	addHero: 					addHero,
-        	removeHero:                 desHero.removeHero.bind(undefined,main.model.heroParty),
-        	addHeroesConquestTockens:   desHero.addHeroesConquestTockens.bind(undefined,main.model.heroParty),
-        	addSpentHeroXP:             desHero.addSpentHeroXP.bind(undefined,main.model.heroParty),
-        	xpAviableHero:              desHero.xpAviableHero.bind(undefined,main.model.heroParty),
+        	removeHero:                 desHero.removeHero.bind(undefined,desModel.getHeroParty()),
+        	addHeroesConquestTockens:   desHero.addHeroesConquestTockens.bind(undefined,desModel.getHeroParty()),
+        	addSpentHeroXP:             desHero.addSpentHeroXP.bind(undefined,desModel.getHeroParty()),
+        	xpAviableHero:              desHero.xpAviableHero.bind(undefined,desModel.getHeroParty()),
         	
         	addCity: 			addCity,
         	removeCity: 		desLocation.removeCity.bind(undefined,main.model.locations),
@@ -80,13 +80,13 @@
 
         	divineFavor: 			desCampaign.divineFavor.bind(undefined,
         														 desModel.getOverlord(),
-        														 main.model.heroParty),
+        														 desModel.getHeroParty()),
         	totalCampaignTockens: 	desCampaign.totalCampaignTockens.bind(undefined,
         		                                                          desModel.getOverlord(),
-        		                                                          main.model.heroParty),
+        		                                                          desModel.getHeroParty()),
         	campaignLevel: 			desCampaign.campaignLevel.bind(undefined,
         		                                                   desModel.getOverlord(),
-        		                                                   main.model.heroParty)
+        		                                                   desModel.getHeroParty())
         };
         
         // Autosave on changes
@@ -121,7 +121,7 @@
 
         function addHero(){
         	main.addInputs.hero = _addItem( main.addInputs.hero,
-        		                            desHero.addHero.bind(undefined,main.model.heroParty),
+        		                            desHero.addHero.bind(undefined,desModel.getHeroParty()),
         		                            desHero.newHero);
         }
 
