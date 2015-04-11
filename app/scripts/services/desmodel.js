@@ -25,7 +25,8 @@ angular.module('descentCampaignTrackerApp')
 
       getOverlord:      getOverlord,
       getLieutenants:   getLieutenants,
-      
+      getMonsterLevels: getMonsterLevels,
+
       toJSON:       toJSON,
       fromJSON:     fromJSON
     };    
@@ -49,6 +50,11 @@ angular.module('descentCampaignTrackerApp')
     function getLieutenants(){
       return model.lieutenants;
     }
+
+    function getMonsterLevels(){
+      return model.getMonsterLevels;
+    }
+
 
     function toJSON(){
       return angular.toJson(model, 2);
