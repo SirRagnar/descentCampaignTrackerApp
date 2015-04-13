@@ -6,13 +6,14 @@ describe('Service: desModel', function () {
   beforeEach(module('descentCampaignTrackerApp'));
 
   // instantiate service
-  var desModel;
+  var desModel, newModel;
   beforeEach(inject(function (_desModel_) {
     desModel = _desModel_;
+    newModel = desModel.getModel();
   }));
 
-  it('should do something', function () {
-    expect(!!desModel).toBe(true);
+  it('model should contain a control attribute', function () {
+    expect(newModel.control).toBeDefined();
   });
 
 });
