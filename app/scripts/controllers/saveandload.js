@@ -18,7 +18,8 @@ angular.module('descentCampaignTrackerApp')
     		output:'',
     		input:'',
     		showImportMessage:false,
-    		importResult:{}
+    		importResult:{},
+            campaignModel:desModel.getModel()
     	};
 
     	// Controller public API

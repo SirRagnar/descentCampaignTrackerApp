@@ -58,5 +58,4 @@ describe('Service: desModelControl', function () {
     expect(customControl.version).toBe(94);
     expect(customControl.originVersion).toBe(7);
   }); 
-
 });

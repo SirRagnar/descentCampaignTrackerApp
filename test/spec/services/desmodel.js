@@ -38,5 +38,4 @@ describe('Service: desModel', function () {
       expect(model.control.originVersion).toBe(0);
 
   });
-
 });
