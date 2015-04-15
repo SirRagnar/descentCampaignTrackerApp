@@ -121,12 +121,20 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function _updateModel(modelToUpdate){      
-      var initVersion = modelToUpdate.control.version || 0;
+      var initVersion;
+      if(angular.isUndefined(modelToUpdate.control) || angular.isUndefined(modelToUpdate.control.version)){
+        initVersion=0;
+      }else{
+        initVersion=modelToUpdate.control.version;
+      }
+
       if(initVersion>desModelControl.currentVersion){        
         throw 'Invalid model version';
 
       }else if(initVersion!==desModelControl.currentVersion){
-        $log.log('Old model version detected: ' + initVersion);
+        $log.log('Old model version detected. ' +
+          'Init version: ' + initVersion + 
+          ', currentVersion: ' + desModelControl.currentVersion);
         var updateFunctions= [_updateFrom0To1];
         for (var i = initVersion; i < updateFunctions.length; i++) {
           updateFunctions[i](modelToUpdate);

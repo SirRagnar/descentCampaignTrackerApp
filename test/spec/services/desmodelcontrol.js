@@ -12,23 +12,28 @@ describe('Service: desModelControl', function () {
     control = desModelControl.newControl();
   }));
 
-  it('New control should contain a version property', function () {    
+  it('new control should contain a version property', function () {    
     expect(control.version).toBeDefined();
   });
 
-  it('New control should contain a numeric version property', function () {    
+  it('new control should contain a numeric version property', function () {    
     expect(angular.isNumber(control.version)).toBe(true);
   });
 
-  it('New control should contain an origin model version property', function () {    
+  it('new control should contain an origin model version property', function () {    
     expect(control.originVersion).toBeDefined();
   });
 
-  it('New control should contain an origin model numeric version property', function () {    
+  it('new control should contain an origin model numeric version property', function () {    
     expect(angular.isNumber(control.originVersion)).toBe(true);
+  });   
+
+  it('current version should be defined and a number', function () {      
+    expect(desModelControl.currentVersion).toBeDefined();
+    expect(angular.isNumber(desModelControl.currentVersion)).toBe(true);
   }); 
 
-  it('Set originVersion should change origin version', function () { 
+  it('set originVersion should change origin version', function () { 
     desModelControl.setOriginVersion(control,7);
     expect(control.originVersion).toBe(7);
 
@@ -36,10 +41,22 @@ describe('Service: desModelControl', function () {
     expect(control.originVersion).toBe(9);
   });  
 
-  it('Call newControl with parameters should result in informed version control', function () {    
+  it('call newControl with Zero as parameters should result in zero informed version control', function () {    
     var customControl=desModelControl.newControl(0,0);
     expect(customControl.version).toBe(0);
     expect(customControl.originVersion).toBe(0);
+  });   
+
+  it('call newControl with 1 as parameters should result in 1 informed version control', function () {    
+    var customControl=desModelControl.newControl(1,1);
+    expect(customControl.version).toBe(1);
+    expect(customControl.originVersion).toBe(1);
+  });   
+
+  it('call newControl with parameters should result in informed version control', function () {    
+    var customControl=desModelControl.newControl(7,94);
+    expect(customControl.version).toBe(94);
+    expect(customControl.originVersion).toBe(7);
   }); 
 
 });

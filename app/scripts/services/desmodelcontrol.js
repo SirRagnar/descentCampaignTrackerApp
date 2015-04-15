@@ -15,7 +15,8 @@ angular.module('descentCampaignTrackerApp')
 
     return {
       newControl: newControl,
-      setOriginVersion: setOriginVersion   
+      setOriginVersion: setOriginVersion,
+      currentVersion: desModelControl.currentVersion 
     };
 
     function newControl(originVersion,currentVersion){
