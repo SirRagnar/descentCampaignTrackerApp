@@ -40,7 +40,18 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function loadModel(){
-      return localStorageService.get(desCamaignCons.LOCAL_STORAGE_NAME);
+      var localModel = localStorageService.get(desCamaignCons.LOCAL_STORAGE_NAME);
+
+      try{
+        _updateModel(localModel);
+      }catch(e){
+        $log.error('Error loading model from localhost: ' + e);
+        $log.error(localModel);
+        $log.error('Loading new model instance instead');
+        localModel = _newModel();
+      }
+
+      return localModel;
     }
 
     function saveModel(){
@@ -56,7 +67,7 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function getMonsterLevels(){
-      return model.getMonsterLevels;
+      return model.monsterLevels;
     }
 
     function getHeroParty(){
@@ -113,13 +124,11 @@ angular.module('descentCampaignTrackerApp')
       var initVersion = modelToUpdate.control.version || 0;
       if(initVersion>desModelControl.currentVersion){        
         throw 'Invalid model version';
-      }else if(initVersion!==desModelControl.currentVersion){
 
+      }else if(initVersion!==desModelControl.currentVersion){
         $log.log('Old model version detected: ' + initVersion);
         var updateFunctions= [_updateFrom0To1];
-
         for (var i = initVersion; i < updateFunctions.length; i++) {
-          $log.debug('from '+1);
           updateFunctions[i](modelToUpdate);
         }
       }

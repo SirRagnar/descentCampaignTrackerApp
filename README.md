@@ -29,3 +29,4 @@ Running `grunt test` will run the unit tests with karma.
 ## Changelog
 
 * v0.1.0 First stable version
+* v0.2.0 New model import conversion control algoritm
