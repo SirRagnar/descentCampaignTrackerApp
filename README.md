@@ -9,11 +9,10 @@ This is a simple campaign tracker for Descent.
 
 ## TODOs
 
-* Implement tests.
-* Store changes in local storage
-* Add 'Obsidian Portal output' in order to generate campaign output to be inserted in a wiki page in [Obsidian Portal](https://www.obsidianportal.com/).
-* i18n.
-* Autocomplete location
+* Implement tests.<= In queue
+* Add 'Obsidian Portal output' in order to generate campaign output to be inserted in a wiki page in [Obsidian Portal](https://www.obsidianportal.com/). <= Paused.
+* i18n. <= In progress
+* Autocomplete locations. <= In queue.
 
 ## Build & development
 
