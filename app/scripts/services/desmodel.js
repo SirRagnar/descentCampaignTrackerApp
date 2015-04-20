@@ -116,7 +116,7 @@ angular.module('descentCampaignTrackerApp')
         result.success=false;
         result.text='Conversion error: '+err.message;
       }
-      $log.debug(result);
+      //$log.debug(result);
       return result;
     }
 
@@ -147,9 +147,9 @@ angular.module('descentCampaignTrackerApp')
       // Changes from model version 0 to 1:
       //   + New version control in the model
       $log.log('Updating model from version 0 to 1');
-      $log.debug(model.control);
+      //$log.debug(model.control);
       model.control=desModelControl.newControl(0,1);
-      $log.debug(model.control);
+      //$log.debug(model.control);
       $log.log('successfully updated to version 1');
     }
 
