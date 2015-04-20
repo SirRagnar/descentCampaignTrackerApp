@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'pascalprecht.translate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -43,4 +44,7 @@ angular
   .config(['localStorageServiceProvider', 
     function(localStorageServiceProvider){
       localStorageServiceProvider.setPrefix('desCT');
+  }])
+  .config(['$translateProvider', function ($translateProvider) {   
+    $translateProvider.preferredLanguage('en');
   }]);
