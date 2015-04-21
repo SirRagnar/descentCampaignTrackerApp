@@ -4,48 +4,50 @@
   </div>
   <form>
     <div class="form-group">
-      <label for="overlordName">Señor supremo:</label>
-      <input type="text" class="form-control" id="overlordName" placeholder="Nombre del señor supremo" ng-model="main.model.overlord.name">
+      <label for="overlordName"><span ng-bind="'OVERLORD' | translate"></span>:</label>
+      <input type="text" class="form-control" id="overlordName" placeholder="{{'OVERLORD_NAME' | translate}}" ng-model="main.model.overlord.name">
     </div>
     <div class="form-group">
-      <label for="plot">Trama:</label>
-      <input type="text" class="form-control" id="plot" placeholder="Trama" ng-model="main.model.overlord.plot">
+      <label for="plot"><span ng-bind="'PLOT' | translate">:</label>
+      <input type="text" class="form-control" id="plot" placeholder="{{'PLOT' | translate}}" ng-model="main.model.overlord.plot">
     </div>
 
     <!-- Avances -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
-      <div class="panel-heading">Avances</div>
+      <div class="panel-heading" ng-bind="'UPGRADES' | translate"></div>
       <div class="panel-body">
 
-        <label for="plotUpgrade">Avances de trama:</label>
+        <label for="plotUpgrade"><span ng-bind="'PLOT_UPGRADES' | translate"></span>:</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="plotUpgrade" placeholder="Avance de trama" ng-model="main.addInputs.plotUpgrade.name" >
+          <input type="text" class="form-control" id="plotUpgrade" placeholder="{{'PLOT_UPGRADE' | translate}}" ng-model="main.addInputs.plotUpgrade.name" >
           <span class="input-group-btn">
-            <button class="btn btn-primary" ng-click="main.api.addPlotUpgrade()" aria-label="Agregar avance de trama">Agregar</button>
+            <button class="btn btn-primary" ng-click="main.api.addPlotUpgrade()" 
+                    aria-label="{{'ADD_PLOT_UPGRADE' | translate}}" ng-bind="'ADD' | translate"></button>
           </span>
         </div>
         <div >      
             <p class="input-group" ng-repeat="upgrade in main.model.overlord.plotUpgrades track by $index" style="padding:5px 10px;">
-                <input type="text" ng-model="upgrade.name" class="form-control" />
+                <input type="text" ng-model="upgrade.name" placeholder="{{'PLOT_UPGRADE' | translate}}" class="form-control" />
                 <span class="input-group-btn">  
-                  <button class="btn btn-danger" ng-click="main.api.removePlotUpgrade($index)" aria-label="Eliminar avance de trama">X</button>
+                  <button class="btn btn-danger" ng-click="main.api.removePlotUpgrade($index)" aria-label="{{'DELETE_PLOT_UPGRADE' | translate}}">X</button>
                 </span>
             </p>
          </div>
         
 
-        <label for="commonUpgrade">Avances comunes:</label>
+        <label for="commonUpgrade"><span ng-bind="'COMMON_UPGRADES' | translate"></span>:</label>
         <div class="input-group">
-          <input type="text" class="form-control" id="commonUpgrade" placeholder="Avance común" ng-model="main.addInputs.commonUpgrade.name" >
+          <input type="text" class="form-control" id="commonUpgrade" placeholder="{{'COMMON_UPGRADE' | translate}}" ng-model="main.addInputs.commonUpgrade.name" >
           <span class="input-group-btn">
-            <button class="btn btn-primary" ng-click="main.api.addCommonUpgrade()" aria-label="Agregar avance común">Agregar</button>
+            <button class="btn btn-primary" ng-click="main.api.addCommonUpgrade()" 
+                    aria-label="{{'ADD_COMMON_UPGRADE' | translate}}" ng-bind="'ADD' | translate"></button>
           </span>
         </div>
         <div >      
             <p class="input-group" ng-repeat="upgrade in main.model.overlord.commonUpgrades track by $index" style="padding:5px 10px;">
-                <input type="text" ng-model="upgrade.name" class="form-control" />
+                <input type="text" ng-model="upgrade.name" placeholder="{{'COMMON_UPGRADE' | translate}}" class="form-control" />
                 <span class="input-group-btn">  
-                  <button class="btn btn-danger" ng-click="main.api.removeCommonUpgrade($index)" aria-label="Eliminar avance común">X</button>
+                  <button class="btn btn-danger" ng-click="main.api.removeCommonUpgrade($index)" aria-label="{{'DELETE_COMMON_UPGRADE' | translate}}">X</button>
                 </span>
             </p>
         </div>

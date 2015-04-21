@@ -46,5 +46,5 @@ angular
       localStorageServiceProvider.setPrefix('desCT');
   }])
   .config(['$translateProvider', function ($translateProvider) {   
-    $translateProvider.preferredLanguage('en');
+    $translateProvider.preferredLanguage('es');
   }]);
