@@ -6,6 +6,7 @@
 	    'TITLE': 'Campaña',
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
+	    'LOCATION': 'Localización',
 	    'OVERLORD': 'Señor supremo',
 	    'OVERLORD_NAME': 'Nombre del señor supremo',
 	    'PLOT': 'Trama',
@@ -17,7 +18,12 @@
 	    'COMMON_UPGRADES': 'Avances comunes',
 	    'COMMON_UPGRADE': 'Avance común',
 	    'ADD_COMMON_UPGRADE': 'Agregar avance común',
-	    'DELETE_COMMON_UPGRADE': 'Eliminar avance común'
+	    'DELETE_COMMON_UPGRADE': 'Eliminar avance común',
+	    'LIEUTENANTS': 'Lugartenientes',
+	    'LIEUTENANT': 'Lugarteniente',
+	    'LIEUTENANT_NAME': 'Nombre del lugarteniente',
+	    'ADD_LIEUTENANT': 'Agregar lugarteniente',
+	    'DELETE_LIEUTENANT': 'Eliminar lugarteniente'
 	  });
 	}]);
     

@@ -6,6 +6,7 @@
 	    'TITLE': 'Campaign',
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
+	    'LOCATION': 'Location',
 	    'OVERLORD': 'Overlord',
 	    'OVERLORD_NAME': 'Overlord name',
 	    'PLOT': 'Plot',
@@ -17,7 +18,12 @@
 	    'COMMON_UPGRADES': 'Common upgrades',
 	    'COMMON_UPGRADE': 'Common upgrade',
 	    'ADD_COMMON_UPGRADE': 'Add common upgrade',
-	    'DELETE_COMMON_UPGRADE': 'Delete common upgrade'
+	    'DELETE_COMMON_UPGRADE': 'Delete common upgrade',
+	    'LIEUTENANTS': 'Lieutenants',
+	    'LIEUTENANT': 'Lieutenant',
+	    'LIEUTENANT_NAME': 'Lieutenant name',
+	    'ADD_LIEUTENANT': 'Add lieutenant',
+	    'DELETE_LIEUTENANT': 'Delete lieutenant'
 	  });
 	}]);
     
