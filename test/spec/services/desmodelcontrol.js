@@ -28,11 +28,6 @@ describe('Service: desModelControl', function () {
     expect(angular.isNumber(control.originVersion)).toBe(true);
   });   
 
-  it('current version should be defined and a number', function () {      
-    expect(desModelControl.currentVersion).toBeDefined();
-    expect(angular.isNumber(desModelControl.currentVersion)).toBe(true);
-  }); 
-
   it('set originVersion should change origin version', function () { 
     desModelControl.setOriginVersion(control,7);
     expect(control.originVersion).toBe(7);

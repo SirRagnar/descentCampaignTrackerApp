@@ -6,9 +6,10 @@ describe('Service: desModel', function () {
   beforeEach(module('descentCampaignTrackerApp'));
 
   // instantiate service
-  var desModel, desModelControl, newModel;
-  beforeEach(inject(function (_desModel_,_desModelControl_) {
+  var desModel, desCamaignCons, desModelControl, newModel;
+  beforeEach(inject(function (_desModel_,_desCamaignCons_,_desModelControl_) {
     desModel = _desModel_;
+    desCamaignCons=_desCamaignCons_;
     desModelControl=_desModelControl_;
     newModel = desModel.getModel();
   }));
@@ -34,7 +35,7 @@ describe('Service: desModel', function () {
       expect(model.control.version).toBeDefined();
       expect(model.control.originVersion).toBeDefined();
 
-      expect(model.control.version).toBe(desModelControl.currentVersion);
+      expect(model.control.version).toBe(desCamaignCons.CURRENT_MODEL_VERSION);
       expect(model.control.originVersion).toBe(0);
 
   });
