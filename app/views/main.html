@@ -93,26 +93,28 @@
 
     <!-- Grupo de héroes -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
-      <div class="panel-heading">Héroes</div>
+      <div class="panel-heading" ng-bind="'HEROES' | translate"></div>
       <div class="panel-body"> 
         <table class="table table-condensed">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th>XP</th>
+              <th ng-bind="'NAME'|translate"></th>
+              <th ng-bind="'XP'|translate"></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr ng-show="main.model.heroParty.heroes.length<main.cons.campaign.MAX_HERO_PARTY_SIZE">
               <td>
-                <input type="text" class="form-control" id="heroName" placeholder="Nombre del héroe" ng-model="main.addInputs.hero.name">
+                <input type="text" class="form-control" id="heroName" placeholder="{{'HERO_NAME' | translate}}" ng-model="main.addInputs.hero.name">
               </td>
-              <td><input type="number" class="form-control" id="heroXPSpent" placeholder="XP gastados" ng-model="main.addInputs.hero.xpSpent"></td>
-              <td><button class="btn btn-primary" ng-click="main.api.addHero()" aria-label="Agregar héroe">Agregar</button></td>
+              <td><input type="number" class="form-control" id="heroXPSpent" 
+                         placeholder="{{'HERO_XP_SPENT'|translate}}" ng-model="main.addInputs.hero.xpSpent"></td>
+              <td><button class="btn btn-primary" ng-click="main.api.addHero()" 
+                          aria-label="{{'ADD_HERO'|translate}}" ng-bind="'ADD'|translate"></button></td>
             </tr>
             <tr ng-repeat="hero in main.model.heroParty.heroes track by $index" style="padding:5px 10px;" >
-              <td><input type="text" ng-model="hero.name" class="form-control" required/></td>
+              <td><input type="text" ng-model="hero.name" class="form-control" placeholder="{{'HERO_NAME' | translate}}" required/></td>
               <td>
                 <p class="form-control-static">
                   {{main.api.xpAviableHero(hero)}}                    
@@ -120,7 +122,7 @@
                   <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addSpentHeroXP(hero,+1)"></span>
                 </p>
               </td>
-              <td><button class="btn btn-danger" ng-click="main.api.removeHero($index)" aria-label="Eliminar héroe">X</button></td>
+              <td><button class="btn btn-danger" ng-click="main.api.removeHero($index)" aria-label="{{'DELETE_HERO'|translate}}">X</button></td>
             </tr>
           </tbody>
         </table>

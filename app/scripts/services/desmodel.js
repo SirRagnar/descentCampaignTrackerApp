@@ -45,7 +45,7 @@ angular.module('descentCampaignTrackerApp')
       try{
         _updateModel(localModel);
       }catch(e){
-        $log.error('Error loading model from localhost: ' + e);
+        $log.error('Error loading model from local storage: ' + e);
         $log.error(localModel);
         $log.error('Loading new model instance instead');
         localModel = _newModel();
@@ -128,13 +128,13 @@ angular.module('descentCampaignTrackerApp')
         initVersion=modelToUpdate.control.version;
       }
 
-      if(initVersion>desModelControl.currentVersion){        
+      if(!desModelControl.isValidModelVersion(initVersion)){        
         throw 'Invalid model version';
 
-      }else if(initVersion!==desModelControl.currentVersion){
-        $log.log('Old model version detected. ' +
+      }else if(!desModelControl.isCurrentVersion(initVersion)){
+        $log.debug('Old model version detected. ' +
           'Init version: ' + initVersion + 
-          ', currentVersion: ' + desModelControl.currentVersion);
+          ', currentVersion: ' + desCamaignCons.CURRENT_MODEL_VERSION);
         var updateFunctions= [_updateFrom0To1];
         for (var i = initVersion; i < updateFunctions.length; i++) {
           updateFunctions[i](modelToUpdate);
@@ -146,16 +146,16 @@ angular.module('descentCampaignTrackerApp')
     function _updateFrom0To1(model){
       // Changes from model version 0 to 1:
       //   + New version control in the model
-      $log.log('Updating model from version 0 to 1');
+      $log.debug('Updating model from version 0 to 1');
       //$log.debug(model.control);
       model.control=desModelControl.newControl(0,1);
       //$log.debug(model.control);
-      $log.log('successfully updated to version 1');
+      $log.debug('successfully updated to version 1');
     }
 
     function _newModel(){
       return {  
-        control: desModelControl.newControl(),    
+        control: desModelControl.newControlLatestVersion(),    
         overlord: desOverlord.newOverlord(),
                     /*{ 
                       name: '',

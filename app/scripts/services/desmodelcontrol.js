@@ -8,17 +8,20 @@
  * Version Control for model
  */
 angular.module('descentCampaignTrackerApp')
-  .factory('desModelControl', function () {
+  .factory('desModelControl',
+  ['desCamaignCons', function (desCamaignCons) {
     
     var desModelControl=this;
-    desModelControl.currentVersion=1;
 
     return {
       newControl: newControl,
+      newControlLatestVersion: newControl.bind(undefined,
+                                desCamaignCons.CURRENT_MODEL_VERSION,
+                                desCamaignCons.CURRENT_MODEL_VERSION),
       setOriginVersion: setOriginVersion,
-      currentVersion: desModelControl.currentVersion 
+      isValidModelVersion: isValidModelVersion,
+      isCurrentVersion: isCurrentVersion
     };
-
     function newControl(originVersion,currentVersion){
       var origin, current;
       if(angular.isUndefined(originVersion)){
@@ -28,7 +31,7 @@ angular.module('descentCampaignTrackerApp')
       }
 
       if(angular.isUndefined(currentVersion)){
-        current=0;
+        current=desCamaignCons.CURRENT_MODEL_VERSION;
       }else{
         current=currentVersion;
       }
@@ -42,4 +45,13 @@ angular.module('descentCampaignTrackerApp')
     function setOriginVersion(control,originVersion){
       control.originVersion=originVersion;
     }
-  });
+
+    function isValidModelVersion(version){
+      return angular.isDefined(version) && angular.isNumber(version) && version<=desCamaignCons.CURRENT_MODEL_VERSION;
+    }
+
+    function isCurrentVersion(version){
+      return angular.isDefined(version) && angular.isNumber(version) && version===desCamaignCons.CURRENT_MODEL_VERSION;
+    }
+
+  }]);

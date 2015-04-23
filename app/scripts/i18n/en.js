@@ -7,6 +7,7 @@
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
 	    'LOCATION': 'Location',
+	    'NAME': 'Name',
 	    'OVERLORD': 'Overlord',
 	    'OVERLORD_NAME': 'Overlord name',
 	    'PLOT': 'Plot',
@@ -23,7 +24,13 @@
 	    'LIEUTENANT': 'Lieutenant',
 	    'LIEUTENANT_NAME': 'Lieutenant name',
 	    'ADD_LIEUTENANT': 'Add lieutenant',
-	    'DELETE_LIEUTENANT': 'Delete lieutenant'
+	    'DELETE_LIEUTENANT': 'Delete lieutenant',
+	    'HEROES': 'Heroes',
+	    'HERO_NAME': 'Hero name',
+	    'XP': 'XP',
+	    'HERO_XP_SPENT': 'XP spent',
+	    'ADD_HERO': 'Add hero',
+	    'DELETE_HERO': 'Delete hero'
 	  });
 	}]);
     
