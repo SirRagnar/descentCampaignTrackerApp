@@ -5,7 +5,7 @@
 This is a simple campaign tracker for Descent.
 
 * [Online version of the tracker](http://sirragnar.github.io/descentCampaignTrackerApp)
-* [Rules of the campaign](https://images-cdn.fantasyflightgames.com/ffg_content/descent/descent-sea-of-blood-rules-web.pdf)
+* [Campaign rules](https://images-cdn.fantasyflightgames.com/ffg_content/descent/descent-sea-of-blood-rules-web.pdf)
 
 ## TODOs
 

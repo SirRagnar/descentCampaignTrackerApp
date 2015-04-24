@@ -30,7 +30,12 @@
 	    'XP': 'XP',
 	    'HERO_XP_SPENT': 'XP gastados',
 	    'ADD_HERO': 'Agregar héroe',
-	    'DELETE_HERO': 'Eliminar héroe'
+	    'DELETE_HERO': 'Eliminar héroe',
+	    'HOME_PORT': 'Puerto seguro',
+	    'PARTY_LOCATION': 'Localización actual del grupo',
+	    'RUMOR': 'Rumor',
+	    'CURRENT_RUMOR': 'Rumor activo',
+	    'RUMOR_LOCATION': 'Localización del rumor'
 	  });
 	}]);
     

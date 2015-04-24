@@ -128,20 +128,22 @@
         </table>
 
         <div class="form-group">
-          <label for="homePort">Puerto seguro:</label>
+          <label for="homePort"><span ng-bind="'HOME_PORT' | translate">:</label>
           <input type="text" class="form-control" id="homePort" placeholder="Puerto seguro" ng-model="main.model.heroParty.homePort">
         </div>
         <div class="form-group">
-          <label for="heroPartyLocation">Localización actual del grupo:</label>
+          <label for="heroPartyLocation"><span ng-bind="'PARTY_LOCATION' | translate">:</label>
           <input type="text" class="form-control" id="heroPartyLocation" placeholder="Localización actual del grupo" ng-model="main.model.heroParty.location">
         </div>
         <div class="form-group">
           <div class="form-inline">
-            <label for="rumorName">Rumor / localización:</label>
+            <label for="rumorName"><span ng-bind="'RUMOR' | translate" /> / <span ng-bind="'LOCATION' | translate"/>:</label>
           </div>
           <div class="form-inline">
-              <input type="text" class="form-control" id="rumorName" placeholder="Rumor activo" ng-model="main.model.heroParty.rumor.name">
-              <input type="text" class="form-control" id="rumorLocation" placeholder="Localización del rumor" ng-model="main.model.heroParty.rumor.location">
+              <input type="text" class="form-control" 
+                     id="rumorName" placeholder="{{'CURRENT_RUMOR'|translate}}" ng-model="main.model.heroParty.rumor.name" style="width:50%">
+              <input type="text" class="form-control" 
+                     id="rumorLocation" placeholder="{{'RUMOR_LOCATION'|translate}}" ng-model="main.model.heroParty.rumor.location" style="width:40%">
           </div>
         </div>
 

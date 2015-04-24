@@ -30,7 +30,12 @@
 	    'XP': 'XP',
 	    'HERO_XP_SPENT': 'XP spent',
 	    'ADD_HERO': 'Add hero',
-	    'DELETE_HERO': 'Delete hero'
+	    'DELETE_HERO': 'Delete hero',
+	    'HOME_PORT': 'Home port',
+	    'PARTY_LOCATION': 'Hero party location',
+	    'RUMOR': 'Rumor',
+	    'CURRENT_RUMOR': 'Current rumor',
+	    'RUMOR_LOCATION': 'Rumor location'
 	  });
 	}]);
     

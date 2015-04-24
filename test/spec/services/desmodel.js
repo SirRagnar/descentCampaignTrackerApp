@@ -7,11 +7,12 @@ describe('Service: desModel', function () {
 
   // instantiate service
   var desModel, desCamaignCons, desModelControl, newModel;
-  beforeEach(inject(function (_desModel_,_desCamaignCons_,_desModelControl_) {
-    desModel = _desModel_;
+  beforeEach(inject(function (_desModel_,_localStorageService_,_desCamaignCons_,_desModelControl_) {        
     desCamaignCons=_desCamaignCons_;
+    _localStorageService_.remove(desCamaignCons.LOCAL_STORAGE_NAME);
+    desModel = _desModel_;
     desModelControl=_desModelControl_;
-    newModel = desModel.getModel();
+    newModel = desModel.loadModel();
   }));
 
   it('model should contain a control attribute', function () {
@@ -39,4 +40,14 @@ describe('Service: desModel', function () {
       expect(model.control.originVersion).toBe(0);
 
   });
+
+  it('new model should be of the current version',function(){
+    expect(newModel.control.version).toBe(desCamaignCons.CURRENT_MODEL_VERSION);
+  });
+
+  /*
+  it('new model\'s origin should be equals to the current version',function(){
+    expect(newModel.control.originVersion).toBe(desCamaignCons.CURRENT_MODEL_VERSION);
+  });
+  */
 });
