@@ -153,11 +153,11 @@
 
     <!-- Puntos de conquista -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
-      <div class="panel-heading">Puntos de conquista</div>
+      <div class="panel-heading" ng-bind="'CONQUEST_TOCKENS'|translate"></div>
       <div class="panel-body"> 
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Héroes:</label>
+          <label class="col-sm-5 control-label"><span ng-bind="'HEROES'|translate" />:</label>
           <div class="col-sm-7">
             <p class="form-control-static">{{main.model.heroParty.conquestTockens}}
               <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addHeroesConquestTockens(+1)" ></span>
@@ -167,7 +167,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Señor supremo:</label>
+          <label class="col-sm-5 control-label"><span ng-bind="'OVERLORD'|translate"/>:</label>
           <div class="col-sm-7">
             <p class="form-control-static">
               {{main.api.overlordAviableConquestTockens()}} 
@@ -182,21 +182,21 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Total campaña:</label>
+          <label class="col-sm-5 control-label"><span ng-bind="'CAMPAIGN_TOTAL_CONQUEST_TOCKENS'|translate" />:</label>
           <div class="col-sm-5">
             <p class="form-control-static">{{main.api.totalCampaignTockens()}}</p>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Nivel de campaña:</label>
+          <label class="col-sm-5 control-label"><span ng-bind="'CAMPAIGN_LEVEL'|translate"/>:</label>
           <div class="col-sm-5">
             <p class="form-control-static">{{main.api.campaignLevel()}}</p>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Favor divino:</label>
+          <label class="col-sm-5 control-label"><span ng-bind="'DIVINE_FAVOR'|translate"/>:</label>
           <div class="col-sm-5">
             <p class="form-control-static">{{main.api.divineFavor()}}</p>
           </div>
@@ -208,7 +208,7 @@
 
     <!-- Nivel monstruos -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
-      <div class="panel-heading">Nivel de monstruos</div>
+      <div class="panel-heading" ng-bind="'LEVEL_MONSTERS'|translate"></div>
       <div class="panel-body"> 
 
       <div class="form-group" ng-repeat="monsterLevel in main.model.monsterLevels">
@@ -227,29 +227,31 @@
 
     <!-- Ciudades -------------------------------------------------------------------------------------------------------------------------->
     <div class="panel panel-default">
-      <div class="panel-heading">Ciudades</div>
+      <div class="panel-heading" ng-bind="'CITIES'|translate"></div>
       <div class="panel-body"> 
 
         <table class="table table-condensed">
           <thead>
             <tr>
-              <th>Ciudad</th>
-              <th>Asedio</th>
-              <th>Bóveda</th>
+              <th ng-bind="'CITY'|translate"></th>
+              <th ng-bind="'SIEGE'|translate"></th>
+              <th ng-bind="'VAULT'|translate"></th>
             </tr>
           </thead>
           <tbody>
             <tr >
               <td>
-                <input type="text" class="form-control" id="cityName" placeholder="Nombre de la ciudad" ng-model="main.addInputs.city.name">
+                <input type="text" class="form-control" id="cityName" placeholder="{{'CITY_NAME'|translate}}" ng-model="main.addInputs.city.name">
               </td>
-              <td><input type="number" class="form-control" id="citySiege" placeholder="Marcadores de asedio" ng-model="main.addInputs.city.siege"></td>
-              <td><input type="text" class="form-control" id="cityVault" placeholder="Bóveda" ng-model="main.addInputs.city.vault"></td>
-              <td><button class="btn btn-primary" ng-click="main.api.addCity()" aria-label="Agregar ciudad">Agregar</button></td>
+              <td><input type="number" class="form-control" id="citySiege" 
+                         placeholder="{{'SIEGE_TOCKENS'|translate}}" ng-model="main.addInputs.city.siege"></td>
+              <td><input type="text" class="form-control" id="cityVault" 
+                         placeholder="{{'VAULT'|translate}}" ng-model="main.addInputs.city.vault"></td>
+              <td><button class="btn btn-primary" ng-click="main.api.addCity()" aria-label="{{'ADD_CITY'|translate}}" ng-bind="'ADD'|translate"></button></td>
             </tr>
             <tr ng-repeat="city in main.model.locations.cities track by $index" style="padding:5px 10px;">
               <td>               
-                <input type="text" ng-model="city.name" class="form-control" />
+                <input type="text" ng-model="city.name" class="form-control" placeholder="{{'CITY_NAME'|translate}}" />
               </td>
               <td>
                 <p class="form-control-static">
@@ -257,22 +259,22 @@
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,+1)"></span>
                   <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,-1)"></span>
 
-                  <span class="label label-success" ng-show="city.siege===0&amp;&amp;!city.razed">Libre</span>                  
-                  <span class="label label-warning" ng-show="city.siege>0&amp;&amp;!city.razed">Bajo asedio</span>
-                  <span class="label label-danger"  ng-show="city.razed">Arrasada</span>
+                  <span class="label label-success" ng-show="city.siege===0&amp;&amp;!city.razed" ng-bind="'FREE'|translate"></span>                  
+                  <span class="label label-warning" ng-show="city.siege>0&amp;&amp;!city.razed" ng-bind="'SIEGED'|translate"></span>
+                  <span class="label label-danger"  ng-show="city.razed" ng-bind="'RAZED'|translate"></span>
                 </p>
               </td>              
-              <td><input type="text" ng-model="city.vault" class="form-control" /></td>
+              <td><input type="text" ng-model="city.vault" class="form-control" placeholder="{{'VAULT'|translate}}"/></td>
               <td>
                 <div class="btn-group" role="group" aria-label="Acciones sobre la ciudad">                  
                   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Acciones <span class="caret"></span>
+                    <span ng-bind="'ACTIONS'|translate"/> <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li ng-class="city.razed? 'disabled':''        " ><a ng-click="main.api.toggleCityRazed(city)">Arrasar ciudad</a></li>
-                    <li ng-class="city.razed? ''        :'disabled'" ><a ng-click="main.api.toggleCityRazed(city)">Restaurar ciudad</a></li>
+                    <li ng-class="city.razed? 'disabled':''        " ><a ng-click="main.api.toggleCityRazed(city)" ng-bind="'RAZE_CITY'|translate"></a></li>
+                    <li ng-class="city.razed? ''        :'disabled'" ><a ng-click="main.api.toggleCityRazed(city)" ng-bind="'RESTORE_CITY'|translate"></a></li>
                     <li class="divider"></li>
-                    <li><a ng-click="main.api.removeCity($index)">Eliminar ciudad</a></li>
+                    <li><a ng-click="main.api.removeCity($index)" ng-bind="'DELETE_CITY'|translate"></a></li>
                   </ul>                  
                 </div>
               </td>

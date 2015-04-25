@@ -4,6 +4,7 @@
 	app.config(['$translateProvider', function ($translateProvider) {
 	  $translateProvider.translations('es', {
 	    'TITLE': 'Campaña',
+	    'ACTIONS': 'Acciones',
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
 	    'LOCATION': 'Localización',
@@ -35,7 +36,35 @@
 	    'PARTY_LOCATION': 'Localización actual del grupo',
 	    'RUMOR': 'Rumor',
 	    'CURRENT_RUMOR': 'Rumor activo',
-	    'RUMOR_LOCATION': 'Localización del rumor'
+	    'RUMOR_LOCATION': 'Localización del rumor',
+	    'CONQUEST_TOCKENS': 'Fichas de conquista',
+	    'CAMPAIGN_TOTAL_CONQUEST_TOCKENS': 'Total campaña',
+	    'CAMPAIGN_LEVEL': 'Nivel de campaña',
+	    'LEVEL_CUPPER': 'Cobre',
+	    'LEVEL_SILVER': 'Plata',
+	    'LEVEL_GOLD': 'Oro',
+	    'LEVEL_GOLD_FINAL_BATTLE': 'Oro - Batalla final',
+	    'LEVEL_DIAMOND': 'Diamante',
+	    'DIVINE_FAVOR': 'Favor divino',
+	    'LEVEL_MONSTERS': 'Nivel de los monstruos',
+	    'HUMANOIDS':'Humanoides',
+	    'BEASTS':'Bestias',
+	    'ELDRITCH': 'Arcanos',
+	    'CITIES': 'Ciudades',
+	    'CITY': 'Ciudad',
+	    'CITY_NAME': 'Nombre de la ciudad',
+	    'SIEGE':'Asedio',
+	    'SIEGE_TOCKENS': 'Marcadores de asedio',
+	    'VAULT': 'Bóveda',
+	    'ADD_CITY':'Agregar ciudad',
+	    'RAZE_CITY': 'Arrasar ciudad',
+	    'RESTORE_CITY': 'Restaurar ciudad',
+	    'DELETE_CITY': 'Eliminar ciudad',
+	    'FREE': 'Libre',
+	    'SIEGED': 'Bajo asedio',
+	    'RAZED': 'Arrasada',
+	    'ISLANDS': 'Islas',
+	    'DUNGEONS': 'Mazmorras'
 	  });
 	}]);
     

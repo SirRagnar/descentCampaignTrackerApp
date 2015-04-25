@@ -9,8 +9,8 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desCampaign', 
-    ['desCamaignCons',
-    function (desCamaignCons) {
+    ['$translate', 'desCamaignCons',
+    function ($translate, desCamaignCons) {
     
     return {
       divineFavor:          divineFavor,
@@ -46,15 +46,15 @@ angular.module('descentCampaignTrackerApp')
     }
 
     function campaignLevel(overlord, heroParty){
-      var level='Cobre';
+      var level='LEVEL_CUPPER';
       var totalTockens = totalCampaignTockens(overlord, heroParty);
       if(totalTockens>=desCamaignCons.SILVER_THRESHOLD){
-        level='Plata';
+        level='LEVEL_SILVER';
       }else if(totalTockens>=desCamaignCons.GOLD_THRESHOLD){
-        level='Oro';
+        level='LEVEL_GOLD';
       }else if(totalTockens>=desCamaignCons.FINAL_BATTLE_THRESHOLD){
-        level='Oro - Batalla final';
+        level='LEVEL_GOLD_FINAL_BATTLE';
       }
-      return level;
+      return $translate.instant(level);
     }
   }]);

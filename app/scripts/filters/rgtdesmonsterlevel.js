@@ -9,23 +9,23 @@
  * Convert number of a monster level into text.
  */
 angular.module('descentCampaignTrackerApp')
-  .filter('rgtDesMonsterLevel', function () {
+  .filter('rgtDesMonsterLevel',['$translate', function ($translate) {
     return function (monsterLevel) {
     	var level = (monsterLevel.level) || 1;
-    	var strLevel='Cobre';
+    	var strLevel='LEVEL_CUPPER';
 		switch(level) {
 			case 2:
-			    strLevel='Plata';
+			    strLevel='LEVEL_SILVER';
 			    break;
 			case 3:
-			    strLevel='Oro';
+			    strLevel='LEVEL_GOLD';
 			    break;
 			case 4:
-			    strLevel='Diamante';
+			    strLevel='LEVEL_DIAMOND';
 			    break;
 			default:
-			    strLevel='Cobre';
+			    strLevel='LEVEL_CUPPER';
 		}
-      return strLevel;
+      return $translate.instant(strLevel);
     };
-  });
+  }]);

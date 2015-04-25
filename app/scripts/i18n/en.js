@@ -4,6 +4,7 @@
 	app.config(['$translateProvider', function ($translateProvider) {
 	  $translateProvider.translations('en', {
 	    'TITLE': 'Campaign',
+	    'ACTIONS': 'Actions',
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
 	    'LOCATION': 'Location',
@@ -35,7 +36,35 @@
 	    'PARTY_LOCATION': 'Hero party location',
 	    'RUMOR': 'Rumor',
 	    'CURRENT_RUMOR': 'Current rumor',
-	    'RUMOR_LOCATION': 'Rumor location'
+	    'RUMOR_LOCATION': 'Rumor location',
+	    'CONQUEST_TOCKENS': 'Conquest tockens',
+	    'CAMPAIGN_TOTAL_CONQUEST_TOCKENS': 'Campaign total conquest tockens',
+	    'CAMPAIGN_LEVEL': 'Campaign level',
+	    'LEVEL_CUPPER': 'Cupper',
+	    'LEVEL_SILVER': 'Silver',
+	    'LEVEL_GOLD': 'Gold',
+	    'LEVEL_GOLD_FINAL_BATTLE': 'Gold - Final battle',
+	    'LEVEL_DIAMOND': 'Diamond',
+	    'DIVINE_FAVOR': 'Divine favor',
+	    'LEVEL_MONSTERS': 'Level monsters',
+	    'HUMANOIDS':'Humanoids',
+	    'BEASTS':'Beasts',
+	    'ELDRITCH': 'Eldritch',
+	    'CITIES': 'Cities',
+	    'CITY': 'City',
+	    'CITY_NAME': 'City name',
+	    'SIEGE':'Siege',
+	    'SIEGE_TOCKENS': 'Siege tockens',
+	    'VAULT': 'Vault',
+	    'ADD_CITY':'Add city',
+	    'RAZE_CITY': 'Raze city',
+	    'RESTORE_CITY': 'Restore city',
+	    'DELETE_CITY': 'Delete city',
+	    'FREE': 'Free',
+	    'SIEGED': 'Sieged',
+	    'RAZED': 'Razed',
+	    'ISLANDS': 'Islands',
+	    'DUNGEONS': 'Dungeons'
 	  });
 	}]);
     

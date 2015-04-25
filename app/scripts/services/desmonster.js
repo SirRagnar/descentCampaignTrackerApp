@@ -9,7 +9,7 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desMonster',
-  [function () {
+  ['$translate',function ($translate) {
     
     return {
       newMonsterLevels:   newMonsterLevels,
@@ -18,9 +18,9 @@ angular.module('descentCampaignTrackerApp')
 
     function newMonsterLevels(){
       return [
-        {name: 'Humanoides', level: 1},
-        {name: 'Bestias', level:1},
-        {name: 'Arcanos', level:1}
+        {name: $translate.instant('HUMANOIDS'), level: 1},
+        {name: $translate.instant('BEASTS'), level:1},
+        {name: $translate.instant('ELDRITCH'), level:1}
       ];
     }
 
