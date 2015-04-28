@@ -50,6 +50,7 @@
 	    'HUMANOIDS':'Humanoids',
 	    'BEASTS':'Beasts',
 	    'ELDRITCH': 'Eldritch',
+	    'MONSTER_TYPE_UNKNOWN': 'Monster type unknown',
 	    'CITIES': 'Cities',
 	    'CITY': 'City',
 	    'CITY_NAME': 'City name',

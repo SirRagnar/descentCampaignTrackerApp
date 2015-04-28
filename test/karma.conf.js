@@ -32,11 +32,14 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/angular-translate/angular-translate.js',
+      'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+       // fixtures
+      {pattern: 'test/mock/*.json', watched: true, served: true, included: false}
     ],
 
     // list of files / patterns to exclude

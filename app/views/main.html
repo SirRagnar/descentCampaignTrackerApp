@@ -212,7 +212,7 @@
       <div class="panel-body"> 
 
       <div class="form-group" ng-repeat="monsterLevel in main.model.monsterLevels">
-          <label class="col-sm-5 control-label" ng-bind="monsterLevel.name"></label>
+          <label class="col-sm-5 control-label" ng-bind="monsterLevel.type | rgtDesMonsterTypeName"></label>
           <div class="col-sm-7">
             <p class="form-control-static">{{monsterLevel | rgtDesMonsterLevel}}
               <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.modifyMonsterLevel(monsterLevel, +1)" ></span>

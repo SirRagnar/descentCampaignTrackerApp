@@ -50,6 +50,7 @@
 	    'HUMANOIDS':'Humanoides',
 	    'BEASTS':'Bestias',
 	    'ELDRITCH': 'Arcanos',
+	    'MONSTER_TYPE_UNKNOWN': 'Tipo de monstruo desconocido',
 	    'CITIES': 'Ciudades',
 	    'CITY': 'Ciudad',
 	    'CITY_NAME': 'Nombre de la ciudad',

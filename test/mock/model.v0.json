@@ -1,0 +1,146 @@
+{
+  "overlord": {
+    "name": "Fulano",
+    "plot": "Tramosa",
+    "plotUpgrades": [
+      {
+        "name": "primer"
+      },
+      {
+        "name": "segundo"
+      }
+    ],
+    "commonUpgrades": [
+      {
+        "name": "agluno mas"
+      },
+      {
+        "name": "alguno menos"
+      }
+    ],
+    "conquestTockens": 21,
+    "spentTockens": 0,
+    "treachery": {
+      "traps": {
+        "current": 1,
+        "max": 4
+      },
+      "events": {
+        "current": 2,
+        "max": 5
+      },
+      "monsters": {
+        "current": 1,
+        "max": 2
+      }
+    }
+  },
+  "lieutenants": {
+    "list": [
+      {
+        "name": "achus",
+        "location": "",
+        "alive": true
+      },
+      {
+        "name": "molon",
+        "location": "12",
+        "alive": true
+      },
+      {
+        "name": "rodri",
+        "location": "df",
+        "alive": true
+      }
+    ]
+  },
+  "monsterLevels": [
+    {
+      "name": "Humanoides",
+      "level": 2
+    },
+    {
+      "name": "Bestias",
+      "level": 1
+    },
+    {
+      "name": "Arcanos",
+      "level": 3
+    }
+  ],
+  "heroParty": {
+    "location": "algún lugar",
+    "homePort": "Plinplun",
+    "rumor": {
+      "name": "vete asaber",
+      "location": "Algún lugar"
+    },
+    "heroes": [
+      {
+        "name": "Bermejo",
+        "xpSpent": 0
+      },
+      {
+        "name": "conann",
+        "xpSpent": 0
+      },
+      {
+        "name": "Zolaina",
+        "xpSpent": 0
+      }
+    ],
+    "conquestTockens": 37
+  },
+  "locations": {
+    "cities": [
+      {
+        "name": "Lerna",
+        "type": "C",
+        "siege": 2,
+        "vault": "34",
+        "razed": false
+      },
+      {
+        "name": "morago",
+        "type": "C",
+        "siege": 0,
+        "vault": "",
+        "razed": false
+      },
+      {
+        "name": "planplin",
+        "type": "C",
+        "siege": 0,
+        "vault": "",
+        "razed": true
+      }
+    ],
+    "dungeons": [
+      {
+        "name": "fuls",
+        "type": "A",
+        "visited": false,
+        "conquered": false,
+        "failed": false,
+        "levels": [
+          "4",
+          "34",
+          "234"
+        ]
+      }
+    ],
+    "islands": [
+      {
+        "name": "nox",
+        "type": "A",
+        "visited": false,
+        "conquered": false,
+        "failed": false,
+        "levels": [
+          "342",
+          "42"
+        ]
+      }
+    ]
+  }
+}
