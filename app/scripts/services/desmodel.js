@@ -143,14 +143,47 @@ angular.module('descentCampaignTrackerApp')
 
     }
 
-    function _updateFrom0To1(model){
+    function _updateFrom0To1(modelToUpdate){
       // Changes from model version 0 to 1:
       //   + New version control in the model
+      //   + Monster Levels attribute: type added, name removed
       $log.debug('Updating model from version 0 to 1');
-      //$log.debug(model.control);
-      model.control=desModelControl.newControl(0,1);
-      //$log.debug(model.control);
+      
+      modelToUpdate.control=desModelControl.newControl(0,1);
+
+      if(angular.isDefined(modelToUpdate.monsterLevels)){
+        var monsterLevelsChangedAttr=[
+          {name:'Humanoides', type:desCamaignCons.MONSTER_TYPE_HUMANOID},
+          {name:'Bestias', type:desCamaignCons.MONSTER_TYPE_BEASTS},
+          {name:'Arcanos',type:desCamaignCons.MONSTER_TYPE_ELDRITCH}
+        ];   
+
+        angular.forEach(monsterLevelsChangedAttr, function(change,index) {
+          var monsterLevelToChange=_findMonsterLevelByName(change.name,modelToUpdate.monsterLevels);
+          // If monsterLevel exists it is upgrades else it is added
+          if(angular.isDefined(monsterLevelToChange)&&angular.isObject(monsterLevelToChange)){
+            var newLevelversion = desMonster.newMonsterLevel(change.type, monsterLevelToChange.level ||1);
+            modelToUpdate.monsterLevels[index]=newLevelversion;
+          }else{
+            modelToUpdate.monsterLevels.push(desMonster.newMonsterLevel(change.type));
+          }
+        });
+
+      }
+      
+      
       $log.debug('successfully updated to version 1');
+
+      function _findMonsterLevelByName(name,monsterLevels){
+        var res=monsterLevels.filter(function(monsterLevel){
+          return name===monsterLevel.name;
+        });
+        if(angular.isDefined(res)&&angular.isArray(res)){
+          return res[0];
+        }else{
+          return undefined;
+        }
+      }
     }
 
     function _newModel(){

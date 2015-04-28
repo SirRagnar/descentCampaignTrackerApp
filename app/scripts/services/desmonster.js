@@ -12,15 +12,20 @@ angular.module('descentCampaignTrackerApp')
   ['desCamaignCons',function (desCamaignCons) {
     
     return {
+      newMonsterLevel: newMonsterLevel,
       newMonsterLevels:   newMonsterLevels,
       modifyMonsterLevel: modifyMonsterLevel
     };
 
+    function newMonsterLevel(type,level){
+      return {type:type,level:level||1};
+    }
+
     function newMonsterLevels(){
       return [
-        {type: desCamaignCons.MONSTER_TYPE_HUMANOID, level: 1},
-        {type: desCamaignCons.MONSTER_TYPE_BEASTS, level:1},
-        {type: desCamaignCons.MONSTER_TYPE_ELDRITCH, level:1}
+        newMonsterLevel(desCamaignCons.MONSTER_TYPE_HUMANOID, 1),
+        newMonsterLevel(desCamaignCons.MONSTER_TYPE_BEASTS, 1),
+        newMonsterLevel(desCamaignCons.MONSTER_TYPE_ELDRITCH, 1)
       ];
     }
 
