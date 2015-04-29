@@ -33,8 +33,8 @@ module.exports = function(config) {
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       // endbower
+      'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js',
