@@ -3,6 +3,7 @@
     
 	app.config(['$translateProvider', function ($translateProvider) {
 	  $translateProvider.translations('en', {
+	  	'UNKNOWN': 'Unknown',
 	    'TITLE': 'Campaign',
 	    'ACTIONS': 'Actions',
 	    'ADD': 'Add',

@@ -259,9 +259,7 @@
                   <span class="glyphicon glyphicon-plus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,+1)"></span>
                   <span class="glyphicon glyphicon-minus-sign" aria-hidden="true" ng-click="main.api.addCitySiegeTocken(city,-1)"></span>
 
-                  <span class="label label-success" ng-show="city.siege===0&amp;&amp;!city.razed" ng-bind="'FREE'|translate"></span>                  
-                  <span class="label label-warning" ng-show="city.siege>0&amp;&amp;!city.razed" ng-bind="'SIEGED'|translate"></span>
-                  <span class="label label-danger"  ng-show="city.razed" ng-bind="'RAZED'|translate"></span>
+                  <span class="label {{city | desCityStateClass}}" ng-bind="city | desCityState"></span>  
                 </p>
               </td>              
               <td><input type="text" ng-model="city.vault" class="form-control" placeholder="{{'VAULT'|translate}}"/></td>
