@@ -7,13 +7,14 @@ describe('Service: desModel', function () {
   beforeEach(module('served/modelV0.json'));
 
   // instantiate service
-  var desModel, desCamaignCons, desModelControl, newModel,modelV0Str;
+  var desModel, desCamaignCons, desModelControl, newModel,modelV0Str,modelV0;
   beforeEach(inject(function (_desModel_,_localStorageService_,_desCamaignCons_,_desModelControl_, _servedModelV0_) {      
     desCamaignCons=_desCamaignCons_;
     _localStorageService_.remove(desCamaignCons.LOCAL_STORAGE_NAME);
     desModel = _desModel_;
     desModelControl=_desModelControl_;
     modelV0Str=angular.toJson(_servedModelV0_, 2);
+    modelV0=_servedModelV0_;
     newModel = desModel.loadModel();
 
   }));
@@ -120,6 +121,42 @@ describe('Service: desModel', function () {
                                     return desCamaignCons.MONSTER_TYPE_ELDRITCH===monsterLevel.type;
                                 });
       expect(eldrichMonsterLevel[0]).toBeDefined();    
+    }
+  });
+
+  it('complete json model migrated from 0 version should have monsterLevels attribute with an humanoid element with unchanged level', function(){
+    var loadRes=desModel.fromJSON(modelV0Str);
+    var model = desModel.getModel();
+
+    if(loadRes.success && angular.isArray(model.monsterLevels)){
+      var humanoidMonsterLevel= model.monsterLevels.filter(function(monsterLevel) {
+                                    return desCamaignCons.MONSTER_TYPE_HUMANOID===monsterLevel.type; 
+                                });
+      expect(humanoidMonsterLevel[0].level).toBe(modelV0.monsterLevels[0].level);    
+    }
+  });
+
+  it('complete json model migrated from 0 version should have monsterLevels attribute with a Beasts element with unchanged level', function(){
+    var loadRes=desModel.fromJSON(modelV0Str);
+    var model = desModel.getModel();
+
+    if(loadRes.success && angular.isArray(model.monsterLevels)){
+      var beastMonsterLevel= model.monsterLevels.filter(function(monsterLevel) {
+                                    return desCamaignCons.MONSTER_TYPE_BEASTS===monsterLevel.type;
+                                });
+      expect(beastMonsterLevel[0].level).toBe(modelV0.monsterLevels[1].level);    
+    }
+  });
+
+  it('complete json model migrated from 0 version should have monsterLevels attribute with an Eldrich element with unchanged level', function(){
+    var loadRes=desModel.fromJSON(modelV0Str);
+    var model = desModel.getModel();
+
+    if(loadRes.success && angular.isArray(model.monsterLevels)){
+      var eldrichMonsterLevel= model.monsterLevels.filter(function(monsterLevel) {
+                                    return desCamaignCons.MONSTER_TYPE_ELDRITCH===monsterLevel.type;
+                                });
+      expect(eldrichMonsterLevel[0].level).toBe(modelV0.monsterLevels[2].level);    
     }
   });
 
