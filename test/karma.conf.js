@@ -16,6 +16,12 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
 
+    // Preprocessors
+    preprocessors: {
+      //'**/*.html': ['ng-html2js'],
+      '**/*.json': ['ng-json2js']
+    },
+
     // list of files / patterns to load in the browser
     files: [
       // bower:js
@@ -34,17 +40,30 @@ module.exports = function(config) {
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js',
        // fixtures
-      {pattern: 'test/mock/*.json', watched: true, served: true, included: false}
+      //{pattern: 'test/mock/*.json', watched: true, served: true, included: false}
+      'test/fixture/*.json'
     ],
 
     // list of files / patterns to exclude
     exclude: [
     ],
+
+    ngJson2JsPreprocessor: {
+      // strip this from the file path
+      stripPrefix: 'test/fixture/',
+      // prepend this to the
+      prependPrefix: 'served/',
+
+      /* or define a custom transform function
+      cacheIdFromPath: function(filepath) {
+        return cacheId;
+      }
+      */
+    },
 
     // web server port
     port: 8080,
@@ -66,7 +85,7 @@ module.exports = function(config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
-      'karma-jasmine-jquery',
+      'karma-ng-json2js-preprocessor',//https://github.com/EE/karma-ng-json2js-preprocessor
       'karma-jasmine'
     ],
 
