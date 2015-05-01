@@ -9,6 +9,7 @@
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
 	    'LOCATION': 'Localización',
+	    'STATE': 'Estado',
 	    'NAME': 'Nombre',
 	    'OVERLORD': 'Señor supremo',
 	    'OVERLORD_NAME': 'Nombre del señor supremo',
@@ -40,6 +41,7 @@
 	    'RUMOR_LOCATION': 'Localización del rumor',
 	    'CONQUEST_TOCKENS': 'Fichas de conquista',
 	    'CAMPAIGN_TOTAL_CONQUEST_TOCKENS': 'Total campaña',
+	    'LEVEL': 'Nivel',
 	    'CAMPAIGN_LEVEL': 'Nivel de campaña',
 	    'LEVEL_CUPPER': 'Cobre',
 	    'LEVEL_SILVER': 'Plata',
@@ -66,7 +68,14 @@
 	    'SIEGED': 'Bajo asedio',
 	    'RAZED': 'Arrasada',
 	    'ISLANDS': 'Islas',
-	    'DUNGEONS': 'Mazmorras'
+	    'DUNGEONS': 'Mazmorras',
+	    'DUNGEON': 'Mazmorra',
+	    'DUNGEON_NAME': 'Nombe de la mazmorra',
+	    'ADD_DUNGEON': 'Agregar mazmorra',
+	    'LOCATION_UNKNOWN': 'Desconocida',
+	    'LOCATION_VISITED': 'Visitada',
+	    'LOCATION_CONQUERED': 'Conquistada',
+	    'LOCATION_DEFEAT': 'Derrota'
 	  });
 	}]);
     

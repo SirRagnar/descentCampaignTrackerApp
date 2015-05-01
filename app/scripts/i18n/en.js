@@ -9,6 +9,7 @@
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
 	    'LOCATION': 'Location',
+	    'STATE': 'State',
 	    'NAME': 'Name',
 	    'OVERLORD': 'Overlord',
 	    'OVERLORD_NAME': 'Overlord name',
@@ -40,6 +41,7 @@
 	    'RUMOR_LOCATION': 'Rumor location',
 	    'CONQUEST_TOCKENS': 'Conquest tockens',
 	    'CAMPAIGN_TOTAL_CONQUEST_TOCKENS': 'Campaign total conquest tockens',
+	    'LEVEL': 'Level',
 	    'CAMPAIGN_LEVEL': 'Campaign level',
 	    'LEVEL_CUPPER': 'Cupper',
 	    'LEVEL_SILVER': 'Silver',
@@ -66,7 +68,14 @@
 	    'SIEGED': 'Sieged',
 	    'RAZED': 'Razed',
 	    'ISLANDS': 'Islands',
-	    'DUNGEONS': 'Dungeons'
+	    'DUNGEONS': 'Dungeons',
+	    'DUNGEON': 'Dungeon',
+	    'DUNGEON_NAME': 'Dungeon name',
+	    'ADD_DUNGEON': 'Add dungeon',
+	    'LOCATION_UNKNOWN': 'Unknown',
+	    'LOCATION_VISITED': 'Visited',
+	    'LOCATION_CONQUERED': 'Conquered',
+	    'LOCATION_DEFEAT': 'Defeat'
 	  });
 	}]);
     
