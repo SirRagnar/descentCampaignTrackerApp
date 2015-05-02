@@ -67,6 +67,7 @@
         	removeCity: 		desLocation.removeCity.bind(undefined,desModel.getLocations()),
         	addCitySiegeTocken: desLocation.addCitySiegeTocken,
         	toggleCityRazed:    desLocation.toggleCityRazed,
+            cityState:          desLocation.cityState,
 
         	addDungeon: 	addDungeon,
         	removeDungeon: 	desLocation.removeDungeon.bind(undefined,desModel.getLocations()),

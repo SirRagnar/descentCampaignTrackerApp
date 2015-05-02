@@ -20,6 +20,7 @@ angular.module('descentCampaignTrackerApp')
       removeCity:         removeCity,
       addCitySiegeTocken: addCitySiegeTocken,
       toggleCityRazed:    toggleCityRazed,
+      cityState:          cityState, 
 
       newDungeon:     newDungeon,
       addDungeon:     addDungeon,
@@ -98,6 +99,22 @@ angular.module('descentCampaignTrackerApp')
 
     function toggleCityRazed(city){
       city.razed=(!city.razed);
+    }
+
+    function cityState(city){
+      var state;
+      if(angular.isUndefined(city) || !angular.isObject(city)){
+      state='UNKNOWN';
+      }else if(city.razed){
+        state='RAZED';
+      }else if(city.siege===0){
+        state='FREE';
+      }else if(city.siege>0){
+        state='SIEGED';
+      }else{
+        state='UNKNOWN';
+      }
+      return state;
     }
 
     function addDungeon(locations,dungeon){
