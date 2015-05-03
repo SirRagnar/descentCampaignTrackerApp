@@ -6,10 +6,12 @@ describe('Service: desLocation', function () {
   beforeEach(module('descentCampaignTrackerApp'));
 
   // instantiate service
-  var desLocation, newCity;
+  var desLocation, newCity,newIsland,newDungeon;
   beforeEach(inject(function (_desLocation_) {
     desLocation = _desLocation_;
     newCity = desLocation.newCity();
+    newIsland=desLocation.newIsland();
+    newDungeon=desLocation.newDungeon();
   }));
 
   it('new city state should be free', function () {
@@ -43,5 +45,8 @@ describe('Service: desLocation', function () {
     expect(desLocation.cityState(wrongTypeCity)).toBe('UNKNOWN');
   });
 
-
+ it('undefined adventure state should be unkown', function () {
+    var undefinedLocation;
+    expect(desLocation.adventureLocationState(undefinedLocation)).toBe('UNKNOWN');
+  });
 });

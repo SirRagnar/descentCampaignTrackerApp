@@ -20,7 +20,9 @@ angular.module('descentCampaignTrackerApp')
       removeCity:         removeCity,
       addCitySiegeTocken: addCitySiegeTocken,
       toggleCityRazed:    toggleCityRazed,
-      cityState:          cityState, 
+      cityState:          cityState,
+      
+      adventureLocationState: adventureLocationState,
 
       newDungeon:     newDungeon,
       addDungeon:     addDungeon,
@@ -33,7 +35,6 @@ angular.module('descentCampaignTrackerApp')
       toggleAdvLocVisited:   toggleAdvLocVisited,
       toggleAdvLocConquered: toggleAdvLocConquered,
       toggleAdvLocFailed:    toggleAdvLocFailed
-
     };
 
     function newLocations(){
@@ -104,7 +105,7 @@ angular.module('descentCampaignTrackerApp')
     function cityState(city){
       var state;
       if(angular.isUndefined(city) || !angular.isObject(city)){
-      state='UNKNOWN';
+        state='UNKNOWN';
       }else if(city.razed){
         state='RAZED';
       }else if(city.siege===0){
@@ -112,6 +113,20 @@ angular.module('descentCampaignTrackerApp')
       }else if(city.siege>0){
         state='SIEGED';
       }else{
+        state='UNKNOWN';
+      }
+      return state;
+    }
+
+    function adventureLocationState(adventureLocation){
+      var state;
+      /*      
+      'LOCATION_UNKNOWN': 'Unknown',
+      'LOCATION_VISITED': 'Visited',
+      'LOCATION_CONQUERED': 'Conquered',
+      'LOCATION_DEFEAT': 'Defeat'
+      */
+      if(angular.isUndefined(adventureLocation) || !angular.isObject(adventureLocation)){
         state='UNKNOWN';
       }
       return state;
