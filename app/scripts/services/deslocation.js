@@ -120,14 +120,19 @@ angular.module('descentCampaignTrackerApp')
 
     function adventureLocationState(adventureLocation){
       var state;
-      /*      
-      'LOCATION_UNKNOWN': 'Unknown',
-      'LOCATION_VISITED': 'Visited',
-      'LOCATION_CONQUERED': 'Conquered',
-      'LOCATION_DEFEAT': 'Defeat'
-      */
+      
       if(angular.isUndefined(adventureLocation) || !angular.isObject(adventureLocation)){
-        state='UNKNOWN';
+        state='LOCATION_UNKNOWN';
+      }else if(!adventureLocation.visited){
+        state='LOCATION_UNKNOWN';
+      }else if(!adventureLocation.conquered && !adventureLocation.failed){
+        state='LOCATION_VISITED';
+      }else if(adventureLocation.conquered){
+        state='LOCATION_CONQUERED';
+      }else if(adventureLocation.failed){
+        state='LOCATION_DEFEAT';
+      }else{
+        state='LOCATION_UNKNOWN';
       }
       return state;
     }
