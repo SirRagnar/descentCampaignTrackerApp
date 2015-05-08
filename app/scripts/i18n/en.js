@@ -72,10 +72,15 @@
 	    'DUNGEON': 'Dungeon',
 	    'DUNGEON_NAME': 'Dungeon name',
 	    'ADD_DUNGEON': 'Add dungeon',
+	    'DELETE_DUNGEON': 'Delete dungeon',
+	    'ACTIONS_OVER_DUNGEON': 'Actions over the dungeon',
 	    'LOCATION_UNKNOWN': 'Unknown',
 	    'LOCATION_VISITED': 'Visited',
 	    'LOCATION_CONQUERED': 'Conquered',
-	    'LOCATION_DEFEAT': 'Defeat'
+	    'LOCATION_DEFEAT': 'Defeat',
+	    'RESTORE_NOT_VISITED': 'Restore to not visited',
+	    'RESTORE_NOT_CONQUERED': 'Restore to not conquered',
+	    'RESTORE_NOT_DEFEAT': 'Restore to not defeat'
 	  });
 	}]);
     

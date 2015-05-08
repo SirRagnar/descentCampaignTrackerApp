@@ -72,10 +72,15 @@
 	    'DUNGEON': 'Mazmorra',
 	    'DUNGEON_NAME': 'Nombe de la mazmorra',
 	    'ADD_DUNGEON': 'Agregar mazmorra',
+	    'DELETE_DUNGEON': 'Eliminar dungeon',
+	    'ACTIONS_OVER_DUNGEON': 'Actions over the dungeon',
 	    'LOCATION_UNKNOWN': 'Desconocida',
 	    'LOCATION_VISITED': 'Visitada',
 	    'LOCATION_CONQUERED': 'Conquistada',
-	    'LOCATION_DEFEAT': 'Derrota'
+	    'LOCATION_DEFEAT': 'Derrota',
+	    'RESTORE_NOT_VISITED': 'Restaurar a no visitada',
+	    'RESTORE_NOT_CONQUERED': 'Restaurar a no conquistada',
+	    'RESTORE_NOT_DEFEAT': 'Restaurar a no derrota'
 	  });
 	}]);
     

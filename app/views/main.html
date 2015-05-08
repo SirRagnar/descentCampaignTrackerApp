@@ -327,37 +327,37 @@
               </td>
               <td ng-repeat="level in location.levels track by $index">
                 <input type="text" class="form-control"                        
-                       placeholder="Nivel {{::$index +1}}" 
+                       placeholder="{{'LEVEL'|translate}} {{::$index +1}}" 
                        ng-model="location.levels[$index]">
               </td>   
               <td>
-                <div class="btn-group" role="group" aria-label="Acciones sobre el dungeon">                  
+                <div class="btn-group" role="group" aria-label="{{'ACTIONS_OVER_DUNGEON'|translate}}">                  
                   <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    Acciones <span class="caret"></span>
+                    {{'ACTIONS'|translate}} <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
                     <li ng-class="location.visited? 'disabled':''" >
-                      <a ng-click="main.api.toggleAdvLocVisited(location,true)">Visitado</a>
+                      <a ng-click="main.api.toggleAdvLocVisited(location,true)" ng-bind="'LOCATION_VISITED'|translate"></a>
                     </li>
                     <li ng-class="location.visited  &amp;&amp; !location.conquered &amp;&amp; !location.failed? '':'disabled'" >
-                      <a ng-click="main.api.toggleAdvLocVisited(location,false)">Restaurar no visitado</a>
+                      <a ng-click="main.api.toggleAdvLocVisited(location,false)" ng-bind="'RESTORE_NOT_VISITED'|translate"></a>
                     </li>
                     <li class="divider"></li>
                     <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
-                      <a ng-click="main.api.toggleAdvLocConquered(location,true)">Conquistado</a>
+                      <a ng-click="main.api.toggleAdvLocConquered(location,true)" ng-bind="'LOCATION_CONQUERED'|translate"></a>
                     </li>
                     <li ng-class="location.conquered?'':'disabled'" >
-                      <a ng-click="main.api.toggleAdvLocConquered(location,false)">Restaurar no conquistado</a>
+                      <a ng-click="main.api.toggleAdvLocConquered(location,false)" ng-bind="'RESTORE_NOT_CONQUERED'|translate"></a>
                     </li>
                     <li class="divider"></li>
                     <li ng-class="!location.visited || location.conquered || location.failed ? 'disabled':''" >
-                      <a ng-click="main.api.toggleAdvLocFailed(location,true)">Derrota</a>
+                      <a ng-click="main.api.toggleAdvLocFailed(location,true)" ng-bind="'LOCATION_DEFEAT'|translate"></a>
                     </li>
                     <li ng-class="location.failed?'':'disabled'" >
-                      <a ng-click="main.api.toggleAdvLocFailed(location,false)">Restaurar no derrota</a>
+                      <a ng-click="main.api.toggleAdvLocFailed(location,false)" ng-bind="'RESTORE_NOT_DEFEAT'|translate"></a>
                     </li>
                     <li class="divider"></li>
-                    <li><a ng-click="main.api.removeDungeon($index)">Eliminar dungeon</a></li>
+                    <li><a ng-click="main.api.removeDungeon($index)" ng-bind="'DELETE_DUNGEON'|translate"></a></li>
                   </ul>                  
                 </div>
               </td>
