@@ -68,6 +68,8 @@
         	addCitySiegeTocken: desLocation.addCitySiegeTocken,
         	toggleCityRazed:    desLocation.toggleCityRazed,
             cityState:          desLocation.cityState,
+     
+            adventureLocationState: desLocation.adventureLocationState,
 
         	addDungeon: 	addDungeon,
         	removeDungeon: 	desLocation.removeDungeon.bind(undefined,desModel.getLocations()),

@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc filter
- * @name descentCampaignTrackerApp.filter:desLocationStateClass
+ * @name descentCampaignTrackerApp.filter:desAdventureLocationStateClass
  * @function
  * @description
- * # desLocationStateClass
+ * # desAdventureLocationStateClass
  * Filter in the descentCampaignTrackerApp.
  */
 angular.module('descentCampaignTrackerApp')
-  .filter('desLocationStateClass', ['desLocation',function (desLocation) {
+  .filter('desAdventureLocationStateClass', ['desLocation',function (desLocation) {
     return function (adventureLocation) {
     	var adventureLocationState = desLocation.adventureLocationState(adventureLocation);
         var stateCssClass;

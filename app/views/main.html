@@ -322,10 +322,7 @@
               </td>
               <td>
                 <p class="form-control-static">                
-                  <span class="label label-default" ng-show="!location.visited">Desconocida</span>                  
-                  <span class="label label-primary" ng-show="location.visited &amp;&amp; !location.conquered &amp;&amp; !location.failed">Visitada</span>
-                  <span class="label label-success" ng-show="location.conquered">Conquistada</span>
-                  <span class="label label-danger"  ng-show="location.failed">Derrota</span>
+                  <span class="label {{location | desAdventureLocationStateClass}}" ng-bind="main.api.adventureLocationState(location)|translate" />
                 </p>
               </td>
               <td ng-repeat="level in location.levels track by $index">
@@ -406,11 +403,8 @@
                 <input type="text" ng-model="location.name" class="form-control" />
               </td>
               <td>
-                <p class="form-control-static">                
-                  <span class="label label-default" ng-show="!location.visited">Desconocida</span>                  
-                  <span class="label label-primary" ng-show="location.visited &amp;&amp; !location.conquered &amp;&amp; !location.failed">Visitada</span>
-                  <span class="label label-success" ng-show="location.conquered">Conquistada</span>
-                  <span class="label label-danger"  ng-show="location.failed">Derrota</span>
+                <p class="form-control-static">              
+                  <span class="label {{location | desAdventureLocationStateClass}}" ng-bind="main.api.adventureLocationState(location)|translate" />    
                 </p>
               </td>
               <td ng-repeat="level in location.levels track by $index">
