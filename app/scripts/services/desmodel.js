@@ -9,10 +9,10 @@
  */
 angular.module('descentCampaignTrackerApp')
   .factory('desModel', 
-    [ '$log', 'localStorageService', 
+    [ '$log', '$translate', 'localStorageService', 
       'desCamaignCons', 'desCore', 'desModelControl', 
       'desOverlord', 'desLieutenant', 'desMonster', 'desHero', 'desLocation', 
-    function ( $log, localStorageService,   
+    function ( $log, $translate, localStorageService,
                desCamaignCons, desCore, desModelControl,
                desOverlord, desLieutenant, desMonster, desHero, desLocation) {
     
@@ -106,15 +106,15 @@ angular.module('descentCampaignTrackerApp')
 
           model=newModel;
           result.success=true;
-          result.text='Campaña importada correctamente.';
+          result.text=$translate.instant('CAMPAIGN_IMPORT_OK');
         }else if(angular.isUndefined(result.text)){
-          result.text='La entrada no es un JSON';
+          result.text=$translate.instant('INPUT_TEXT_IS_NOT_JSON');
         }
        
       }catch(err){
         $log.error('Error convirtiendo entrada en JSON: ' + err);
         result.success=false;
-        result.text='Conversion error: '+err.message;
+        result.text=$translate.instant('CONVERSION_ERROR') + ': '+err.message;
       }
       //$log.debug(result);
       return result;
@@ -129,7 +129,7 @@ angular.module('descentCampaignTrackerApp')
       }
 
       if(!desModelControl.isValidModelVersion(initVersion)){        
-        throw 'Invalid model version';
+        throw $translate.instant('INVALID_MODEL_VERSION');
 
       }else if(!desModelControl.isCurrentVersion(initVersion)){
         $log.debug('Old model version detected. ' +

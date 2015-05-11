@@ -11,6 +11,7 @@
 	    'ACTIONS': 'Actions',
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
+	    'VIEW': 'Vew',
 	    'LOCATION': 'Location',
 	    'STATE': 'State',
 	    'NAME': 'Name',
@@ -92,7 +93,27 @@
 	    'TRAP_TREACHERY': 'Trap treachery',
 	    'EVENT_TREACHERY': 'Event treachery',
 	    'MONSTER_TREACHERY': 'Monster treachery',
-	    'SAVE_AND_LOAD_TITLE': 'Save and load the campaign'
+	    'SAVE_AND_LOAD_TITLE': 'Save and load the campaign',
+	    'EXPORT_CAMPAIGN': 'Export campaign',
+	    'EXPORT_CAMPAIGN_DESCRIPTION': 'With this option you can export the campaign ' +
+	                                   'in JSON format and later you will be able to reload it.',
+	    'IMPORT_CAMPAIGN': 'Import campaign',
+	    'IMPORT_CAMPAIGN_DESCRIPTION': 'You can enter a campaign you have previously ' +
+	                                   'saved in JSON format. Pressing the button, if ' +
+	                                   'the JSON is correct, the campaign data will be loaded into the ' +
+	                                   'pricipal screen. This action can not be undone, '+
+	                                   'keep that in mind.',
+	    'TO_JSON': 'To JSON',
+	    'FROM_JSON': 'From JSON',
+	    'CAMPAIGN_IMPORT_OK': 'Campaign imported properly.',
+	    'INPUT_TEXT_IS_NOT_JSON': 'Input text is not a valid JSON file',
+	    'CONVERSION_ERROR': 'Conversion error',
+	    'INVALID_MODEL_VERSION': 'Invalid model version',
+	    'ABOUT_DESCRIPTION': 'This is a simple campaigning sheet for the campaign '+
+	                         '"sea of blood" for Descent, first edition. '+
+	                         'If you want to contribute you can participate or '+
+	                         'suggest improvements (may be better or new translations) ' +
+	                         'in the eproject\'s site at '
 	  });
 	}]);
     

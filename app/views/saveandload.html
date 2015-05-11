@@ -1,16 +1,15 @@
 <div class="row">
   <div class="page-header">
-  	<h1>Guardar y cargar la campaña</h1>
+  	<h1 ng-bind="'SAVE_AND_LOAD_TITLE'|translate"></h1>
   </div>
 
   <div class="row">
   	<div class="col-md-12">
-  		<h2>Exportar campaña</h2>
-  		<p>
-  			Con esta opción podrás exportar la campaña en formato JSON y más tarde podrás volver a cargarla.
+  		<h2 ng-bind="'EXPORT_CAMPAIGN'|translate"></h2>
+  		<p ng-bind="'EXPORT_CAMPAIGN_DESCRIPTION'|translate">  			
   		</p>
   		<div class="btn-group" role="group" aria-label="save to">
-		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.toJSON()">A JSON</button>
+		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.toJSON()" ng-bind="'TO_JSON'|translate"></button>
 		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.toObsidianPortalWiki()" ng-show="false">A formato Obsidian Portal</button>
 		</div>
   	</div>
@@ -28,13 +27,11 @@
 
   <div class="row">
   	<div class="col-md-12">
-  		<h2>Importar campaña</h2>
-  		<p>
-  			Aquí puedes introducir una campaña que hayas guardado previamente en formato JSON. Al pulsar el botón,
-  			si el JSON es correcto, se cargarán los datos en la pantalla pricipal. Esta acción no se puede deshacer, tenlo en cuenta.
+  		<h2 ng-bind="'IMPORT_CAMPAIGN'|translate"></h2>
+  		<p ng-bind="'IMPORT_CAMPAIGN_DESCRIPTION'|translate">  			
   		</p>
   		<div class="btn-group" role="group" aria-label="save to">
-		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.fromJSON()">Desde JSON</button>
+		  <button type="button" class="btn btn-default" ng-click="saveAndLoad.api.fromJSON()" ng-bind="'FROM_JSON'|translate"></button>
 		</div>
   	</div>
   	<div class="col-md-12">
@@ -45,7 +42,7 @@
   		     ng-show="saveAndLoad.model.showImportMessage &amp;&amp; saveAndLoad.model.importResult.success">
 
   			<span ng-bind="saveAndLoad.model.importResult.text"></span>
-  			<a href="#/">Ver</a>
+  			<a href="#/" ng-bind="'VIEW'|translate"></a>
   		</div>
   		<div class="alert alert-danger" role="alert" 
   		     ng-bind="saveAndLoad.model.importResult.text" 

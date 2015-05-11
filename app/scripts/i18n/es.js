@@ -11,6 +11,7 @@
 	    'ACTIONS': 'Acciones',
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
+	    'VIEW': 'Ver',
 	    'LOCATION': 'Localización',
 	    'STATE': 'Estado',
 	    'NAME': 'Nombre',
@@ -92,7 +93,26 @@
 	    'TRAP_TREACHERY': 'Perfidia de trampas',
 	    'EVENT_TREACHERY': 'Perfidia de eventos',
 	    'MONSTER_TREACHERY': 'Perfidia de monstruos',	    
-	    'SAVE_AND_LOAD_TITLE': 'Save and load the campaign'
+	    'SAVE_AND_LOAD_TITLE': 'Guardar y cargar la campaña',
+	    'EXPORT_CAMPAIGN': 'Exportar campaña',
+	    'EXPORT_CAMPAIGN_DESCRIPTION': 'Con esta opción puedes exportar la campaña en formato '+
+	                                   'JSON y más tarde podrás volver a cargarla.',
+	    'IMPORT_CAMPAIGN': 'Importar campaña',
+	    'IMPORT_CAMPAIGN_DESCRIPTION': 'Aquí puedes introducir una campaña que hayas guardado ' +
+	                                   'previamente en formato JSON. Al pulsar el botón, ' +
+  			                           'si el JSON es correcto, se cargarán los datos en la '+
+  			                           'pantalla pricipal. '+
+  			                           'Esta acción no se puede deshacer, tenlo en cuenta.',
+	    'TO_JSON': 'A JSON',
+	    'FROM_JSON': 'Desde JSON',
+	    'CAMPAIGN_IMPORT_OK': 'Campaña importada correctamente.',
+	    'INPUT_TEXT_IS_NOT_JSON': 'La entrada no es un texto JSON correcto',
+	    'CONVERSION_ERROR': 'Error de conversión',
+	    'INVALID_MODEL_VERSION': 'Número de versión de modelo incorrecta',
+	    'ABOUT_DESCRIPTION': 'Este es una sencilla hoja de campaña para la campaña '+
+	                         '"El mar de sangre" de la primera edición de Descent. '+
+	                         'Si quieres contributir puedes participar o sugerir mejoras en ' +
+	                         'la página del proyecto en '
 	  });
 	}]);
     
