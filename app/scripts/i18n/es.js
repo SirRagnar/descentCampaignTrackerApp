@@ -5,6 +5,9 @@
 	  $translateProvider.translations('es', {
 	  	'UNKNOWN': 'Desconocido',
 	    'TITLE': 'Campaña',
+	    'SAVE_AND_LOAD': 'Guardar y cargar',
+	    'ABOUT': 'Acerca de',
+	    'SHORT_APP_DESCRIPTION': 'Una hoja de campaña sencilla para la campaña de Descent "El Mar de Sangre"',
 	    'ACTIONS': 'Acciones',
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
@@ -68,6 +71,10 @@
 	    'SIEGED': 'Bajo asedio',
 	    'RAZED': 'Arrasada',
 	    'ISLANDS': 'Islas',
+	    'ISLAND_NAME': 'Nombre de la isla',
+	    'ADD_ISLAND': 'Agregar isla',
+	    'ACTIONS_OVER_ISLAND': 'Acciones sobre la isla',
+	    'DELETE_ISLAND': 'Eliminar isla',
 	    'DUNGEONS': 'Mazmorras',
 	    'DUNGEON': 'Mazmorra',
 	    'DUNGEON_NAME': 'Nombe de la mazmorra',
@@ -80,7 +87,12 @@
 	    'LOCATION_DEFEAT': 'Derrota',
 	    'RESTORE_NOT_VISITED': 'Restaurar a no visitada',
 	    'RESTORE_NOT_CONQUERED': 'Restaurar a no conquistada',
-	    'RESTORE_NOT_DEFEAT': 'Restaurar a no derrota'
+	    'RESTORE_NOT_DEFEAT': 'Restaurar a no derrota',
+	    'TREACHERY': 'Perfidia',
+	    'TRAP_TREACHERY': 'Perfidia de trampas',
+	    'EVENT_TREACHERY': 'Perfidia de eventos',
+	    'MONSTER_TREACHERY': 'Perfidia de monstruos',	    
+	    'SAVE_AND_LOAD_TITLE': 'Save and load the campaign'
 	  });
 	}]);
     

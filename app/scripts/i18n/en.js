@@ -3,8 +3,11 @@
     
 	app.config(['$translateProvider', function ($translateProvider) {
 	  $translateProvider.translations('en', {
-	  	'UNKNOWN': 'Unknown',
+	  	'UNKNOWN': 'Unknown',	  	
 	    'TITLE': 'Campaign',
+	    'SAVE_AND_LOAD': 'Save and load',
+	    'ABOUT': 'About',
+	    'SHORT_APP_DESCRIPTION': 'A simple Descent "The Sea of Blood" campaign tracker',
 	    'ACTIONS': 'Actions',
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
@@ -68,6 +71,10 @@
 	    'SIEGED': 'Sieged',
 	    'RAZED': 'Razed',
 	    'ISLANDS': 'Islands',
+	    'ISLAND_NAME': 'Island name',
+	    'ADD_ISLAND': 'Add island',
+	    'ACTIONS_OVER_ISLAND': 'Actions over the island',
+	    'DELETE_ISLAND': 'Delete island',
 	    'DUNGEONS': 'Dungeons',
 	    'DUNGEON': 'Dungeon',
 	    'DUNGEON_NAME': 'Dungeon name',
@@ -80,7 +87,12 @@
 	    'LOCATION_DEFEAT': 'Defeat',
 	    'RESTORE_NOT_VISITED': 'Restore to not visited',
 	    'RESTORE_NOT_CONQUERED': 'Restore to not conquered',
-	    'RESTORE_NOT_DEFEAT': 'Restore to not defeat'
+	    'RESTORE_NOT_DEFEAT': 'Restore to not defeat',
+	    'TREACHERY': 'Treachery',
+	    'TRAP_TREACHERY': 'Trap treachery',
+	    'EVENT_TREACHERY': 'Event treachery',
+	    'MONSTER_TREACHERY': 'Monster treachery',
+	    'SAVE_AND_LOAD_TITLE': 'Save and load the campaign'
 	  });
 	}]);
     
