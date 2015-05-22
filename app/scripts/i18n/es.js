@@ -6,12 +6,14 @@
 	  	'UNKNOWN': 'Desconocido',
 	    'TITLE': 'Campaña',
 	    'SAVE_AND_LOAD': 'Guardar y cargar',
+	    'SETTINGS': 'Preferencias',
 	    'ABOUT': 'Acerca de',
 	    'SHORT_APP_DESCRIPTION': 'Una hoja de campaña sencilla para la campaña de Descent "El Mar de Sangre"',
 	    'ACTIONS': 'Acciones',
 	    'ADD': 'Agregar',
 	    'DELETE': 'Eliminar',
 	    'VIEW': 'Ver',
+	    'SAVE': 'Guardar',
 	    'LOCATION': 'Localización',
 	    'STATE': 'Estado',
 	    'NAME': 'Nombre',
@@ -112,7 +114,10 @@
 	    'ABOUT_DESCRIPTION': 'Este es una sencilla hoja de campaña para la campaña '+
 	                         '"El mar de sangre" de la primera edición de Descent. '+
 	                         'Si quieres contributir puedes participar o sugerir mejoras en ' +
-	                         'la página del proyecto en '
+	                         'la página del proyecto en ',
+		'LANGUAGE': 'Idioma',
+		'SPANISH': 'Castellano',
+		'ENGLISH': 'Inglés'
 	  });
 	}]);
     

@@ -6,12 +6,14 @@
 	  	'UNKNOWN': 'Unknown',	  	
 	    'TITLE': 'Campaign',
 	    'SAVE_AND_LOAD': 'Save and load',
+	    'SETTINGS': 'Settings',
 	    'ABOUT': 'About',
 	    'SHORT_APP_DESCRIPTION': 'A simple Descent "The Sea of Blood" campaign tracker',
 	    'ACTIONS': 'Actions',
 	    'ADD': 'Add',
 	    'DELETE': 'Delete',
 	    'VIEW': 'Vew',
+	    'SAVE': 'Save',
 	    'LOCATION': 'Location',
 	    'STATE': 'State',
 	    'NAME': 'Name',
@@ -113,7 +115,10 @@
 	                         '"sea of blood" for Descent, first edition. '+
 	                         'If you want to contribute you can participate or '+
 	                         'suggest improvements (may be better or new translations) ' +
-	                         'in the eproject\'s site at '
+	                         'in the eproject\'s site at ',
+		'LANGUAGE': 'Language',
+		'SPANISH': 'Spanish',
+		'ENGLISH': 'English'
 	  });
 	}]);
     

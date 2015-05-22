@@ -37,6 +37,11 @@ angular
         controller: 'SaveandloadCtrl',
         controllerAs: 'saveAndLoad'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings'
+      })
       .otherwise({
         redirectTo: '/'
       });
