@@ -7,13 +7,6 @@ This is a simple campaign tracker for Descent.
 * [Online version of the tracker](http://sirragnar.github.io/descentCampaignTrackerApp)
 * [Campaign rules](https://images-cdn.fantasyflightgames.com/ffg_content/descent/descent-sea-of-blood-rules-web.pdf)
 
-## TODOs
-
-* Implement tests.<= In queue
-* Add 'Obsidian Portal output' in order to generate campaign output to be inserted in a wiki page in [Obsidian Portal](https://www.obsidianportal.com/). <= Paused.
-* i18n. <= In progress
-* Autocomplete locations. <= In queue.
-
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
