@@ -8,7 +8,7 @@
  * Controller of the descentCampaignTrackerApp
  */
 angular.module('descentCampaignTrackerApp')
-  .controller('SettingsCtrl', function ($scope) {
+  .controller('SettingsCtrl',['$scope','desSettings', function ($scope,desSettings) {
   	var settingsCtrl=this;
 
   	settingsCtrl.model={
@@ -24,4 +24,4 @@ angular.module('descentCampaignTrackerApp')
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);

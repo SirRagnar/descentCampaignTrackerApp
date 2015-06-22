@@ -10,6 +10,7 @@
 angular.module('descentCampaignTrackerApp')
   .constant('desCamaignCons', {
   	LOCAL_STORAGE_NAME: 'descentCampaign',
+    LOCAL_STORAGE_SETTINGS: 'descentCampaignSettings',
   	MAX_HERO_PARTY_SIZE: 4,
   	DIVINE_FACTOR_DIFFERENCE: 25,
   	SILVER_THRESHOLD: 200,

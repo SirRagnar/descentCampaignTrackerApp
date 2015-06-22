@@ -50,6 +50,7 @@ angular
     function(localStorageServiceProvider){
       localStorageServiceProvider.setPrefix('desCT');
   }])
-  .config(['$translateProvider', function ($translateProvider) {   
+  .config(['$translateProvider', 'desSettingsProvider',function ($translateProvider,desSettingsProvider) {   
+    console.log(desSettingsProvider);
     $translateProvider.preferredLanguage('es');
   }]);
