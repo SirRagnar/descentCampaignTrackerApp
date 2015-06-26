@@ -8,20 +8,31 @@
  * Controller of the descentCampaignTrackerApp
  */
 angular.module('descentCampaignTrackerApp')
-  .controller('SettingsCtrl',['$scope','desSettings', function ($scope,desSettings) {
-  	var settingsCtrl=this;
+  .controller('SettingsCtrl',['$scope', '$translate','desSettings', function ($scope,$translate,desSettings) {
+  	var settings=this;
 
-  	settingsCtrl.model={
+  	settings.model={
 	  		languages:[
 		  		{id:'es', description:'SPANISH'},
 		  		{id:'en', description:'ENGLISH'}
 		  	],
-		  	selectedLanguage:'es'
+		  	selectedLanguage:desSettings.getPreferredLanguage()
   	};
+
+    settings.api={
+      setAppLang: setAppLang
+    };
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    function setAppLang(){
+      $translate.use(settings.model.selectedLanguage);
+      desSettings.setPreferredLanguage(settings.model.selectedLanguage);
+      //console.log('lengua por defecto: ' +desSettings.model.appLang);
+    }
+
   }]);

@@ -48,6 +48,16 @@ describe('Service: desSettings', function () {
     expect(languages.languages.length>0).toBe(true);
   });
 
+  it('"es" should be a valid language', function(){
+    expect(desSettings.isValidLanguage('es')).toBe(true);
+  });
 
+  it('"en" should be a valid language', function(){
+    expect(desSettings.isValidLanguage('en')).toBe(true);
+  });
+
+  it('"xx" should be a invalid language', function(){
+    expect(desSettings.isValidLanguage('xx')).toBe(false);
+  });
 
 });

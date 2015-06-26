@@ -51,14 +51,9 @@ angular
       localStorageServiceProvider.setPrefix('desCT');
   }])
   .config(['$translateProvider', function ($translateProvider) {    
-    /*var desSettings = angular.injector(['desSettings']);
-    var settings = desSettings.getModel() || {};
-    var preferredLanguage = 'en';
-    if(angular.isDefined(settings) && angular.isDefined(settings.appLang)){
-      preferredLanguage = settings.appLang;
-    }else{
-      var theoreticalLanguage = $translateProvider.determinePreferredLanguage();
-    }
-    $translateProvider.preferredLanguage(preferredLanguage); */
-    $translateProvider.preferredLanguage('es');
+    $translateProvider.determinePreferredLanguage();
+  }])
+  .run(['$translate','desSettings',function($translate, desSettings){
+    var preferredLanguage = desSettings.loadModel().appLang;
+    $translate.use(preferredLanguage);
   }]);
