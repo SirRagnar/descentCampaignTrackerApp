@@ -7,9 +7,10 @@ describe('Filter: rgtDesMonsterLevel', function () {
 
   // initialize a new instance of the filter before each test
   var rgtDesMonsterLevel;
-  beforeEach(inject(function ($filter) {
+  beforeEach(inject(['$filter', '$translate', function ($filter,$translate) {
     rgtDesMonsterLevel = $filter('rgtDesMonsterLevel');
-  }));
+    $translate.use('es');
+  }]));
 
   it('first level should be cooper "rgtDesMonsterLevel filter:"', function () {
     var monsterLevel = {level: 1};

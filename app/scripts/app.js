@@ -50,7 +50,15 @@ angular
     function(localStorageServiceProvider){
       localStorageServiceProvider.setPrefix('desCT');
   }])
-  .config(['$translateProvider', 'desSettingsProvider',function ($translateProvider,desSettingsProvider) {   
-    console.log(desSettingsProvider);
+  .config(['$translateProvider', function ($translateProvider) {    
+    /*var desSettings = angular.injector(['desSettings']);
+    var settings = desSettings.getModel() || {};
+    var preferredLanguage = 'en';
+    if(angular.isDefined(settings) && angular.isDefined(settings.appLang)){
+      preferredLanguage = settings.appLang;
+    }else{
+      var theoreticalLanguage = $translateProvider.determinePreferredLanguage();
+    }
+    $translateProvider.preferredLanguage(preferredLanguage); */
     $translateProvider.preferredLanguage('es');
   }]);
