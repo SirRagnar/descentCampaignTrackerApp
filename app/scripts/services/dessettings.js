@@ -83,6 +83,7 @@ angular.module('descentCampaignTrackerApp')
 
         function _newSettingModel(){
           return {
+            version: 0,
             appLang:'es'        
           };
         }

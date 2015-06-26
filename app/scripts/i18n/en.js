@@ -112,7 +112,7 @@
 	    'CONVERSION_ERROR': 'Conversion error',
 	    'INVALID_MODEL_VERSION': 'Invalid model version',
 	    'ABOUT_DESCRIPTION': 'This is a simple campaigning sheet for the campaign '+
-	                         '"sea of blood" for Descent, first edition. '+
+	                         '"Sea of Blood" for Descent, first edition. '+
 	                         'If you want to contribute you can participate or '+
 	                         'suggest improvements (may be better or new translations) ' +
 	                         'in the eproject\'s site at ',
