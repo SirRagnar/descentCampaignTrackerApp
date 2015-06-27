@@ -22,7 +22,7 @@
 
     <!-- Add your site or application content here -->
     <div class="header">
-      <div class="navbar navbar-default" role="navigation">
+      <div class="navbar navbar-default" role="navigation" ng-controller="NavigationCtrl as navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -39,10 +39,10 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav ">
-              <li class="active"><a href="#/" ng-bind="'TITLE'|translate"></a></li>
-              <li><a ng-href="#/saveAndLoad" ng-bind="'SAVE_AND_LOAD'|translate"></a></li>
-              <li><a ng-href="#/settings" ng-bind="'SETTINGS'|translate"></a></li>
-              <li><a ng-href="#/about" ng-bind="'ABOUT'|translate"></a></li>
+              <li ng-class="{'active': navigation.api.isPathActive('/')}">           <a ng-href="#/"            ng-bind="'TITLE'|translate"></a></li>
+              <li ng-class="{'active': navigation.api.isPathActive('/saveAndLoad')}"><a ng-href="#/saveAndLoad" ng-bind="'SAVE_AND_LOAD'|translate"></a></li>
+              <li ng-class="{'active': navigation.api.isPathActive('/settings')}">   <a ng-href="#/settings"    ng-bind="'SETTINGS'|translate"></a></li>
+              <li ng-class="{'active': navigation.api.isPathActive('/about')}">      <a ng-href="#/about"       ng-bind="'ABOUT'|translate"></a></li>
             </ul>
           </div>
         </div>
@@ -117,6 +117,8 @@
         <script src="scripts/filters/desadventurelocationstateclass.js"></script>
         <script src="scripts/controllers/settings.js"></script>
         <script src="scripts/services/dessettings.js"></script>
+        <script src="scripts/controllers/navigation.js"></script>
+        <script src="scripts/services/desnavigation.js"></script>
         <!-- endbuild -->
 </body>
 </html>
