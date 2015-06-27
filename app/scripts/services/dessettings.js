@@ -54,8 +54,8 @@ angular.module('descentCampaignTrackerApp')
         function getLanguagesList(){
           return {
             languages:[
-              {id:'es', description:'SPANISH'},
-              {id:'en', description:'ENGLISH'}
+              {id:'en', description:'ENGLISH'},
+              {id:'es', description:'SPANISH'}
             ]
           };
         }
@@ -84,7 +84,7 @@ angular.module('descentCampaignTrackerApp')
         function _newSettingModel(){
           return {
             version: 0,
-            appLang:'es'        
+            appLang:'en'        
           };
         }
         
