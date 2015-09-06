@@ -2,6 +2,7 @@ node_modules
 dist
 .tmp
 .sass-cache
+.project
 bower_components
 descent-tracker.sublime-project
 descent-tracker.sublime-workspace
