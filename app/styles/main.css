@@ -93,3 +93,5 @@ body {
     max-width: 1170px;
   }
 }
+
+pre.outputJSON {cursor:pointer;}
