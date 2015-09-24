@@ -12,9 +12,10 @@ describe('Directive: desSelectOnClick', function () {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<des-select-on-click></des-select-on-click>');
+  it('should have an onclick function after compile', inject(function ($compile) {
+    element = angular.element('<pre des-select-on-click>my text</pre>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the desSelectOnClick directive');
+    console.log(element);
+    expect(element.hasClass('ng-scope')).toBeTruthy();
   }));
 });
