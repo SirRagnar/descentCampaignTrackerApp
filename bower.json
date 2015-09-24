@@ -1,6 +1,6 @@
 {
   "name": "descent-campaign-tracker",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "dependencies": {
     "angular": "1.3.0",
     "bootstrap": "3.2.0",
@@ -20,7 +20,7 @@
   },
   "appPath": "app",
   "moduleName": "descentCampaignTrackerApp",
-  "resolutions":{
+  "resolutions": {
     "angular": "1.3.0"
   }
 }
