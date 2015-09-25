@@ -12,31 +12,35 @@ angular.module('descentCampaignTrackerApp')
   .directive('desSelectOnClick', ['$window', function ($window) {
     return {
       restrict: 'A',
-      link:  addSelectOnClick      
+      link:  {pre: addSelectOnClick  }
     };
 
     /** Select element text on click */
-    function addSelectOnClick(scope, element, attrs) {
+    function addSelectOnClick(scope, element, attrs) {        
         element.on('click', function clickEvent() {
-            selectText(this);
+            var text = selectText(this);
+            this.setAttribute('data-selected-text', text);
         });
     }
 
     /** Select element text on click */
     function selectText(element) {
       var doc = $window.document;
-      var text = element;
-      var range, selection;    
+      var range, selection, text;    
       if (doc.body.createTextRange) {
           range = doc.body.createTextRange();
-          range.moveToElementText(text);
+          range.moveToElementText(element);
           range.select();
+          text = range.text;
       } else if ($window.getSelection) {
           selection = $window.getSelection();        
           range = doc.createRange();
-          range.selectNodeContents(text);
+          range.selectNodeContents(element);
           selection.removeAllRanges();
           selection.addRange(range);
+          text = $window.getSelection().toString();
       }
+      return text;
     }
+
   }]);
