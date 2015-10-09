@@ -1,6 +1,6 @@
 # descent-campaign-tracker
 
-[![Build Status](https://secure.travis-ci.org/SirRagnar/descentCampaignTrackerApp.png?branch=master)](http://travis-ci.org/SirRagnar/descentCampaignTrackerApp)
+[![Build Status](https://secure.travis-ci.org/SirRagnar/descentCampaignTrackerApp.png?branch=master)](http://travis-ci.org/SirRagnar/descentCampaignTrackerApp) [![Code Climate](https://codeclimate.com/github/SirRagnar/descentCampaignTrackerApp/badges/gpa.svg)](https://codeclimate.com/github/SirRagnar/descentCampaignTrackerApp)
 
 This is a simple campaign tracker for Descent.
 
