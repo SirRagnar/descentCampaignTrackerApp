@@ -19,3 +19,7 @@ version 0.11.1.
 Running `grunt test` will run the unit tests with karma.
 
          
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/SirRagnar/descentcampaigntrackerapp/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
